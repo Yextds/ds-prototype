@@ -1,0 +1,40 @@
+<div class="topnav">
+    <div class="flex flex-wrap py-7 items-center justify-between">
+        <a href="/">
+            <div class="inline-flex items-center gap-x-3">
+                
+                
+            </div>
+        </a>
+         <div class="hidden md:flex grid gap-x-10 mrigankNav">
+          </div>  
+
+        <!-- JavaScript Code starts here -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">  </script>
+        <script type="text/javascript">
+
+        jQuery(function($){
+        //alert(343434);
+        $(document).ready(()=>{
+        $.ajax({
+            url:  "https://liveapi-sandbox.yext.com/v2/accounts/me/entities?api_key=b262ae7768eec3bfa53bfca6d48e4000&v=20211229&limit=40&entityTypes=ce_ourValues",
+            type: 'GET',
+            dataType: 'json',
+            success: function(res) {
+                var html="";
+              var result=res;
+              var cat = result.response.entities;
+              // console.log(cat);
+              cat.forEach((f,i)=>{
+                let n = f.name; // Here n means Name
+                let d = f.richTextDescription;
+                html+= '<ul class="flex flex-wrap bg-black text-white pt-4 md:pt-0 py-4 px-5 my-2 ><li><h1 class="font-bold text-3xl mb-2">'+n+'</h1>\
+                         <p class="text-white-700 text-base">'+d+'</p></li> </ul>';
+              })
+             $(".mrigankNav").append(html);
+            }
+        })
+
+   })
+})
+</script>

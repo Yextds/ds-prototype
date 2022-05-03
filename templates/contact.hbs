@@ -1,0 +1,385 @@
+---
+{
+    "stream": {
+        "$id": "contact-categories",
+        "source": "knowledgeGraph",
+        "destination": "pages",
+      "filter": {
+        "entityTypes": [
+          "ce_dotsquaresPrototype"
+        ],
+        "savedFilterIds":[
+          "929675406"
+        ]
+      },
+      "fields": [
+        "id",
+        "uid",
+        "meta",
+        "name",
+        "slug",
+        "shortDescription",
+        "c_relatedCategory.yextDisplayCoordinate",
+        "c_relatedCategory.name",
+        "c_relatedCategory.slug",
+        "c_relatedCategory.address"
+       
+      ],
+      "localization": {
+          "locales": ["en"]
+      }
+    },
+    "urlFormat": "{{slug}}"
+}
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{name}}</title>
+    <meta name="description" content=Category page for {{name}}.>
+    {{>head}}
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/flowbite@1.4.1/dist/flowbite.min.css" />
+    <script src="https://unpkg.com/flowbite@1.4.1/dist/flowbite.js"></script>
+    <script src="./TW-ELEMENTS-PATH/dist/js/index.min.js"></script>
+
+<style>
+  .topnav{
+    background: black;
+  }
+
+
+  .heading{
+    padding-bottom: 40;
+    margin-bottom: 40;
+  }
+
+  #map_canvas {
+    height: 400px;
+    /* The height is 400 pixels */
+    width: 100%;
+    /* The width is the width of the web page */
+  }
+
+  .class {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+  }
+
+  .card {
+    background-color: white;
+    margin: 10px;
+    padding: 1px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px;
+    border-radius: 2px;
+  }
+  .mrigankFooter{
+        background:black;
+  }
+  .container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+  .left {
+  position: absolute;
+  top: 60%;
+  right: 65%;
+  transform: translate(-50%, -80%);
+}
+ .right {
+  position: absolute;
+  top: 50%;
+  left: 80%;
+  transform: translate(-50%, -50%);
+}
+ .active{
+    color: rgba(248, 170, 1, 0.76);
+  }
+</style>
+
+
+</head>
+
+
+    <body>
+        
+    {{>navbar}}
+
+
+   <div class="flex h-full py-8 px-6 mx-auto bg-black heading pb-40">
+                  <div class=" text-white px-6 md:px-12 pb-40">
+                    <h1 class=" md:text-5xl xl:text-5xl font-bold tracking-tight mb-12 text-yellow-500 firstHeader">
+                    Say Hello.<br />
+                    </h1>
+                    <p class="text-white font-bold tracking-tight">{{convertRTFToHTML shortDescription}}</p>
+                  
+                  </div>
+                </div>
+{{!--  --}}
+
+<br>
+
+{{>form}}
+  
+
+<br>
+{{!--image  --}}
+<div class="flex h-full py-8 mx-auto heading pb-40 container">
+<img class="object-fill h-48 w-full img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6eYNHAY3_78neA6RyZmR1dGrhUV2JOMLvfQ&usqp=CAU" alt="">
+<div class="left">
+<h1 class="xl:text-3xl font-bold tracking-tight text-yellow-500">Brighton</h1>
+<p class="text-white">Unit 2, Albourne Court, Henfield Road
+</p >
+<p class="text-white">Albourne, West Sussex BN6 9FF, UK</p>
+<p class="xl:text-2xl font-bold tracking-tight text-yellow-500">+44 1273 575190</p>
+</div>
+
+<div class="right">
+<h1 class="xl:text-3xl font-bold tracking-tight text-yellow-500">London</h1>
+<p class="text-white">Unit 2 Hobbs Court
+2 Jacob Street, London SE1 2BG.</p>
+<p class="xl:text-2xl font-bold tracking-tight text-yellow-500">+44 208 0901819</p>
+</div>
+
+  
+</div>
+{{!-- map details--}}
+<br>
+    <div id="leftside-inner block p-1"
+      class="flex flex-wrap list-group-item w-full px-5 divide-y-2 divide-gray-100 border-b mb-4 border-solid border-gray-300 mr-5 ml-5 ">
+      {{#each c_relatedCategory}}
+
+      <div data-slug={{slug}} data-name='{{name}},{{address.line1}}' data-lat={{yextDisplayCoordinate.latitude}}
+        data-lng={{yextDisplayCoordinate.longitude}}
+        class="list-group-item flex flex-wrap text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400 tab">
+
+
+        <ul
+          class="">
+          <li class="mr-2">
+            <h4 aria-current="page"
+              class="inline-block p-4 text-black-1000 font-bold bg-gray-100 rounded-t-lg dark:bg-gray-800 hover:bg-yellow-300 ">
+              {{name}}</h4>
+          </li>
+        </ul>
+
+      </div>
+      {{/each}}
+    </div>
+{{!-- map --}}
+</div>
+  <div class="dimagiHalat py-5"></div>
+
+  <div class="h-20 w-full ml-3 mr-4" id="map_canvas">
+<div class="address">
+  {{#each c_relatedCategory}}
+  <p>{{address.line1}}</p>
+  {{/each}}
+</div>
+  </div>
+  <div class="container text-black">
+    <h1 class="text-black md:text-5xl xl:text-4xl text-bold tracking-tight py-1">Visit Us</h1>
+    <h2 class="text-black md:text-2xl xl:text-2xl text-bold tracking-tight py-1">Like discussing your ideas in person?</h2>
+    <p class="text-black ml-20 mr-20">If you already have a project in mind, you can fill out our form and our technical staff can start researching immediately, but it’s always great to meet our clients face to face. </p>
+    <p class="text-black py-5">Our offices are conveniently located either 10 mins walk from London Bridge station or just outside Brighton.</p>
+
+  </div>
+    </body> 
+ <div class="w-full  mrigankFooter">
+          <div class="centered-container">
+              {{>footer}}
+          </div>
+      </div>
+
+
+
+</html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZNQlSlEIkFAct5VzUtsP4dSbvOr2bE18&sensor=false&libraries=places"></script>
+
+
+<script>
+  function load_map(Mapping, $, undefined) {
+    var self = this;
+    function Initialize() {
+      var lat = 25.7748108;
+      console.log(lat);
+      var lng = -80.197731;
+      $('.list-group-item').each(function () {
+        lat = $(this).data('lat');
+        lng = $(this).data('lng');
+      });
+      var myOptions = {
+        zoom: 8,
+        center: new google.maps.LatLng(lat, lng),
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      };
+      self.map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+      self.markers = [];
+      self.infoWindow = new google.maps.InfoWindow();
+      // var bounds = new google.maps.LatLngBounds();
+
+
+      $('.list-group-item').each(function () {
+        var $this = $(this);
+        var pos = new google.maps.LatLng($this.data('lat'), $this.data('lng'));
+        var marker = new google.maps.Marker({
+          position: pos,
+          map: self.map,
+          labelContent: "1",
+        });
+
+        self.markers.push(marker);
+
+        var location_name = $this.data('name');
+        var slug ='/location/'+$this.data('slug') +'.html';
+
+
+
+        var contentString = '<a class="text-base font-medium text-textblack " href="'+slug+'" target="_blank" >'+location_name+'</a>';
+        $this.click(function () {
+          self.map.panTo(pos);
+          self.infoWindow.setContent(contentString);
+          self.infoWindow.open(self.map, marker);
+          $this.siblings().removeClass('active');
+          $this.addClass('active');
+        });
+
+        marker.addListener("click", () => {
+          self.infoWindow.setContent(contentString);
+          self.infoWindow.open(self.map, marker);
+        });
+
+
+      });
+    }
+    Initialize();
+  }
+  (load_map)(window.Mapping = window.Mapping || {}, jQuery);
+  $(function () {
+    $("#button-addon2").click(function () {
+      var varData = {
+        api_key: 'b262ae7768eec3bfa53bfca6d48e4000',
+        v: '20211229',
+        entityTypes: 'location'
+      };
+      var searchText = $('.search_key').val();
+      if (searchText) {
+        var jsstring = {
+          "$or": [
+            {
+              "address.line1": {
+
+                "$contains": searchText
+              }
+            },
+            {
+              "address.line1": {
+
+                "$contains": searchText
+              }
+            },
+            {
+              "address.region": {
+
+                "$contains": searchText
+              }
+            },
+            {
+              "address.countryCode": {
+
+                "$contains": searchText
+              }
+            },
+            {
+              "address.postalCode": {
+
+                "$contains": searchText
+              }
+            }
+          ]
+        };
+        /* 
+        var jsstring = {
+          "address.line1":{
+  
+          "$contains":searchText
+          }
+        }; 
+        */
+
+        var filterpar = JSON.stringify(jsstring);
+        var filter = encodeURI(filterpar);
+        var url = "https://liveapi-sandbox.yext.com/v2/accounts/me/entities?filter=" + filter;
+      } else {
+        var url = "https://liveapi-sandbox.yext.com/v2/accounts/me/entities";
+      }
+
+
+
+      $.ajax({
+        url: url,
+        type: "get", //send it through get method
+        data: varData,
+        success: function (result) { // alert();
+          if (!result.errors) {
+            if (result.response.count > 0) {
+              var html = '';
+              $.each(result.response.entities, function (index, entity) {
+                html += '<div data-slug="' + entity.meta.id + '-' + convertToSlug(entity.neighborhood) + '" data-name="' + entity.name + '" data-lat="' + entity.yextDisplayCoordinate.latitude + '" data-lng="' + entity.yextDisplayCoordinate.longitude + '" class="list-group-item w-full px-5 divide-y-2 divide-gray-100 border-b mb-4 border-solid border-gray-300">';
+                html += '<h4 class="text-base font-medium text-textblack mb-1">' + entity.name + '</h4>';
+                html += '<p class="address text-sm font-light text-textblack leading-5 mb-1">';
+                html += entity.address.line1 + ', ' + entity.address.city + ', ' + entitya.ddress.region + ', ' + entity.address.postalCode + ', ' + entity.address.countryCode;
+                html += '</p>';
+                html += '<p class="text-base font-medium text-textblack "><a href="tel:' + entity.mainPhone + '" class="text-primary">' + entity.mainPhone + '</a></p>';
+                html += '<p class="mb-4"><a  href="/location/' + entity.meta.id + '-' + convertToSlug(entity.neighborhood) + '.html">Read More</a></p>';
+                html += '</div>';
+
+              });
+              $(".dimagiHalat").append(html);
+
+              $("#leftside-inner").html(html);
+              (load_map)(window.Mapping = window.Mapping || {}, jQuery);
+            } else {
+              $("#leftside-inner").html('<p class="text-base font-medium text-textblack mb-8">Location not found.</p>');
+            }
+          } else {
+            $("#leftside-inner").html('<p class="text-base font-medium text-textblack mb-8">Location not found.</p>');
+          }
+        },
+        error: function (xhr) {
+          $("#leftside-inner").html('<p class="text-base font-medium text-textblack mb-8">Location not found.</p>');
+        }
+      });
+    });
+  });
+  function initializeAutocomplete() {
+    var input = document.getElementById('search_key');
+    new google.maps.places.Autocomplete(input, {
+      componentRestrictions: { country: ["us"] },
+      fields: ["street_number"],
+      types: ["address"],
+    });
+  }
+  // google.maps.event.addDomListener(window, 'load', initializeAutocomplete);
+  function convertToSlug(Text) {
+    // return Text;
+    return Text.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '');
+  }
+   jQuery(function($) {
+     var path = window.location.href; // because the 'href' property of the DOM element is the absolute path
+     $('tab').each(function() {
+      if (this.href === path) {
+       $(this).addClass('active');
+      }
+     });
+    });
+</script>

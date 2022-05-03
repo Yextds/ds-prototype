@@ -1,0 +1,219 @@
+---
+{
+    "stream": {
+        "$id": "strategic-marketing-Detailed-page",
+        "source": "knowledgeGraph",
+        "destination": "pages",
+      "filter": {
+        "entityTypes": [
+          "ce_expertise"
+        ],
+        "savedFilterIds": [
+          "923898476"
+        ]
+      },
+      "fields": [
+        "id",
+        "uid",
+        "name",
+        "slug",
+        "c_richTextDescription",
+        "c_description1",
+        "photoGallery",
+        "c_relatedMenuCategory.name",
+        "c_relatedMenuCategory.photoGallery",
+        "c_relatedMenuCategory.c_description1",
+        "c_relatedMenuCategory.c_richTextDescription"
+      ],
+      "localization": {
+          "locales": ["en"]
+      }
+    },
+    "urlFormat": "{{slug}}"
+}
+---
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>{{name}}</title>
+        <meta name="description" content="About {{global.name}}">
+        {{>head}}
+        {{!-- <link href="https://unpkg.com/tailwindcss/dist/tailwind.min.css" rel="stylesheet"> --}}
+        <!--Replace with your tailwind.css once created-->
+        <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet">
+          <style type="text/css">
+             .topnav{
+              background: #000;
+             }
+             
+             .mrigankFooter{
+        background:black;
+  }
+            .text-left {
+                text-align: left;
+              }
+              .mrigankFooter{
+        background:black;
+  }
+              .firstHeader{
+                color: #f5821f;
+                margin-top: 170px;
+                font-family: 'Lato' !important;
+                font-weight: bold !important;
+              }
+            .textInsideCar{
+              color: #f5821f;
+              font-family: 'Lato' !important;
+              font-weight: bold !important;
+              font-size: 50px;
+            }
+            .start-up_processPartnership{
+              background: black;
+              display: flex;
+              flex-wrap: wrap;
+              justify-content: center;
+
+              
+            }
+            .startupCardListsPartnership{
+               background: #000;
+              margin-top: 40px;
+              margin-bottom: 20px;
+              margin-left: 10px;
+              margin-right: 10px;
+
+            }
+            .title-headingPartnership{
+                margin-left: 280px;
+
+                background: black;
+                color: #fff;
+                font-size: 40px;
+            }
+            .patnershipHeading{
+              background: black;
+
+            }
+            .p-6Partnership{
+              border-width: 2px;
+              border-color: white;
+              border-style: outset;
+              margin: 5px;
+              margin-bottom: 10px;
+            }
+            .rmcParagraph{
+              background: #f5821f;
+            }
+            .strategyMarketingChatSection{
+              margin-left: 140px;
+              margin-right: 140px;
+              margin-bottom: 50px;
+              margin-top: -140px;
+            }
+        </style>
+  
+    </head>
+    <body>
+        <div class="w-full">
+            
+                {{>navbar}}
+           
+    <!-- Image banner code starts here -->
+        <div>
+            <section class="mb-0">
+              <div
+                class="relative overflow-hidden bg-no-repeat bg-cover"
+                style="
+                  background-position: 50%;
+                  background-image: url('https://i.pinimg.com/736x/62/cb/b8/62cbb8138fd6c38a72198e09859a5426.jpg');
+                  height: 500px;">
+                  <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed"
+                    style="background-color: rgba(0, 0, 0, 0.75)">
+                      <div class="flex h-full">
+                          <div class=" text-white px-6 md:px-12">
+                            <h1 class=" md:text-5xl xl:text-5xl font-bold tracking-tight mb-12 firstHeader">
+                           Strategic Marketing<br />
+                            </h1>
+                            <p class="text-white font-bold text-1xl">We help to boost your business with our tailored digital marketing <br>solutions utilising effective SEO, focused Pay Per Click and Social Media <br>Marketing.</p>
+                          
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </section>
+        </div>
+  <!-- Image banner code ends here -->
+
+    <!-- Design and development description and photo code starts from here -->
+
+          <div class="flex" style="margin-top: 20px;">
+            <!-- Image div starts here -->
+            <div style="margin-left: 100px">
+              <p class="font-bold">{{c_richTextDescription}}</p>
+            </div>
+            <!-- Image div ends here -->
+            <div style="margin-left:10px">
+              <p>{{c_description1}}</p>
+            </div>
+
+          </div>
+    <!-- Design and development description and photo code ends here -->
+
+    <!--Design and development related menu category section starts from here  -->
+      <!--   <div class="rmcParagraph">
+            <div style="">
+              <p class="font-bold text-5xl">Our clients tell their stories through innovative web systems, mobile applications and marketing!</p>          
+            </div>
+        </div> -->
+        <div>
+              <!-- Section: Design Block -->
+                <section class="mb-40">
+                  {{#each c_relatedMenuCategory}}
+                 <div class="px-6 py-12 md:px-12 bg-gray-50 text-gray-800 text-center lg:text-left">
+                    <div class="container mx-auto xl:px-32">
+                      <div class="grid lg:grid-cols-2 gap-12 flex items-center">
+                        <div class="mt-12 lg:mt-0">
+                          <h1 class="text-5xl md:text-6xl xl:text-6xl font-bold tracking-tight mb-12"><span class="text-blue-500">{{name}}</span></h1>
+                          <p class="inline-block px-7 py-3 mr-2 bg-yellow text-black font-bold text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out" data-mdb-ripple="true" data-mdb-ripple-color="light" role="button">{{c_description1}}</p>
+                        </div>
+                        <div class="mb-500 lg:mb-0">
+                          <img
+                            src="{{photoGallery.[0].image.url}}"
+                            class="w-full rounded-lg shadow-lg"
+                            alt=""
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  {{/each}}
+                </section>
+              <!-- Section: Design Block -->  
+        </div>
+
+    <!-- Design and development related menu category section ends here -->
+
+    <!-- Chat section starts from here -->
+
+      <div class="strategyMarketingChatSection">
+        <p class="font-medium text-4xl">Let's have a chat</p>
+        <p>Discussions are always best had one to one, so why not get in touch with one of our Marketeers, to arrange a catch up over a coffee in our London Bridge or West Sussex Office.</p>
+
+       <button type="button" class="inline-block px-6 py-2.5 bg-blue-400 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-600 active:shadow-lg transition duration-150 ease-in-out" style="margin-left:950px">Contact Us</button>
+      </div>
+    <!-- Chat section ends here -->
+
+     <!-- Footer code starts here -->
+        <div class="w-full bg-gray-50 mrigankFooter">
+            <div class="centered-container">
+                {{>footer}}
+            </div>
+        </div>
+     <!-- Footer code ends here -->
+    </body> 
+
+</html>

@@ -1,0 +1,96 @@
+---
+{
+    "stream": {
+        "$id": "faq-details",
+        "source": "knowledgeGraph",
+        "destination": "pages",
+      "filter": {
+        "entityTypes": [
+          "ce_dotsquaresPrototypeFAQs"
+        ]
+      },
+      "fields": [
+        "id",
+        "uid",
+        "meta",
+        "name",
+        "slug",
+        "question",
+        "answer"
+      ],
+      "localization": {
+          "locales": ["en"]
+      }
+    },
+    "urlFormat": "{{slug}}"
+}
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{name}}</title>
+    <meta name="description" content={{richTextDescription}}>
+    {{>head}}
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/flowbite@1.4.1/dist/flowbite.min.css" />
+
+</head>
+<style>
+  
+  .mrigankFooter{
+        background: #1a1a1a;
+  }
+</style>
+
+
+    <body>
+       <div class="bg-black ">
+     {{>navbar}}
+
+                <div class="col-span-1">
+                 
+                    <div class="container py-8 px-6 mx-auto  mb-40 relative overflow-hidden bg-no-repeat bg-cover">
+                        <div class="uppercase tracking-wide no-underline hover:no-underline font-bold  text-4xl mb-8 flex flex-wrap py-7 items-center justify-between bg-black text-yellow-500">
+                            {{question}} 
+                      </div>
+                     
+                       <div class="text-white" style="
+    line-height: 33px;
+    margin: 0;
+    width: 50%;
+    display: inline-block;
+    text-shadow: none;
+    font-size: 18px;">
+                        <p >{{answer}}</p>
+                        </div>
+                    
+                    </div>
+                        <br>
+                          
+                       
+                        
+                   
+                </div>
+            </div>
+    </body> 
+
+
+<div class="w-full bg-gray-50 mrigankFooter">
+          <div class="centered-container">
+              {{>footer}}
+          </div>
+      </div>
+
+
+
+</html>
+
+
+
+
+
+

@@ -1,0 +1,254 @@
+---
+{
+    "stream": {
+        "$id": "eventsAndPress-categories",
+        "source": "knowledgeGraph",
+        "destination": "pages",
+      "filter": {
+        "entityTypes": [
+          "ce_dotsquaresPrototype"
+        ],
+        "savedFilterIds":[
+          "928320257"
+        ]
+      },
+      "fields": [
+        "id",
+        "uid",
+        "meta",
+        "name",
+        "slug",
+        "shortDescription",
+        "c_relatedCategory.photoGallery",
+        "c_relatedCategory.name",
+        "c_relatedCategory.c_richTextDescription",
+        "c_relatedCategory.c_slug"
+      ],
+      "localization": {
+          "locales": ["en"]
+      }
+    },
+    "urlFormat": "{{slug}}"
+}
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{name}}</title>
+    <meta name="description" content=Category page for {{name}}.>
+    {{>head}}
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/flowbite@1.4.1/dist/flowbite.min.css" />
+    <script src="https://unpkg.com/flowbite@1.4.1/dist/flowbite.js"></script>
+    <script src="./TW-ELEMENTS-PATH/dist/js/index.min.js"></script>
+
+<style>
+ 
+
+/* Still use global css (not utility css) for base typography etc? */
+p {
+  margin-bottom: 0.8em;
+}
+  .topnav{
+    background: black;
+  }
+
+.mrigankFooter{
+        background: black;
+  }
+ 
+  .pressNavbar{
+    padding-top: 180px;
+    padding-bottom: 10px;
+   padding-left: 450px;
+  }
+  .active{
+    color: rgba(248, 170, 1, 0.76);
+  }
+  .text-block {
+  position: absolute;
+  bottom: 170px;
+  left: 10px;
+  background-color: black;
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.container {
+  position: relative;
+  font-family: Arial;
+}
+</style>
+
+
+</head>
+
+
+    <body>
+        
+    {{>navbar}}
+
+
+   <div class="flex h-full py-8 px-6 mx-auto bg-black heading">
+                  <div class=" text-white px-6 md:px-12">
+                    <h1 class=" md:text-5xl xl:text-5xl font-bold tracking-tight mb-12 text-yellow-500 firstHeader mt-20">
+                    {{name}}<br />
+                    </h1>
+                    <p class="text-white ">{{convertRTFToHTML shortDescription}}</p>
+                  
+                  </div>
+                </div>
+{{!--body  --}}
+{{!-- ce_navigation --}}
+ <div class="hidden md:flex grid gap-x-10 bg-black pressNavbar">
+           
+        </div>
+{{!-- cards --}}
+<div  class="press grid grid-cols-3 justify-evenly mb-10"> 
+  </div>
+
+</div>
+ 
+{{!-- footer --}}
+<div class="w-full mrigankFooter">
+          <div class="centered-container">
+              {{>footer}}
+          </div>
+      </div>
+
+</html>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">  </script>
+        <script type="text/javascript">
+
+        jQuery(function($){
+        //alert(343434);
+        $(document).ready(()=>{
+          	var pathname = window.location.pathname.replace('/','');
+        $.ajax({
+            url: "https://liveapi-sandbox.yext.com/v2/accounts/me/entities?api_key=b262ae7768eec3bfa53bfca6d48e4000&v=20211229&limit=40&entityTypes=ce_navigation",
+            type: 'GET',
+            dataType: 'json',
+            success: function(res) {
+                var html="";
+               
+              var result=res;
+              var cat = result.response.entities;
+              // console.log(cat);
+              cat.forEach((f,i)=>{
+                let n = f.name; // Here n means Name
+                console.log(n);
+                let s = f.c_slug; // Here s means Slug
+
+                							
+						let activeClass =  ''; 
+						if(s == pathname){
+							activeClass =  'active';
+						}
+               
+                	html+= '<a class="nav1 bg-black text-white hover:text-yellow-500 '+activeClass+' ml-3 mr-3 " data-id="'+s+'" href="#">'+n+'</a>';
+              })
+             $(".pressNavbar").append(html);
+            
+            }
+
+        })
+
+
+   })
+})
+
+
+
+
+
+ jQuery(function($){
+        //alert(343434);
+          
+        $(document).ready(()=>{
+          	var pathname = window.location.pathname.replace('/','');
+            $(document).on("click",".nav1",function() {
+                 var data_id=$(this).attr("data-id");
+                 if(data_id=="ALl.html"){
+                 var entitype="Ce_dotsEvent";
+                 //alert(entitype);
+                 }
+                 else{
+                      $('.press').empty();
+                 }
+                 if(data_id=="Events.html"){
+                   entitype="ce_event";
+                   //alert(entitype);
+                 }
+                 if(data_id=="Press.html"){
+                   entitype="ce_press";
+                   //alert(entitype);
+                 }
+                 if(data_id=="innovation.html"){
+                   entitype="ce_innovation";
+                   //alert(entitype);
+                 }
+                 if(data_id=="Tech.html"){
+                   entitype="ce_tech";
+                   //alert(entitype);
+                 }
+            var requesturl="https://liveapi-sandbox.yext.com/v2/accounts/me/entities?api_key=b262ae7768eec3bfa53bfca6d48e4000&v=20211229&limit=40";
+            requesturl+="&entityTypes="+entitype;     
+        $.ajax({
+            url: requesturl ,
+            type: 'GET',
+            dataType: 'json',
+            success: function(res) {
+                var html="";
+               
+              var result=res;
+              var cat = result.response.entities;
+              // console.log(cat);
+              cat.forEach((f,i)=>{
+                //console.log(f);
+                var name=f.name;
+                var slug=f.c_slug;
+                var description=f.c_richTextDescription;
+
+                
+                  //console.log(photo);
+                   var photo=f.photoGallery;
+                  var html="";
+                  photo.forEach(function(e,i){
+                   var url=e.image.url;
+                    html='<div class=" container ml-20 max-w-sm rounded overflow-hidden shadow-lg ">\
+          <a class="inline-block" href='+slug+'>\
+              <img class="object-cover h-48 w-96 py-5 pb-5 container" src='+url+' alt="">\
+        </a>\
+         <div class="text-block">\
+          <h4>Tech</h4>\
+      </div>\
+        <div class="middle">\
+           <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-00 dark:text-white ">'+name+'</h5>\
+        <p class="addReadMore showlesscontent">'+description+'</p>\
+        </div>\
+    </div>';
+
+                  })
+                   
+                    $('.press').append(html);
+                  
+                   })
+
+              
+
+                
+            
+            }
+                
+        })
+
+
+   })
+})
+ })
+ 
+</script>

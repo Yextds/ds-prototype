@@ -1,0 +1,252 @@
+---
+{
+"stream": {
+"$id": "Dots_dffggf0001",
+"source": "knowledgeGraph",
+"destination": "pages",
+"filter": {
+"entityTypes": [
+"ce_eventrelated"
+]
+},
+"fields": [
+"name",
+"c_slug",
+"c_nav2",
+"c_nav1",
+"c_arrivalButtonText",
+"c_arrivalTitle",
+"c_arrivalButtonLink",
+"photoGallery",
+"c_relatedProducts.c_nav1",
+"c_relatedProducts.c_slug",
+"c_relatedProducts.name",
+"c_relatedProducts.c_richTextDescription",
+"c_relatedProducts.photoGallery"
+
+],
+"localization": {
+"locales": ["en"]
+}
+},
+"urlFormat": "{{c_slug}}"
+}
+---
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>{{name}}</title>
+  <meta name="description" content=Category page for {{name}}.>
+  {{>head}}
+  {{>schema-productCategory}}
+  <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+
+
+<body>
+
+
+
+
+  {{!-- <div class="">
+
+    <img class="h-screen w-screen" src="{{photoGallery.[0].image.url}}">
+
+
+  </div> --}}
+
+
+  <div>
+    <nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-800">
+      <div class="container flex flex-wrap justify-between items-center mx-auto">
+        <a href="https://flowbite.com" class="flex items-center">
+          {{!-- <img src="/docs/images/logo.svg" class="mr-3 h-6 sm:h-9" alt="Flowbite Logo"> --}}
+          {{!-- <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span> --}}
+        </a>
+        <div class="flex md:order-2">
+
+        </div>
+        <div class="hidden justify-between items-center w-full md:flex md:w-auto md:order-1" id="mobile-menu-4">
+          <ul class="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-base md:font-medium">
+            <li>
+              <a href="rel_dots.html" class="block font-bold py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0
+ dark:text-white" aria-current="page">{{c_nav1}}</a>
+            </li>
+            <li>
+              <a href="Events01.html" class="block font-bold py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent 
+ md:border-0 md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 
+ dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">{{c_nav2}}</a>
+            </li>
+            <li>
+              <a href="innov.html"
+                class="block font-bold py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50
+ md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400
+  dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">{{c_arrivalButtonLink}}</a>
+            </li>
+            <li>
+              <a href="7029111803144045716.html" class="block font-bold py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 
+md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 
+dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">{{c_arrivalTitle}}</a>
+            </li>
+            <li>
+              <a href="TechDS.html"
+                class="block font-bold py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 
+md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 
+dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">{{c_arrivalButtonText}}</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <div class="container ">
+    <section id="table-body" class=" flex flex-wrap text-gray-600 body-font">
+
+
+    </section>
+  </div>
+
+  <div class="container ">
+    <div id="pagination-wrapper"></div>
+  </div>
+  <script>
+    let userData = null;
+    $.ajax({
+      url: "https://liveapi-sandbox.yext.com/v2/accounts/2679138/entities?api_key=b262ae7768eec3bfa53bfca6d48e4000&v=20160822&entityTypes=Ce_dotsEvent",
+      type: "get",
+      async: false,
+      success: function (users) {
+        userData = users.response.entities;
+      }
+    });
+    console.log(userData)
+
+    /*
+      1 - Loop Through Array & Access each value
+      2 - Create Table Rows & append to table
+    */
+
+
+    var state = {
+      'querySet': userData,
+
+      'page': 1,
+      'rows': 2,
+      'window': 5,
+    }
+
+    buildTable()
+
+    function pagination(querySet, page, rows) {
+
+      var trimStart = (page - 1) * rows
+      var trimEnd = trimStart + rows
+
+      var trimmedData = querySet.slice(trimStart, trimEnd)
+
+      var pages = Math.round(querySet.length / rows);
+
+      return {
+        'querySet': trimmedData,
+        'pages': pages,
+      }
+    }
+
+    function pageButtons(pages) {
+      var wrapper = document.getElementById('pagination-wrapper')
+
+      wrapper.innerHTML = ``
+      console.log('Pages:', pages)
+
+      var maxLeft = (state.page - Math.floor(state.window / 2))
+      var maxRight = (state.page + Math.floor(state.window / 2))
+
+      if (maxLeft < 1) {
+        maxLeft = 1
+        maxRight = state.window
+      }
+
+      if (maxRight > pages) {
+        maxLeft = pages - (state.window - 1)
+
+        if (maxLeft < 1) {
+          maxLeft = 1
+        }
+        maxRight = pages
+      }
+
+
+
+      for (var page = maxLeft; page <= maxRight; page++) {
+        wrapper.innerHTML += `<button value=${page} class="page btn btn-sm btn-info h-10 px-5 text-indigo-600 transition-colors duration-150 bg-white border border-r-0 border-indigo-600 focus:shadow-outline">${page}</button>`
+      }
+
+      if (state.page != 1) {
+        wrapper.innerHTML = `<button value=${1} class="page btn btn-sm btn-info h-10 px-5 text-indigo-600 transition-colors duration-150 bg-white rounded-l-lg focus:shadow-outline hover:bg-indigo-100">&#171; First</button>` + wrapper.innerHTML
+      }
+
+      
+ if (state.page != pages) {
+        wrapper.innerHTML += `<button value=${pages} class="page btn btn-sm btn-info h-10 px-5 text-indigo-600 transition-colors duration-150 bg-white rounded-r-lg focus:shadow-outline hover:bg-indigo-100">Last &#187;</button>`
+      }
+
+      $('.page').on('click', function () {
+        $('#table-body').empty()
+
+        state.page = Number($(this).val())
+
+        buildTable()
+      })
+
+    }
+
+
+    function buildTable() {
+      var table = $('#table-body')
+
+      var data = pagination(state.querySet, state.page,2)
+      var myList = data.querySet
+
+      for (var i = 1 in myList) {
+        //Keep in mind we are using "Template Litterals to create rows"
+        var row = `<div class="grid gap-y-3">
+      <div class="grid gap-y-3">
+      </div>
+      <div id="allDataList" class="section grid gap-x-5 gap-y-5 sm:grid-cols-2 lg:grid-cols-3 md:gap-x-5">
+        <div class="p-4 border-2 border-gray-50 rounded-xl hover:grow hover:shadow-lg">
+          <a  href="${myList[i].c_slug}" class="grid gap-y-5">
+            <div class="justify-self-center">
+            <img class=" imgaes" src=${myList[i].photoGallery[0].image.url} alt="img">
+            </div>
+            <div class="grid gap-y-2">
+                <div class="product-grid-title">${myList[i].name}</div>
+              <div class="product-grid-subtitle">
+                ${myList[i].c_richTextDescription}
+              </div>
+
+             
+            </div>
+          </a>
+        </div>
+      </div>
+      </div>
+      </div>`;
+        table.append(row)
+      }
+
+      pageButtons(data.pages)
+    }
+
+  </script>
+
+</body>
+
+</html>

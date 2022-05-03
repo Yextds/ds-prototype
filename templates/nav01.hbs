@@ -1,0 +1,363 @@
+---
+{
+    "stream": {
+        "$id": "navbar-pressAndEvents",
+        "source": "knowledgeGraph",
+        "destination": "pages",
+      "filter": {
+        "entityTypes": [
+          "ce_navigation"
+        ]
+      },
+      "fields": [
+        "id",
+        "c_richTextDescription",
+        "name",
+        "c_slug",
+        "photoGallery",
+        "c_skills"
+      ],
+      "localization": {
+          "locales": ["en"]
+      }
+    },
+    "urlFormat": "{{c_slug}}"
+}
+---
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>{{name}}</title>
+        <meta name="description" content={{richTextDescription}}>
+        {{>head}}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+ <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <div class="w-full">
+            {{>navbar}}
+            <div class="centered-container">
+                <div class="section grid gap-y-10 md:grid-cols-2 md:gap-x-10">
+                    <div class="">
+                        <a href={{this.image.url}}>
+                            <img class="hover:grow hover:shadow-lg" src="{{photoGallery.[0].image.url}}">
+                            <div class="container ">
+    <section id="table-body" class=" flex flex-wrap text-gray-600 body-font">
+
+
+    </section>
+  </div>
+
+  <div class="container ">
+    <div id="pagination-wrapper"></div>
+  </div>
+  <script>
+    let userData = null;
+   var url=window.location.pathname;
+   var res=url.replace('/','');
+   console.log(res);
+  var entitytype1="Events.html";
+  var entitytype2="ALl.html";
+  var entitytype3="innovation.html";
+ if(entitytype1==res){
+    $.ajax({
+      url: "https://liveapi-sandbox.yext.com/v2/accounts/2679138/entities?api_key=b262ae7768eec3bfa53bfca6d48e4000&v=20160822&entityTypes=Ce_dotsEvent",
+      type: "get",
+      async: false,
+      success: function (users) {
+        userData = users.response.entities;
+          console.log(userData);
+      }
+    });
+ 
+ 
+  
+
+    /*
+      1 - Loop Through Array & Access each value
+      2 - Create Table Rows & append to table
+    */
+
+
+    var state = {
+      'querySet': userData,
+
+      'page': 1,
+      'rows': 2,
+      'window': 5,
+    }
+
+    buildTable()
+
+    function pagination(querySet, page, rows) {
+
+      var trimStart = (page - 1) * rows
+      var trimEnd = trimStart + rows
+
+      var trimmedData = querySet.slice(trimStart, trimEnd)
+
+      var pages = Math.round(querySet.length / rows);
+
+      return {
+        'querySet': trimmedData,
+        'pages': pages,
+      }
+    }
+
+    function pageButtons(pages) {
+      var wrapper = document.getElementById('pagination-wrapper')
+
+      wrapper.innerHTML = ``
+      console.log('Pages:', pages)
+
+      var maxLeft = (state.page - Math.floor(state.window / 2))
+      var maxRight = (state.page + Math.floor(state.window / 2))
+
+      if (maxLeft < 1) {
+        maxLeft = 1
+        maxRight = state.window
+      }
+
+      if (maxRight > pages) {
+        maxLeft = pages - (state.window - 1)
+
+        if (maxLeft < 1) {
+          maxLeft = 1
+        }
+        maxRight = pages
+      }
+
+
+
+      for (var page = maxLeft; page <= maxRight; page++) {
+        wrapper.innerHTML += `<button value=${page} class="page btn btn-sm btn-info h-10 px-5 text-indigo-600 transition-colors duration-150 bg-white border border-r-0 border-indigo-600 focus:shadow-outline">${page}</button>`
+      }
+
+      if (state.page != 1) {
+        wrapper.innerHTML = `<button value=${1} class="page btn btn-sm btn-info h-10 px-5 text-indigo-600 transition-colors duration-150 bg-white rounded-l-lg focus:shadow-outline hover:bg-indigo-100">&#171; First</button>` + wrapper.innerHTML
+      }
+
+      
+ if (state.page != pages) {
+        wrapper.innerHTML += `<button value=${pages} class="page btn btn-sm btn-info h-10 px-5 text-indigo-600 transition-colors duration-150 bg-white rounded-r-lg focus:shadow-outline hover:bg-indigo-100">Last &#187;</button>`
+      }
+
+      $('.page').on('click', function () {
+        $('#table-body').empty()
+
+        state.page = Number($(this).val())
+
+        buildTable()
+      })
+
+    }
+
+
+    function buildTable() {
+      var table = $('#table-body')
+
+      var data = pagination(state.querySet,2, state.page, state.rows)
+      var myList = data.querySet
+
+      for (var i = 1 in myList) {
+        //Keep in mind we are using "Template Litterals to create rows"
+        var row = `<div class="grid gap-y-3">
+      <div class="grid gap-y-3">
+      </div>
+      <div id="allDataList" class="section grid gap-x-5 gap-y-5 sm:grid-cols-2 lg:grid-cols-3 md:gap-x-5">
+        <div class="p-4 border-2 border-gray-50 rounded-xl hover:grow hover:shadow-lg">
+          <a  href="${myList[i].c_slug}" class="grid gap-y-5">
+            <div class="justify-self-center">
+            <img class=" imgaes" src=${myList[i].photoGallery[0].image.url} alt="img">
+            </div>
+            <div class="grid gap-y-2">
+                <div class="product-grid-title">${myList[i].name}</div>
+              <div class="product-grid-subtitle">
+                ${myList[i].c_richTextDescription}
+              </div>
+
+             
+            </div>
+          </a>
+        </div>
+      </div>
+      </div>
+      </div>`;
+        table.append(row)
+      }
+
+      pageButtons(data.pages)
+    }
+ }
+
+ else if(entitytype2==res){
+   $.ajax({
+      url: "https://liveapi-sandbox.yext.com/v2/accounts/2679138/entities?api_key=b262ae7768eec3bfa53bfca6d48e4000&v=20160822&entityTypes=ce_event",
+      type: "get",
+      async: false,
+      success: function (users) {
+        userData = users.response.entities;
+          console.log(userData);
+      }
+    });
+    
+    var state = {
+      'querySet': userData,
+
+      'page': 1,
+      'rows': 2,
+      'window': 5,
+    }
+
+    buildTable()
+
+    function pagination(querySet, page, rows) {
+
+      var trimStart = (page - 1) * rows
+      var trimEnd = trimStart + rows
+
+      var trimmedData = querySet.slice(trimStart, trimEnd)
+
+      var pages = Math.round(querySet.length / rows);
+
+      return {
+        'querySet': trimmedData,
+        'pages': pages,
+      }
+    }
+
+    function pageButtons(pages) {
+      var wrapper = document.getElementById('pagination-wrapper')
+
+      wrapper.innerHTML = ``
+      console.log('Pages:', pages)
+
+      var maxLeft = (state.page - Math.floor(state.window / 2))
+      var maxRight = (state.page + Math.floor(state.window / 2))
+
+      if (maxLeft < 1) {
+        maxLeft = 1
+        maxRight = state.window
+      }
+
+      if (maxRight > pages) {
+        maxLeft = pages - (state.window - 1)
+
+        if (maxLeft < 1) {
+          maxLeft = 1
+        }
+        maxRight = pages
+      }
+
+
+
+      for (var page = maxLeft; page <= maxRight; page++) {
+        wrapper.innerHTML += `<button value=${page} class="page btn btn-sm btn-info h-10 px-5 text-indigo-600 transition-colors duration-150 bg-white border border-r-0 border-indigo-600 focus:shadow-outline">${page}</button>`
+      }
+
+      if (state.page != 1) {
+        wrapper.innerHTML = `<button value=${1} class="page btn btn-sm btn-info h-10 px-5 text-indigo-600 transition-colors duration-150 bg-white rounded-l-lg focus:shadow-outline hover:bg-indigo-100">&#171; First</button>` + wrapper.innerHTML
+      }
+
+      
+ if (state.page != pages) {
+        wrapper.innerHTML += `<button value=${pages} class="page btn btn-sm btn-info h-10 px-5 text-indigo-600 transition-colors duration-150 bg-white rounded-r-lg focus:shadow-outline hover:bg-indigo-100">Last &#187;</button>`
+      }
+
+      $('.page').on('click', function () {
+        $('#table-body').empty()
+
+        state.page = Number($(this).val())
+
+        buildTable()
+      })
+
+    }
+
+
+    function buildTable() {
+      var table = $('#table-body')
+
+      var data = pagination(state.querySet, state.page, state.rows)
+      var myList = data.querySet
+
+      for (var i = 1 in myList) {
+        //Keep in mind we are using "Template Litterals to create rows"
+        var row = `<div class="grid gap-y-3">
+      <div class="grid gap-y-3">
+      </div>
+      <div id="allDataList" class="section grid gap-x-5 gap-y-5 sm:grid-cols-2 lg:grid-cols-3 md:gap-x-5">
+        <div class="p-4 border-2 border-gray-50 rounded-xl hover:grow hover:shadow-lg">
+          <a  href="${myList[i].c_slug}" class="grid gap-y-5">
+            <div class="justify-self-center">
+            <img class=" imgaes" src=${myList[i].photoGallery[0].image.url} alt="img">
+            </div>
+            <div class="grid gap-y-2">
+                <div class="product-grid-title">${myList[i].name}</div>
+              <div class="product-grid-subtitle">
+                ${myList[i].c_richTextDescription}
+              </div>
+
+             
+            </div>
+          </a>
+        </div>
+      </div>
+      </div>
+      </div>`;
+        table.append(row)
+      }
+
+      pageButtons(data.pages)
+    }
+ }
+ 
+
+  </script>
+                        </a> 
+                    </div>
+                    <div class="space-y-12">
+                        <div class="grid gap-y-3">
+                            <div class="product-title">
+                                {{name}} 
+                            </div>
+                          
+                             
+                          <!--    <p class="text-xl">
+                                <b>Role And Responsibilities:</b>
+                            </p> -->
+                            <p class="text-xl">
+                                {{convertRTFToHTML c_richTextDescription}}
+                            </p>
+                          <!--   <p class="text-xl">
+                                <b>Role And Responsibilities:</b>
+                            </p> -->
+                        </div>
+                     <!--    <div class="buttons flex flex-col space-y-5 justify-center w-full px-12">
+                            <button class="product-mainCTA">
+                            Add to Bag
+                            </button>
+                            <button class="product-secondaryCTA">
+                            Favorite
+                            </button>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="w-full bg-black">
+            <div class="centered-container">
+                {{>footer}}
+            </div>
+        </div>
+
+        
+        
+    </body> 
+
+</html>

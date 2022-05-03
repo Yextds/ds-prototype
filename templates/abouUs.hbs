@@ -1,0 +1,339 @@
+---
+{
+"stream": {
+"$id": "about",
+"source": "knowledgeGraph",
+"destination": "pages",
+"filter": {
+"entityTypes": [
+"ce_about"
+]
+},
+"fields": [
+"id",
+"uid",
+"meta",
+"richTextDescription",
+"name",
+"slug",
+"c_lable",
+"c_locations.name",
+"c_locations.slug",
+"c_locations.yextDisplayCoordinate",
+"shortDescription"
+],
+"localization": {
+"locales": ["en"]
+}
+},
+"urlFormat": "about"
+}
+---
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>{{name}}</title>
+  <meta name="description" content={{richTextDescription}}>
+  {{>head}}
+  <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/flowbite@1.4.1/dist/flowbite.min.css" />
+
+</head>
+
+<style>
+  .topnav{
+    background-color: black;
+  }
+  #map_canvas {
+    height: 400px;
+    /* The height is 400 pixels */
+    width: 100%;
+    /* The width is the width of the web page */
+  }
+
+  .class {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+  }
+
+  .card {
+    background-color: white;
+    margin: 10px;
+    padding: 1px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px;
+    border-radius: 2px;
+  }
+  .mrigankFooter{
+        background:black;
+  }
+   .active{
+    color: rgba(248, 170, 1, 0.76);
+  }
+</style>
+
+<body>
+  {{>navbar}}
+
+
+
+  <div class="col-span-1 ">
+
+    <div class=" bg-black text-white py-20">
+
+
+      <div class="uppercase tracking-wide no-underline hover:no-underline font-bold text-yellow-400 text-4xl mb-8 ">
+        {{name}}
+      </div>
+      <div class="uppercase tracking-wide no-underline hover:no-underline font-bold text-white-800 text-2xl mb-8">
+        <p>{{convertRTFToHTML shortDescription}}</p>
+      </div>
+    </div>
+    <div class="ml-3 mr-3 mt-5">
+    <b class="text-2xl mb-8">{{convertRTFToHTML c_lable}}</b>
+    <br>
+    <p>{{convertRTFToHTML richTextDescription}}</p>
+    <br>
+    <a href="expertise">
+    <button
+      class="text-yellow-400 text-bold hover:text-white border border-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-yellow-300 dark:text-yellow-300 dark:hover:text-white dark:hover:bg-yellow-400 dark:focus:ring-yellow-900 ml-5">what we do</button>
+    </a>
+</div>
+    <br>
+    <div id="leftside-inner block p-1"
+      class="flex flex-wrap list-group-item w-full px-5 divide-y-2 divide-gray-100 border-b mb-4 border-solid border-gray-300 mr-5 ml-5 ">
+      {{#each c_locations}}
+
+      <div data-slug={{slug}} data-name='{{name}}' data-lat={{yextDisplayCoordinate.latitude}}
+        data-lng={{yextDisplayCoordinate.longitude}}
+        class="list-group-item flex flex-wrap text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400">
+
+
+        <ul
+          class="">
+          <li class="mr-2">
+            <h4 aria-current="page"
+              class="inline-block p-4 text-black-1000 text-bold bg-gray-100 rounded-t-lg dark:bg-gray-800  hover:bg-yellow-300">
+              {{name}}</h4>
+          </li>
+        </ul>
+
+      </div>
+      {{/each}}
+    </div>
+
+  </div>
+  <div class="dimagiHalat"></div>
+
+  <div class="h-20 w-full ml-3 mr-4" id="map_canvas">
+
+  </div>
+  </div>
+  </div>
+
+
+<div class=" ml-3 mr-4 mb-2 mt-3">
+  {{>ourValues}}
+</div>
+</body>
+</div>
+
+
+<div class="w-full bg-gray-50 mrigankFooter">
+          <div class="centered-container">
+              {{>footer}}
+          </div>
+      </div>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZNQlSlEIkFAct5VzUtsP4dSbvOr2bE18&sensor=false&libraries=places"></script>
+
+
+<script>
+  function load_map(Mapping, $, undefined) {
+    var self = this;
+    function Initialize() {
+      var lat = 25.7748108;
+      console.log(lat);
+      var lng = -80.197731;
+      $('.list-group-item').each(function () {
+        lat = $(this).data('lat');
+        lng = $(this).data('lng');
+      });
+      var myOptions = {
+        zoom: 8,
+        center: new google.maps.LatLng(lat, lng),
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      };
+      self.map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+      self.markers = [];
+      self.infoWindow = new google.maps.InfoWindow();
+      // var bounds = new google.maps.LatLngBounds();
+
+
+      $('.list-group-item').each(function () {
+        var $this = $(this);
+        var pos = new google.maps.LatLng($this.data('lat'), $this.data('lng'));
+        var marker = new google.maps.Marker({
+          position: pos,
+          map: self.map,
+          labelContent: "1",
+        });
+
+        self.markers.push(marker);
+
+        var location_name = $this.data('name');
+        var slug = '/location/' + $this.data('slug') + '.html';
+
+
+
+        var contentString = '<a class="text-base font-medium text-textblack " href="' + slug + '" target="_blank" >' + location_name + '</a>';
+        $this.click(function () {
+          self.map.panTo(pos);
+          self.infoWindow.setContent(contentString);
+          self.infoWindow.open(self.map, marker);
+          $this.siblings().removeClass('active');
+          $this.addClass('active');
+        });
+
+        marker.addListener("click", () => {
+          self.infoWindow.setContent(contentString);
+          self.infoWindow.open(self.map, marker);
+        });
+
+
+      });
+    }
+    Initialize();
+  }
+  (load_map)(window.Mapping = window.Mapping || {}, jQuery);
+  $(function () {
+    $("#button-addon2").click(function () {
+      var varData = {
+        api_key: 'b262ae7768eec3bfa53bfca6d48e4000',
+        v: '20211229',
+        entityTypes: 'location'
+      };
+      var searchText = $('.search_key').val();
+      if (searchText) {
+        var jsstring = {
+          "$or": [
+            {
+              "address.line1": {
+
+                "$contains": searchText
+              }
+            },
+            {
+              "address.city": {
+
+                "$contains": searchText
+              }
+            },
+            {
+              "address.region": {
+
+                "$contains": searchText
+              }
+            },
+            {
+              "address.countryCode": {
+
+                "$contains": searchText
+              }
+            },
+            {
+              "address.postalCode": {
+
+                "$contains": searchText
+              }
+            }
+          ]
+        };
+        /* 
+        var jsstring = {
+          "address.line1":{
+  
+          "$contains":searchText
+          }
+        }; 
+        */
+
+        var filterpar = JSON.stringify(jsstring);
+        var filter = encodeURI(filterpar);
+        var url = "https://liveapi-sandbox.yext.com/v2/accounts/me/entities?filter=" + filter;
+      } else {
+        var url = "https://liveapi-sandbox.yext.com/v2/accounts/me/entities";
+      }
+
+
+
+      $.ajax({
+        url: url,
+        type: "get", //send it through get method
+        data: varData,
+        success: function (result) { // alert();
+          if (!result.errors) {
+            if (result.response.count > 0) {
+              var html = '';
+              $.each(result.response.entities, function (index, entity) {
+                html += '<div data-slug="' + entity.meta.id + '-' + convertToSlug(entity.neighborhood) + '" data-name="' + entity.name + '" data-lat="' + entity.yextDisplayCoordinate.latitude + '" data-lng="' + entity.yextDisplayCoordinate.longitude + '" class="list-group-item w-full px-5 divide-y-2 divide-gray-100 border-b mb-4 border-solid border-gray-300">';
+                html += '<h4 class="text-base font-medium text-textblack mb-1">' + entity.name + '</h4>';
+                html += '<p class="address text-sm font-light text-textblack leading-5 mb-1">';
+                html += entity.address.line1 + ', ' + entity.address.city + ', ' + entity.address.region + ', ' + entity.address.postalCode + ', ' + entity.address.countryCode;
+                html += '</p>';
+                html += '<p class="text-base font-medium text-textblack "><a href="tel:' + entity.mainPhone + '" class="text-primary">' + entity.mainPhone + '</a></p>';
+                html += '<p class="mb-4"><a  href="/location/' + entity.meta.id + '-' + convertToSlug(entity.neighborhood) + '.html">Read More</a></p>';
+                html += '</div>';
+
+              });
+              $(".dimagiHalat").append(html);
+
+              $("#leftside-inner").html(html);
+              (load_map)(window.Mapping = window.Mapping || {}, jQuery);
+            } else {
+              $("#leftside-inner").html('<p class="text-base font-medium text-textblack mb-8">Location not found.</p>');
+            }
+          } else {
+            $("#leftside-inner").html('<p class="text-base font-medium text-textblack mb-8">Location not found.</p>');
+          }
+        },
+        error: function (xhr) {
+          $("#leftside-inner").html('<p class="text-base font-medium text-textblack mb-8">Location not found.</p>');
+        }
+      });
+    });
+  });
+  function initializeAutocomplete() {
+    var input = document.getElementById('search_key');
+    new google.maps.places.Autocomplete(input, {
+      componentRestrictions: { country: ["us"] },
+      fields: ["street_number"],
+      types: ["address"],
+    });
+  }
+  // google.maps.event.addDomListener(window, 'load', initializeAutocomplete);
+  function convertToSlug(Text) {
+    // return Text;
+    return Text.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '');
+  }
+
+   jQuery(function($) {
+     var path = window.location.href; // because the 'href' property of the DOM element is the absolute path
+     $('ul h4').each(function() {
+      if (this.href === path) {
+       $(this).addClass('active');
+      }
+     });
+    });
+</script>
+
+</html>

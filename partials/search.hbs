@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Answers Test Experience</title>
+    <!-- Answers CSS-->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://assets.sitescdn.net/answers/v1/answers.css"
+    />
+
+    <!-- Answers Layout styling -->
+    <style>
+      .answers-layout {
+        max-width: 50rem;
+        margin: auto;
+      }
+    </style>
+
+    <!-- Answers JS-->
+    <script src="https://assets.sitescdn.net/answers/v1/answers.min.js"></script>
+  </head>
+  <body>
+     <div class="answers-layout">
+    <div class="searchbar-container"></div>
+    <div class="navigation-container"></div>
+    <div class="spellcheck-container"></div>
+    <div class="universal-container"></div>
+    <div class="directanswer-container"></div>
+    <div class="locationbias-container"></div>
+  </div>
+
+ <script>
+      ANSWERS.init({
+        apiKey: "cc8b0bde99d9d71f0f7a6fa03200807b",  //sample test experience
+        experienceKey: "dotsquares-faqs ",  //sample test experience
+        businessId: "2679138",  //sample test experience
+        experienceVersion: "PRODUCTION",
+
+
+      
+      onReady: function () {
+        // init components
+        this.addComponent("SearchBar", {
+          container: ".searchbar-container",
+          allowEmptySearch: true
+        });
+        this.addComponent("Navigation", {
+          container: ".navigation-container",
+        });
+        this.addComponent("SpellCheck", {
+          container: ".spellcheck-container",
+        });
+        this.addComponent("DirectAnswer", {
+          container: ".directanswer-container",
+        });
+        this.addComponent("UniversalResults", {
+          container: ".universal-container",
+          config: {
+            locations: {
+              icon: "pin",
+              card: {
+                cardType: "Standard",
+                dataMappings: {
+                  title: (item) => item.name,
+                  subtitle: (item) => item.address.line1,
+                  details: (item) => item.description,
+                  image: (item) =>
+                    item.photoGallery ? item.photoGallery[0].image.url : null,
+                  url: "#"
+                },
+                callsToAction: [
+                  {
+                    label: "faqs",
+                    icon: "faqs",
+                    url: "#",
+                    analyticsEventType: "GET_ANSWERS",
+                    target: "_self"
+                  }
+                ]
+              },
+              appliedFilters: {
+                show: true,
+                showFieldNames: true,
+                hiddenFields: ["builtin.entityType"],
+                delimiter: "|",
+                labelText: "Filters applied to this search:",
+                removableLabelText: "Remove this filter"
+              }
+            },
+            faqs: {
+              icon: "support",
+              title: "FAQs",
+              card: {
+                cardType: "Accordion",
+                dataMappings: {
+                  title: (item) => item.name,
+                  details: (item) => item.answer,
+                  url: "#"
+                },
+                callsToAction: [
+                  {
+                    label: "Learn More",
+                    icon: "",
+                    url: "#",
+                    analyticsEventType: "CTA_CLICK",
+                    target: "_self"
+                  }
+                ]
+              }
+            },
+            jobs: {
+              icon: "briefcase",
+              card: {
+                cardType: "Standard",
+                dataMappings: {
+                  title: (item) => item.name,
+                  subtitle: (item) => `Date Posted: ${item.datePosted}`,
+                  details: (item) => item.description,
+                  url: "#"
+                },
+                callsToAction: [
+                  {
+                    label: "Learn More",
+                    icon: "info",
+                    url: "#",
+                    analyticsEventType: "CTA_CLICK",
+                    target: "_self"
+                  }
+                ]
+              }
+            }
+          }
+        });
+        this.addComponent("LocationBias", {
+          container: ".locationbias-container",
+        });
+      }
+    });
+    </script>
+  </body>
+</html>

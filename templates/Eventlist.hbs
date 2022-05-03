@@ -1,0 +1,367 @@
+---
+{
+"stream": {
+"$id": "eventslist11",
+"source": "knowledgeGraph",
+"destination": "pages",
+"filter": {
+"entityTypes": [
+"ce_eRelated"
+]
+},
+"fields": [
+"name",
+"c_slug",
+"c_nav2",
+"c_nav1",
+"c_arrivalButtonText",
+"c_arrivalTitle",
+"c_arrivalButtonLink",
+"photoGallery",
+"c_relatedProducts.c_nav1",
+"c_relatedProducts.c_slug",
+"c_relatedProducts.name",
+"c_relatedProducts.c_richTextDescription",
+"c_relatedProducts.photoGallery"
+
+],
+"localization": {
+"locales": ["en"]
+}
+},
+"urlFormat": "{{c_slug}}"
+}
+---
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>{{name}}</title>
+  <meta name="description" content=Category page for {{name}}.>
+  {{>head}}
+  {{>schema-productCategory}}
+  <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet">
+</head>
+
+
+<body>
+
+
+
+
+  {{!-- <div class="">
+
+    <img class="h-screen w-screen" src="{{photoGallery.[0].image.url}}">
+
+
+  </div> --}}
+
+
+
+  <nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-800">
+    <div class="container flex flex-wrap justify-between items-center mx-auto">
+      <a href="https://flowbite.com" class="flex items-center">
+        {{!-- <img src="/docs/images/logo.svg" class="mr-3 h-6 sm:h-9" alt="Flowbite Logo"> --}}
+        {{!-- <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span> --}}
+      </a>
+      <div class="flex md:order-2">
+
+      </div>
+      <div class="hidden justify-between items-center w-full md:flex md:w-auto md:order-1" id="mobile-menu-4">
+        <ul class="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-base md:font-medium">
+          <li>
+            <a href="rel_dots.html" class="block font-bold py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0
+ dark:text-white" aria-current="page">{{c_nav1}}</a>
+          </li>
+          <li>
+            <a href="Events01.html" class="block font-bold py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent 
+ md:border-0 md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 
+ dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">{{c_nav2}}</a>
+          </li>
+          <li>
+            <a href="innov.html"
+              class="block font-bold py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50
+ md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400
+  dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">{{c_arrivalButtonLink}}</a>
+          </li>
+          <li>
+            <a href="7029111803144045716.html" class="block font-bold py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 
+md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 
+dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">{{c_arrivalTitle}}</a>
+          </li>
+          <li>
+            <a href="TechDS.html"
+              class="block font-bold py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 
+md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 
+dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">{{c_arrivalButtonText}}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div id="cards" class="flex flex-wrap centered-container">
+
+  </div>
+  </div>
+
+  <div class="text-gray-300 flex items-center space-x-2 select-none">
+    <button class="h-8 w-8 p-1 hover:bg-gray-700 rounded page-control" data-action="minus"><svg fill="currentColor"
+        viewBox="0 0 20 20">
+        <path fill-rule="evenodd"
+          d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+          clip-rule="evenodd"></path>
+      </svg></button>
+    <div class="space-x-1">
+      <button id="btn1" class="hover:bg-gray-700  px-2 rounded page-item" data-index="0">1</button>
+      <button id="btn2" class="hover:bg-gray-700 px-2 rounded page-item" data-index="1">2</button>
+    </div>
+    <button class="h-8 w-8 p-1 hover:bg-gray-700 rounded page-control" data-action="plus"><svg fill="currentColor"
+        viewBox="0 0 20 20">
+        <path fill-rule="evenodd"
+          d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+          clip-rule="evenodd"></path>
+      </svg>
+    </button>
+  </div>
+  <script>
+    fetch('https://liveapi-sandbox.yext.com/v2/accounts/2679138/entities?api_key=b262ae7768eec3bfa53bfca6d48e4000&v=20160822&entityTypes=ce_event&limit=6').then((data) => {
+      console.log(data);
+      return data.json();
+    }).then((completedata) => {
+      //    console.log(completedata.response.entities[2].photoGallery[0].image.url);
+
+      //    let yext = completedata.response.entities;
+      //    document.getElementById('root').
+      //    innerHTML=completedata[2].title;
+
+
+
+      let data1 = "";
+      completedata.response.entities.map((values) => {
+        data1 += `<div class="grid gap-y-3">
+      <div class="grid gap-y-3">
+      </div>
+      <div id="allDataList" class="section grid gap-x-5 gap-y-5 sm:grid-cols-2 lg:grid-cols-3 md:gap-x-5">
+        <div class="p-4 border-2 border-gray-50 rounded-xl hover:grow hover:shadow-lg">
+          <a href="#" class="grid gap-y-5">
+            <div class="justify-self-center">
+            <img class=" imgaes" src=${values.photoGallery[0].image.url} alt="img">
+            </div>
+            <div class="grid gap-y-2">
+              <div class="product-grid-title">${values.name}</div>
+              <div class="product-grid-subtitle">
+                ${values.c_richTextDescription}
+              </div>
+
+             
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>`;
+      });
+      document.getElementById('cards').innerHTML = data1;
+
+    }).catch((err) => {
+      console.log(err);
+    });
+
+
+    document.querySelector('#btn1').onclick = () => {
+      fetch('https://liveapi-sandbox.yext.com/v2/accounts/2679138/entities?api_key=b262ae7768eec3bfa53bfca6d48e4000&v=20160822&entityTypes=ce_event&limit=6').then((data) => {
+        console.log(data);
+        return data.json();
+      }).then((completedata) => {
+        //    console.log(completedata.response.entities[2].photoGallery[0].image.url);
+
+        //    let yext = completedata.response.entities;
+        //    document.getElementById('root').
+        //    innerHTML=completedata[2].title;
+
+
+
+        let data1 = "";
+        completedata.response.entities.map((values) => {
+          data1 += `<div class="grid gap-y-3">
+      <div class="grid gap-y-3">
+      </div>
+      <div id="allDataList" class="section grid gap-x-5 gap-y-5 sm:grid-cols-2 lg:grid-cols-3 md:gap-x-5">
+        <div class="p-4 border-2 border-gray-50 rounded-xl hover:grow hover:shadow-lg">
+          <a href="#" class="grid gap-y-5">
+            <div class="justify-self-center">
+            <img class=" imgaes" src=${values.photoGallery[0].image.url} alt="img">
+            </div>
+            <div class="grid gap-y-2">
+              <div class="product-grid-title">${values.name}</div>
+              <div class="product-grid-subtitle">
+                ${values.c_richTextDescription}
+              </div>
+
+             
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>`;
+        });
+        document.getElementById('cards').innerHTML = data1;
+
+      }).catch((err) => {
+        console.log(err);
+      });
+
+
+    };
+
+    document.querySelector('#btn2').onclick = () => {
+      fetch('https://liveapi-sandbox.yext.com/v2/accounts/2679138/entities?api_key=b262ae7768eec3bfa53bfca6d48e4000&v=20160822&entityTypes=ce_event&offset=6&limit=3').then((data) => {
+        console.log(data);
+        return data.json();
+      }).then((completedata) => {
+        //    console.log(completedata.response.entities[2].photoGallery[0].image.url);
+
+        //    let yext = completedata.response.entities;
+        //    document.getElementById('root').
+        //    innerHTML=completedata[2].title;
+
+
+
+        let data1 = "";
+        completedata.response.entities.map((values) => {
+          data1 += `<div class="grid gap-y-3">
+      <div class="grid gap-y-3">
+      </div>
+      <div id="allDataList" class="section grid gap-x-5 gap-y-5 sm:grid-cols-2 lg:grid-cols-3 md:gap-x-5">
+        <div class="p-4 border-2 border-gray-50 rounded-xl hover:grow hover:shadow-lg">
+          <a href="#" class="grid gap-y-5">
+            <div class="justify-self-center">
+            <img class=" imgaes" src=${values.photoGallery[0].image.url} alt="img">
+            </div>
+            <div class="grid gap-y-2">
+              <div class="product-grid-title">${values.name}</div>
+              <div class="product-grid-subtitle">
+                ${values.c_richTextDescription}
+              </div>
+
+             
+            </div>
+          </a>
+        </div>
+      </div>
+      </div>
+      </div>`;
+        });
+        document.getElementById('cards').innerHTML = data1;
+
+      }).catch((err) => {
+        console.log(err);
+      });
+
+
+    };
+
+     document.querySelector('#btn3').onclick = () => {
+      fetch('https://liveapi-sandbox.yext.com/v2/accounts/2679138/entities?api_key=b262ae7768eec3bfa53bfca6d48e4000&v=20160822&entityTypes=ce_event&offset=9&limit=3').then((data) => {
+        console.log(data);
+        return data.json();
+      }).then((completedata) => {
+        //    console.log(completedata.response.entities[2].photoGallery[0].image.url);
+
+        //    let yext = completedata.response.entities;
+        //    document.getElementById('root').
+        //    innerHTML=completedata[2].title;
+
+
+
+        let data1 = "";
+        completedata.response.entities.map((values) => {
+          data1 += `<div class="grid gap-y-3">
+      <div class="grid gap-y-3">
+      </div>
+      <div id="allDataList" class="section grid gap-x-5 gap-y-5 sm:grid-cols-2 lg:grid-cols-3 md:gap-x-5">
+        <div class="p-4 border-2 border-gray-50 rounded-xl hover:grow hover:shadow-lg">
+          <a href="#" class="grid gap-y-5">
+            <div class="justify-self-center">
+            <img class=" imgaes" src=${values.photoGallery[0].image.url} alt="img">
+            </div>
+            <div class="grid gap-y-2">
+              <div class="product-grid-title">${values.name}</div>
+              <div class="product-grid-subtitle">
+                ${values.c_richTextDescription}
+              </div>
+
+             
+            </div>
+          </a>
+        </div>
+      </div>
+      </div>
+      </div>`;
+        });
+        document.getElementById('cards').innerHTML = data1;
+
+      }).catch((err) => {
+        console.log(err);
+      });
+
+
+    };
+
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const pageItems = document.querySelectorAll('.page-item')
+      const pageControls = document.querySelectorAll('.page-control')
+      let activeIdx = 0;
+      makeActive(pageItems[activeIdx])
+
+      pageItems.forEach(el => {
+        el.addEventListener('click', (event) => {
+          makeInactive(pageItems[activeIdx])
+          activeIdx = Number(event.target.dataset.index)
+          makeActive(pageItems[activeIdx])
+        })
+      })
+
+      pageControls.forEach(el => {
+        el.addEventListener('click', (event) => {
+          const diff = el.dataset.action === 'plus' ? +1 : -1;
+          const newIdx = activeIdx + diff;
+
+          if ((newIdx >= pageItems.length) || (newIdx < 0)) return;
+
+          makeInactive(pageItems[activeIdx])
+          makeActive(pageItems[newIdx]);
+          activeIdx = newIdx
+        })
+      })
+    })
+
+    function makeActive(el) {
+      el.classList.add('bg-gray-300', 'text-gray-800')
+      el.classList.remove('hover:bg-gray-700')
+    }
+
+    function makeInactive(el) {
+      el.classList.remove('bg-gray-300', 'text-gray-800')
+      el.classList.add('hover:bg-gray-700')
+    }
+
+
+  </script>
+
+
+
+
+
+
+
+</body>
+
+</html>

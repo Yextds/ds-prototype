@@ -1,0 +1,153 @@
+---
+{
+    "stream": {
+        "$id": "faqListing-Page",
+        "source": "knowledgeGraph",
+        "destination": "pages",
+      "filter": {
+        "entityTypes": [
+          "ce_dsPrototypeFaqs"
+        ]
+      },
+      "fields": [
+        "id",
+        "uid",
+        "name",
+        "slug",
+        "c_relatedFAQs.slug",
+        "c_relatedFAQs.question",
+        "c_relatedFAQs.answer"
+      ],
+      "localization": {
+          "locales": ["en"]
+      }
+    },
+    "urlFormat": "{{slug}}"
+}
+---
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{name}}</title>
+    <meta name="description" content=Category page for {{name}}.>
+    {{>head}}
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet">
+    <style type="text/css">
+      .mrigankFooter{
+        background:black;
+  }
+      .topnav{
+        background: black;
+      }
+       .addReadMore.showlesscontent .SecSec,
+    .addReadMore.showlesscontent .readLess {
+        display: none;
+    }
+
+    .addReadMore.showmorecontent .readMore {
+        display: none;
+    }
+
+    .addReadMore .readMore
+    {
+        font-weight: bold;
+        margin-left: 2px;
+        color: rgb(255, 174, 0);
+        cursor: pointer;
+    }
+
+    .addReadMoreWrapTxt.showmorecontent .SecSec {
+        display: block;
+    }
+    </style>
+</head>
+
+    <body>
+     {{>navbar}}   
+   
+  <div>
+      <section class="text-gray-700">
+        <div class="container px-5 py-24 mx-auto">
+          <div class="text-center mb-20">
+            <h1 class="sm:text-3xl text-2xl font-medium text-center title-font text-gray-900 mb-4">
+              Frequently Asked Question
+            </h1>
+            <p class="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto">
+              The most common questions about how our business works and what
+              can do for you.
+            </p>
+          </div>
+ 
+{{>search}}
+          <div class="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2">
+            {{#each c_relatedFAQs}}
+            <div class="w-full lg:w-1/2 px-4 py-2">
+              <details class="mb-4">
+                <summary class="font-semibold  bg-gray-200 rounded-md py-2 px-4">
+                  {{question}}
+                </summary>
+                  <a href="{{slug}}">
+                <span class="addReadMore showlesscontent">
+                  {{answer}}
+                </span>
+                </a>
+              </details>
+            </div>
+            {{/each}}
+            
+          </div>
+        </div>
+      </section>
+  </div>
+
+    </body> 
+
+      <div class="w-full bg-gray-50 mrigankFooter">
+          <div class="centered-container">
+              {{>footer}}
+          </div>
+      </div>
+  
+
+</html>
+<script>
+
+function AddReadMore() {
+    //This limit you can set after how much characters you want to show Read More.
+    var carLmt = 80;
+    // Text to show when text is collapsed
+    var readMoreTxt = " ... Read More";
+    // Text to show when text is expanded
+    var readLessTxt = " Read Less";
+
+
+    //Traverse all selectors with this class and manupulate HTML part to show Read More
+    $(".addReadMore").each(function() {
+        if ($(this).find(".firstSec").length)
+            return;
+
+        var allstr = $(this).text();
+        if (allstr.length > carLmt) {
+            var firstSet = allstr.substring(0, carLmt);
+            var secdHalf = allstr.substring(carLmt, allstr.length);
+            var strtoadd = firstSet + "<span class='SecSec'>" + secdHalf + "</span><span class='readMore'  title='Click to Show More'>" + readMoreTxt + "</span><span class='readLess' title='Click to Show Less'>" + readLessTxt + "</span>";
+            $(this).html(strtoadd);
+        }
+
+    });
+    //Read More and Read Less Click Event binding
+    $(document).on("click", ".readMore,.readLess", function() {
+        //$(this).closest(".addReadMore").toggleClass("showlesscontent showmorecontent");
+    });
+}
+$(function() {
+    //Calling function after Page Load
+    AddReadMore();
+});
+
+</script>
