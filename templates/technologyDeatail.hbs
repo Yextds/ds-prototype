@@ -1,23 +1,28 @@
 ---
 {
     "stream": {
-        "$id": "industry-details",
+        "$id": "technology_details",
         "source": "knowledgeGraph",
         "destination": "pages",
       "filter": {
         "entityTypes": [
-          "ce_industries_detail"
-        ]
+          "ce_categoryMenus"
+        ],
+         "savedFilterIds": [
+           "924665134"
+         ]
+       
       },
       "fields": [
         "id",
         "uid",
         "meta",
-        "richTextDescription",
+        "c_richTextDescription",
         "name",
         "slug",
         "c_service",
-        "shortDescription"
+        "c_description1",
+        "photoGallery"
       ],
       "localization": {
           "locales": ["en"]
@@ -44,8 +49,11 @@
   .active{
     color: rgba(248, 170, 1, 0.76);
   }
+  .topnav{
+    background: black;
+  }
   .mrigankFooter{
-        background: #000000;
+        background:black;
   }
 </style>
 
@@ -57,53 +65,40 @@
                 <div class="col-span-1">
                  
                     <div class="container py-8 px-6 mx-auto  mb-40 relative overflow-hidden bg-no-repeat bg-cover">
-                        <div class="uppercase tracking-wide no-underline hover:no-underline font-bold  text-4xl mb-8 flex flex-wrap py-7 items-center justify-between bg-black text-yellow-500">
+                        <div class="uppercase tracking-wide no-underline hover:no-underline font-bold  text-4xl mb-8 flex flex-wrap py-7 items-center justify-between bg-black text-white ">
                             {{name}} 
                       </div>
-                       <div class="text-white" style="
-    line-height: 33px;
-    margin: 0;
-    width: 50%;
-    display: inline-block;
-    text-shadow: none;
-    font-size: 18px;">
-                        <p >{{convertRTFToHTML shortDescription}}</p>
-                        </div>
+                   
                     </div>
                         <br>
                           
                        
-                         <div class="bg-white py-20 px-20">
+                    <div class="bg-white">
                            <br>
                             <div class="mt-2 bg-white">
-                                 <div   class=" bg-black Nav submenu ml-3 mr-3 rounded">
+                                 <div   class=" bg-black Nav relatedProductTab ml-3 mr-3 rounded">
                                   
                                  </div>  
-                         </div>
+                            </div>
                              <br>
-                             <div class="ml-3 yb-3">
                         <p class="mt-8 mb-8 text-xl">{{convertRTFToHTML richTextDescription}}</p>
                         <br>
-                        {{#if c_service}}
                         <b class="text-xl">Services Provided by Dotsquares</b>
                         <ul>
                         <li>
-                        <p class="mt-4 text-xl mb-4">{{convertRTFToHTML c_service}}</p>
+                        <p class="mt-4 text-xl">{{convertRTFToHTML c_service}}</p>
                         </li>
                         </ul>
-                        {{/if}}
                      </div>
                 </div>
-            </div>
+            
     </body> 
 
-
-<div class="w-full site-footer">
+      <div class="w-full site-footer">
     <div class="centered-container">
       {{>footer}}
     </div>
   </div>
-
 
 
 </html>
@@ -115,7 +110,7 @@
 		$(document).ready(function(){
 		var pathname = window.location.pathname.replace('/','');
 				$.ajax({
-					url:  "https://liveapi-sandbox.yext.com/v2/accounts/me/entities?api_key=b262ae7768eec3bfa53bfca6d48e4000&v=20211229&limit=40&entityTypes=ce_industries_detail",
+					url:  "https://liveapi-sandbox.yext.com/v2/accounts/me/entities?api_key=b262ae7768eec3bfa53bfca6d48e4000&v=20211229&limit=40&entityTypes=ce_categoryMenus",
 					type: 'GET',
 					dataType: 'json',
 					success: function(res) {
@@ -132,10 +127,10 @@
 							activeClass =  'active';
 						}
 						
-						html+= '<a class="bg-black text-white hover:text-yellow-500 '+activeClass+' ml-3 mr-3 " data-id="'+s+'" href='+s+'>'+n+'</a>';
+						html+= '<a class="bg-black text-white hover:text-yellow-500 px-2 '+activeClass+' ml-3 mr-3 " data-id="'+s+'" href='+s+'>'+n+'</a>';
 						
 					  })
-					 $(".submenu").append(html);
+					 $(".relatedProductTab").append(html);
 					}
 				})
 		}); 

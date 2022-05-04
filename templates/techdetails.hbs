@@ -41,7 +41,11 @@
 	{{>schema-productCategory}}
 	<link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet">
 </head>
-
+<style>
+	.mrigankFooter {
+        background: #000000;
+      }
+</style>
 <body>
 	<div class="w-full">
 
@@ -49,7 +53,7 @@
 			<div class="grid gap-y-6">
 
 				<div class="col-start-2 col-span-4 ">
-					<div class="col-start-2 col-span-4 >
+					<div class="col-start-2 col-span-4">
 						<a href={{slug}} class=" grid gap-y-5">
 						{{!-- {{#each Ce_dotsEvent}} --}}
 						<div class="justify-self-center">
@@ -57,7 +61,10 @@
 						</div>
 
 						</a>
-
+</a>
+<div class="uppercase tracking-wide no-underline hover:no-underline font-bold  text-4xl mb-8 flex flex-wrap py-7 items-center justify-between text-yellow-500">
+                            {{name}} 
+                      </div>
 						<div class="grid gap-y-6">
 
 							
@@ -114,7 +121,11 @@
   </div>
  
 </body>
-
+ <div class="w-full site-footer">
+    <div class="centered-container">
+      {{>footer}}
+    </div>
+  </div>
 </html>
 
 

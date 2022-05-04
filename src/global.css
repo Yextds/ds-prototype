@@ -56,3 +56,103 @@
 .product-grid-secondaryCTA {
     @apply h-12 border-2 border-gray-200 text-black font-bold py-2 px-4 rounded-3xl hover:border-black ;
 }
+
+
+/* header CSS */
+
+.nav{
+    @apply pt-5 pb-3 px-4 text-right bg-black;
+}
+.nav ul{
+    @apply flex items-center justify-end text-white;
+}
+.nav li{
+    @apply ml-4;
+}
+.nav li a{
+    @apply text-white;
+}
+.nav li a:hover{
+    @apply text-orange-500;
+}
+.topnav{
+    @apply px-4 bg-black;
+}
+.topnav a{
+    @apply text-white py-2 inline-block;
+}
+.logo{
+    @apply py-0;
+}
+.topnav a:hover{
+    @apply text-orange-500;
+}
+.main-menu{
+    @apply flex flex-row;
+}
+.main-menu li{
+    @apply relative;
+}
+.main-menu > li{
+    @apply ml-20;
+}
+.main-menu > li:last-child .submenu{
+    @apply left-auto right-0;
+}
+.main-menu > li:nth-last-child(2) .submenu{
+    @apply left-auto right-0;
+}
+.main-menu .submenu{
+    @apply absolute top-full left-0 flex-col w-64 bg-orange-500 hidden py-4;
+}
+.main-menu > li:hover .submenu{
+    @apply block;
+}
+.main-menu .submenu li a{
+    @apply px-4 w-full;
+}
+.main-menu .submenu li a:hover{
+    @apply text-black;
+}
+.main-menu .submenu .sub-submenu{
+    @apply absolute top-0 left-full flex-col w-64 bg-orange-500 hidden;
+}
+.main-menu .submenu > li:hover .sub-submenu{
+    @apply block;
+}
+.bg-cover img{
+    @apply max-w-full w-full;
+}
+
+/* Footer CSS */
+.site-footer{
+    @apply bg-black py-6 text-white;
+}
+.site-footer a{
+    @apply text-white;
+}
+.site-footer a:hover{
+    @apply text-orange-500;
+}
+.footer-menu{
+    @apply mb-5 flex flex-wrap flex-row;
+}
+.footer-menu a:not(:last-child){
+    @apply mr-8
+}
+.footerAddress{
+    @apply py-4;
+}
+.footerAddress li{
+    @apply px-0;
+}
+.footerAddress li strong{
+    @apply text-orange-500;
+}
+.footerAddress li strong a{
+    @apply text-orange-500;
+}
+
+
+
+

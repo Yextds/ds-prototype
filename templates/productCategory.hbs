@@ -40,10 +40,14 @@
     {{>schema-productCategory}}
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet">
 </head>
-
+<style>
+     .mrigankFooter{
+        background: #000000;
+  }
+</style>
 <body>
     <div class="w-full">
-    <div class="centered-container">
+    <div class="centered-container bg-black">
         {{>navbar}}
     </div>
 		<div class="centered-container">
@@ -71,10 +75,10 @@
 			</div>
 		</div>
     </div>
-    <div class="w-full bg-gray-50">
-        <div class="centered-container">
-            {{>footer}}
-        </div>
+    <div class="w-full site-footer">
+    <div class="centered-container">
+      {{>footer}}
     </div>
+  </div>
 </body> 
 </html>

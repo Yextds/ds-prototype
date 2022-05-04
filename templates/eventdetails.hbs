@@ -43,10 +43,16 @@
         {{>head}}
  <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet">
     </head>
-
+<style>
+     .mrigankFooter{
+        background: #000000;
+  }
+</style>
     <body>
         <div class="w-full">
+            <div class="bg-black">
             {{>navbar}}
+            </div>
             <div class="centered-container">
                 <div class="section grid gap-y-10 md:grid-cols-2 md:gap-x-10">
                     <div class="">
@@ -85,5 +91,9 @@
             </div>
         </div>
     </body> 
-
+<div class="w-full site-footer">
+    <div class="centered-container">
+      {{>footer}}
+    </div>
+  </div>
 </html>

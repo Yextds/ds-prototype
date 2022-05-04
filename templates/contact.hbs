@@ -191,7 +191,7 @@
 
   </div>
     </body> 
- <div class="w-full  mrigankFooter">
+ <div class="w-full site-footer">
           <div class="centered-container">
               {{>footer}}
           </div>
@@ -253,133 +253,16 @@
           $this.addClass('active');
         });
 
-        marker.addListener("click", () => {
-          self.infoWindow.setContent(contentString);
-          self.infoWindow.open(self.map, marker);
-        });
-
+      
 
       });
     }
     Initialize();
   }
   (load_map)(window.Mapping = window.Mapping || {}, jQuery);
-  $(function () {
-    $("#button-addon2").click(function () {
-      var varData = {
-        api_key: 'b262ae7768eec3bfa53bfca6d48e4000',
-        v: '20211229',
-        entityTypes: 'location'
-      };
-      var searchText = $('.search_key').val();
-      if (searchText) {
-        var jsstring = {
-          "$or": [
-            {
-              "address.line1": {
-
-                "$contains": searchText
-              }
-            },
-            {
-              "address.line1": {
-
-                "$contains": searchText
-              }
-            },
-            {
-              "address.region": {
-
-                "$contains": searchText
-              }
-            },
-            {
-              "address.countryCode": {
-
-                "$contains": searchText
-              }
-            },
-            {
-              "address.postalCode": {
-
-                "$contains": searchText
-              }
-            }
-          ]
-        };
-        /* 
-        var jsstring = {
-          "address.line1":{
   
-          "$contains":searchText
-          }
-        }; 
-        */
-
-        var filterpar = JSON.stringify(jsstring);
-        var filter = encodeURI(filterpar);
-        var url = "https://liveapi-sandbox.yext.com/v2/accounts/me/entities?filter=" + filter;
-      } else {
-        var url = "https://liveapi-sandbox.yext.com/v2/accounts/me/entities";
-      }
-
-
-
-      $.ajax({
-        url: url,
-        type: "get", //send it through get method
-        data: varData,
-        success: function (result) { // alert();
-          if (!result.errors) {
-            if (result.response.count > 0) {
-              var html = '';
-              $.each(result.response.entities, function (index, entity) {
-                html += '<div data-slug="' + entity.meta.id + '-' + convertToSlug(entity.neighborhood) + '" data-name="' + entity.name + '" data-lat="' + entity.yextDisplayCoordinate.latitude + '" data-lng="' + entity.yextDisplayCoordinate.longitude + '" class="list-group-item w-full px-5 divide-y-2 divide-gray-100 border-b mb-4 border-solid border-gray-300">';
-                html += '<h4 class="text-base font-medium text-textblack mb-1">' + entity.name + '</h4>';
-                html += '<p class="address text-sm font-light text-textblack leading-5 mb-1">';
-                html += entity.address.line1 + ', ' + entity.address.city + ', ' + entitya.ddress.region + ', ' + entity.address.postalCode + ', ' + entity.address.countryCode;
-                html += '</p>';
-                html += '<p class="text-base font-medium text-textblack "><a href="tel:' + entity.mainPhone + '" class="text-primary">' + entity.mainPhone + '</a></p>';
-                html += '<p class="mb-4"><a  href="/location/' + entity.meta.id + '-' + convertToSlug(entity.neighborhood) + '.html">Read More</a></p>';
-                html += '</div>';
-
-              });
-              $(".dimagiHalat").append(html);
-
-              $("#leftside-inner").html(html);
-              (load_map)(window.Mapping = window.Mapping || {}, jQuery);
-            } else {
-              $("#leftside-inner").html('<p class="text-base font-medium text-textblack mb-8">Location not found.</p>');
-            }
-          } else {
-            $("#leftside-inner").html('<p class="text-base font-medium text-textblack mb-8">Location not found.</p>');
-          }
-        },
-        error: function (xhr) {
-          $("#leftside-inner").html('<p class="text-base font-medium text-textblack mb-8">Location not found.</p>');
-        }
-      });
-    });
-  });
-  function initializeAutocomplete() {
-    var input = document.getElementById('search_key');
-    new google.maps.places.Autocomplete(input, {
-      componentRestrictions: { country: ["us"] },
-      fields: ["street_number"],
-      types: ["address"],
-    });
-  }
+  
   // google.maps.event.addDomListener(window, 'load', initializeAutocomplete);
-  function convertToSlug(Text) {
-    // return Text;
-    return Text.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '');
-  }
-   jQuery(function($) {
-     var path = window.location.href; // because the 'href' property of the DOM element is the absolute path
-     $('tab').each(function() {
-      if (this.href === path) {
-       $(this).addClass('active');
-      }
-     });
-    });
+  
+   
 </script>
