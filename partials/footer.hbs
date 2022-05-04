@@ -147,7 +147,7 @@ Registered in England & Wales No.: 4381390 | VAT Reg. : 868 8581 51</p>
                                  let pC = m.address.postalCode;
                                  let mP = m.mainPhone
                                 // console.log(lineOne);
-                                addressHtml += '<li class="px-6 py-2 font-medium text-white w-full rounded-t-lg">'+cty+','+lineOne+','+pC+'<a href=tel:'+mP+'> Tel:'+mP+'</a></li><br>';
+                                addressHtml += '<li>'+cty+','+lineOne+','+pC+'<a href=tel:'+mP+'> Tel:'+mP+'</a></li>';
                               })
                              $(".footerAddress").append(addressHtml);
                             }
