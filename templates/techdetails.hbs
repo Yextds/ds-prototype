@@ -1,7 +1,7 @@
 ---
 {
 "stream": {
-"$id": "tech01-01",
+"$id": "tech_details",
 "source": "knowledgeGraph",
 "destination": "pages",
 "filter": {
@@ -36,7 +36,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>{{name}}</title>
-	<meta name="description" content=Category page for {{name}}.>
+   <meta name="description" content={{c_richTextDescription}}>
 	{{>head}}
 	{{>schema-productCategory}}
 	<link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet">
@@ -120,12 +120,13 @@
   </div>
   </div>
  
-</body>
+
  <div class="w-full site-footer">
     <div class="centered-container">
       {{>footer}}
     </div>
   </div>
+  </body>
 </html>
 
 
