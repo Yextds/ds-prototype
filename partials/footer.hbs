@@ -123,7 +123,9 @@
     jQuery(function ($) {
       $(document).ready(() => {
         $.ajax({
-          url: "https://liveapi-sandbox.yext.com/v2/accounts/me/entities?api_key=b262ae7768eec3bfa53bfca6d48e4000&v=20211229&limit=40&entityTypes=ce_dotsquares_address",
+
+          url: "https://liveapi-sandbox.yext.com/v2/accounts/me/entities?api_key=b262ae7768eec3bfa53bfca6d48e4000&v=20211229&limit=40&entityTypes=ce_dotsAddress",
+
           type: 'GET',
           dataType: 'json',
           success: function (addressRes) {
@@ -132,14 +134,25 @@
             var addressCat = addressResult.response.entities;
             // console.log(cat);
             addressCat.forEach((m, e) => {
+
+              console.log(m.name);
+              let varName = m.name;
+
               console.log(m);
+
               let cty = m.address.city;
               let lineOne = m.address.line1;
               let lineTwo = m.address.line2;
               let pC = m.address.postalCode;
-              let mP = m.mainPhone
-              // console.log(lineOne);
-              addressHtml += '<li>' + '<strong>' + cty + '</strong>' + ',&nbsp;' + lineOne + ',' + pC + '<strong>' + '<a href=tel:' + mP + '> Tel:' + mP + '</a></strong></li>';
+
+              let varRegion = m.address.region;
+              let mP = m.mobilePhone;
+
+               console.log(mP);
+              addressHtml += '<li>' + '<strong>' + varName + '</strong>' + ',&nbsp;' + lineOne + ',' + pC + ','+varRegion+'<strong>' + '<a href=tel:' + mP + '> Tel:' + mP + '</a></strong></li><br>';
+
+             
+
             })
             $(".footerAddress").append(addressHtml);
           }
@@ -152,4 +165,5 @@
 
 
   </div>
+
 </footer>
