@@ -19,10 +19,10 @@
         "name",
         "slug",
         "shortDescription",
-        "c_relatedCategory.yextDisplayCoordinate",
-        "c_relatedCategory.name",
-        "c_relatedCategory.slug",
-        "c_relatedCategory.address"
+        "c_dotsLocation.yextDisplayCoordinate",
+        "c_dotsLocation.name",
+        "c_dotsLocation.slug",
+        "c_dotsLocation.address"
        
       ],
       "localization": {
@@ -40,6 +40,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{name}}</title>
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {{>head}}
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet">
@@ -78,7 +79,9 @@
     box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px;
     border-radius: 2px;
   }
-  
+  .mrigankFooter{
+        background:black;
+  }
   .container {
   position: relative;
   text-align: center;
@@ -151,7 +154,7 @@
 <br>
     <div id="leftside-inner block p-1"
       class="flex flex-wrap list-group-item w-full px-5 divide-y-2 divide-gray-100 border-b mb-4 border-solid border-gray-300 mr-5 ml-5 ">
-      {{#each c_relatedCategory}}
+      {{#each c_dotsLocation}}
 
       <div data-slug={{slug}} data-name='{{name}},{{address.line1}}' data-lat={{yextDisplayCoordinate.latitude}}
         data-lng={{yextDisplayCoordinate.longitude}}
@@ -172,11 +175,11 @@
     </div>
 {{!-- map --}}
 </div>
-
+  <div class="dimagiHalat py-5"></div>
 
   <div class="h-20 w-full ml-3 mr-4" id="map_canvas">
 <div class="address">
-  {{#each c_relatedCategory}}
+  {{#each c_dotsLocation}}
   <p>{{address.line1}}</p>
   {{/each}}
 </div>
@@ -188,13 +191,12 @@
     <p class="text-black py-5">Our offices are conveniently located either 10 mins walk from London Bridge station or just outside Brighton.</p>
 
   </div>
-   
+     
  <div class="w-full site-footer">
           <div class="centered-container">
               {{>footer}}
           </div>
       </div>
-
 
 
 
@@ -264,5 +266,5 @@
   
    
 </script>
- </body> 
+</body>
 </html>

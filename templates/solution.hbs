@@ -41,13 +41,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{name}}</title>
-    <meta name="description" content=Category page for {{name}}.>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
     {{>head}}
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/flowbite@1.4.1/dist/flowbite.min.css" />
     <script src="https://unpkg.com/flowbite@1.4.1/dist/flowbite.js"></script>
     <script src="./TW-ELEMENTS-PATH/dist/js/index.min.js"></script>
-  
+  <style type="text/css">
+      
+     .mrigankFooter{
+        background:black;
+  }
+  </style>
 
 </head>
 
@@ -91,7 +97,7 @@
      <div class="col-span-1"></div>
          
  </div>
-            <div class="bg-black Nav  ml-3 mr-11 rounded">
+            <div class="bg-black Nav dimagiHalat ml-3 mr-11 rounded">
                 <ul class="md:flex items-center bg-black justify-between text-base text-white pt-4 md:pt-0 py-4 px-5 my-2 rounded">
                     <li> 
                     {{#each c_relatedMenuCategory}}
@@ -113,13 +119,14 @@
 
 
     <br>
-     
+   
  
 <div class="w-full site-footer">
     <div class="centered-container">
       {{>footer}}
     </div>
   </div>
+  
   </body>
 </html>
 
