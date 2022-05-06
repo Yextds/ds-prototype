@@ -303,7 +303,7 @@ function renderPaginationLinks(pagesLinks, count = 0) {
     setTimeout(() => {
 
         $(document).on('click', '.page-btn', function() {
-            const limit = 3;
+            const limit = 12;
             const dataId = $(this).attr('data-id');
             const entity = $('.active').attr("data-entitytype");
             console.log(entity);
@@ -315,7 +315,7 @@ function renderPaginationLinks(pagesLinks, count = 0) {
 
             }
             getData(offset, false, entity);
-            const pagLinks = paginate(count, parseInt(dataId), limit, 2);
+            const pagLinks = paginate(count, parseInt(dataId), limit, 3);
             appendpaginationlinks(pagLinks);
         });
 
@@ -325,7 +325,7 @@ function renderPaginationLinks(pagesLinks, count = 0) {
 let offset = 0;
 
 function getData(offset, pagination = true, entitype) {
-    const limit = 3;
+    const limit = 12;
     let request_url =
         api_url +
         "&limit=" +
@@ -348,7 +348,7 @@ function getRequest(request_url, isPagingnation = false) {
         .then((res) => res.json())
         .then(function(data) {
             let count = data.response.count;
-            const limit = 3;            
+            const limit = 12;            
             var cat = data.response.entities;
             var html = "";
             cat.forEach((f, i) => {                
@@ -379,7 +379,7 @@ function getRequest(request_url, isPagingnation = false) {
             
             $('.press').html(html);
 
-            const pagLinks = paginate(count, 1, limit, 2);
+            const pagLinks = paginate(count, 1, limit, 3);
             if (isPagingnation) {
                 renderPaginationLinks(pagLinks, count);
             }
