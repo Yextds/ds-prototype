@@ -5,7 +5,7 @@
 
 /* General Styling */
 .centered-container {
-    @apply mx-auto px-5 md:px-14 max-w-screen-xl;
+    @apply mx-auto px-4 max-w-screen-xl w-full;
 }
 
 .section {
@@ -70,22 +70,17 @@
     @apply ml-4;
 }
 .nav li a{
-    @apply text-white;
+    @apply text-white hover:text-orange-500;
 }
-.nav li a:hover{
-    @apply text-orange-500;
-}
+
 .topnav{
-    @apply px-4 bg-black;
+    @apply px-4 bg-black relative z-30;
 }
 .topnav a{
-    @apply text-white py-2 inline-block;
+    @apply text-white py-2 inline-block hover:text-orange-500;
 }
 .logo{
     @apply py-0;
-}
-.topnav a:hover{
-    @apply text-orange-500;
 }
 .main-menu{
     @apply flex flex-row;
@@ -109,10 +104,7 @@
     @apply block;
 }
 .main-menu .submenu li a{
-    @apply px-4 w-full;
-}
-.main-menu .submenu li a:hover{
-    @apply text-black;
+    @apply px-4 w-full hover:text-black;
 }
 .main-menu .submenu .sub-submenu{
     @apply absolute top-0 left-full flex-col w-64 bg-orange-500 hidden;
@@ -129,10 +121,7 @@
     @apply bg-black py-6 text-white;
 }
 .site-footer a{
-    @apply text-white;
-}
-.site-footer a:hover{
-    @apply text-orange-500;
+    @apply text-white hover:text-orange-500;
 }
 .footer-menu{
     @apply mb-5 flex flex-wrap flex-row;
@@ -152,6 +141,125 @@
 .footerAddress li strong a{
     @apply text-orange-500;
 }
+
+/* Home */
+.home-banner{
+    @apply w-full relative after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-full after:bg-black after:bg-opacity-40 after:z-0;
+}
+.home-banner img{
+    @apply w-full align-bottom;
+}
+.home-banner .banner-content{
+    @apply absolute top-1/2 left-0 transform -translate-y-1/2 z-10 text-white w-full;
+}
+.home-banner h1{
+    @apply text-5xl;
+}
+.banner-bottom-content{
+    @apply py-10 text-center text-3xl;
+}
+.banner-bottom-content .centered-container{
+    @apply max-w-5xl;
+}
+.banner-bottom-content .btn{
+    @apply bg-transparent text-black text-sm font-semibold border border-black px-10 py-2 rounded-md inline-block mt-5 hover:bg-orange-500 hover:border-orange-500 hover:text-white;
+}
+.proud-sec{
+    @apply bg-black py-10 text-center;
+}
+.proud-sec img{
+    @apply mx-auto;
+}
+.our-clients{
+    @apply text-center py-10;
+}
+.our-clients h2{
+    @apply text-4xl font-semibold;
+}
+.clients-list{
+    @apply flex flex-wrap w-full justify-center;
+}
+.clients-list .client-logo{
+    @apply w-1/5 p-3;
+}
+
+
+
+
+
+
+
+
+
+
+/* Page header */
+.page-title{
+    @apply flex h-full bg-black text-white py-40 text-xl font-normal;
+}
+.page-title h1{
+    @apply text-5xl text-orange-500 font-semibold mb-8 max-w-screen-sm;
+}
+.page-title p{
+    @apply max-w-screen-sm;
+}
+.page-title strong{
+    @apply font-normal;
+}
+
+
+
+/* Industries */
+.category-menu{
+    @apply pt-10 mb-8;
+}
+.category-menu ul{
+    @apply bg-black rounded-md px-4 pt-4 pb-2;
+}
+.category-menu ul a{
+    @apply text-white border-r leading-tight inline-block pr-3 mr-3 font-medium hover:text-orange-500;
+}
+.category-menu ul li{
+    @apply inline-block mb-2;
+}
+.category-block{
+    @apply mb-5;
+}
+.category-block .inner-block{
+    @apply relative inline-block align-bottom w-full overflow-hidden;
+}
+.category-block img{
+    @apply w-full object-cover object-center aspect-square;
+}
+.cate-title{
+    @apply absolute bottom-0 left-0 w-full p-4 leading-7 text-white bg-black bg-opacity-70;
+}
+.inner-block:hover .cate-title{
+    @apply hidden;
+}
+.hover-content{
+    @apply absolute top-full left-0 w-full bg-black bg-opacity-70 text-white h-full p-4 text-sm transition transition-all;
+}
+.inner-block:hover .hover-content{
+    @apply top-0 mt-0;
+}
+.hover-content h5{
+    @apply font-normal text-white text-xl mb-3;
+}
+.btn-primary{
+    @apply bg-orange-500 text-white py-3 px-8 rounded-md inline-block mt-5 uppercase;
+}
+
+/* industries details */
+.categories-details{
+    @apply pb-16 pt-4;
+}
+.categories-details h3{
+    @apply text-xl text-orange-500 font-semibold my-4;
+}
+.categories-details ul li{
+    @apply mb-2 pl-5 relative block before:content-[''] before:absolute before:top-2 before:left-0 before:w-2.5 before:h-1.5 before:transform before:-rotate-45 before:border-b-2 before:border-l-2 before:border-orange-500;
+}
+
 
 
 

@@ -1,173 +1,115 @@
 ---
 {
-    "stream": {
-        "$id": "industry-listing-categories",
-        "source": "knowledgeGraph",
-        "destination": "pages",
-      "filter": {
-        "entityTypes": [
-          "ce_dotsquaresPrototype"
-        ],
-        "savedFilterIds":[
-          "924805508"
-        ]
-      },
-      "fields": [
-        "id",
-        "uid",
-        "meta",
-        "name",
-        "slug",
-        "shortDescription",
-        "c_relatedCategory.photoGallery",
-        "c_relatedCategory.name",
-        "c_relatedCategory.shortDescription",
-        "c_relatedCategory.slug"
-      ],
-      "localization": {
-          "locales": ["en"]
-      }
-    },
-    "urlFormat": "{{slug}}"
+"stream": {
+"$id": "industry-listing-categories",
+"source": "knowledgeGraph",
+"destination": "pages",
+"filter": {
+"entityTypes": [
+"ce_dotsquaresPrototype"
+],
+"savedFilterIds":[
+"924805508"
+]
+},
+"fields": [
+"id",
+"uid",
+"meta",
+"name",
+"slug",
+"shortDescription",
+"c_relatedCategory.photoGallery",
+"c_relatedCategory.name",
+"c_relatedCategory.shortDescription",
+"c_relatedCategory.slug"
+],
+"localization": {
+"locales": ["en"]
+}
+},
+"urlFormat": "{{slug}}"
 }
 ---
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{name}}</title>
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {{>head}}
-    <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/flowbite@1.4.1/dist/flowbite.min.css" />
-    <script src="https://unpkg.com/flowbite@1.4.1/dist/flowbite.js"></script>
-    <script src="./TW-ELEMENTS-PATH/dist/js/index.min.js"></script>
-
-<style>
-  .topnav{
-    background: black;
-  }
-.container {
-  position: relative;
-  width: 80%;
-}
-
-.image {
-  opacity: 1;
-  display: block;
-  width: 100%;
-  height: auto;
-  transition: .5s ease;
-  backface-visibility: hidden;
-}
-
-.middle {
-  transition: .5s ease;
-  opacity: 0;
-  position: absolute;
-  top: 50%;
-  left: 35%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  text-align: center;
-}
-
-.container:hover .image {
-  opacity: 0.3;
-}
-
-.container:hover .middle {
-  opacity: 1;
-}
-
-.text {
-  
-  color: white;
-  font-size: 16px;
-
-  display: block;
-  width: 100%;
-  height: auto;
-}
-.mrigankFooter{
-        background: #050505;
-  }
-  .heading{
-    padding-bottom: 40;
-    margin-bottom: 40;
-  }
-</style>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>{{name}}</title>
+  <meta name="description" content=Category page for {{name}}.>
+  {{>head}}
+  <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/flowbite@1.4.1/dist/flowbite.min.css" />
+  <script src="https://unpkg.com/flowbite@1.4.1/dist/flowbite.js"></script>
+  <script src="./TW-ELEMENTS-PATH/dist/js/index.min.js"></script>
 </head>
 
 
-    <body>
-        
-    {{>navbar}}
+<body>
+
+  {{>navbar}}
 
 
-   <div class="flex h-full py-8 px-6 mx-auto bg-black heading pb-40">
-                  <div class=" text-white px-6 md:px-12 pb-40">
-                    <h1 class=" md:text-5xl xl:text-5xl font-bold tracking-tight mb-12 text-yellow-500 firstHeader">
-                    {{name}}<br />
-                    </h1>
-                    <p class="text-white ">{{convertRTFToHTML shortDescription}}</p>
-                  
-                  </div>
-                </div>
-{{!--  --}}
-      <ul class="md:flex items-center bg-black justify-between text-base text-white pt-4 md:pt-0 py-4 px-5 my-2">
-                     <li> {{#each c_relatedCategory}}
-                        <a class="inline-block no-underline hover:text-yellow-500 py-1 px-2" href={{slug}}>{{name}}</a>
-                        
-                       {{/each}}
-                      </li>
-                    </ul>
-
-                  
-{{!-- cards --}}
-
-<div  class="grid grid-cols-3 justify-evenly mb-10 "> 
-  {{#each c_relatedCategory}} 
-  {{#if photoGallery}}
-        <div class=" container ml-20">
-          <a class="inline-block" href={{slug}}>
-              <img class=" image" src="{{photoGallery.[0].image.url}}" alt="">
-           
-           
-        </a>
-        <div class="middle">
-           <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-00 dark:text-white ">{{name}}</h5>
-        <p class="text ">{{convertRTFToHTML shortDescription}}</p>
-          <a href="{{slug}}" class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" >
-            Read more
-         
-        </a>
-        </div>
-        </div class=""> 
-         {{else}}
-          <a class="inline-block" href={{slug}}>
-              
-            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-00 dark:text-white ">{{name}}</h5>
-           
-        </a>
-         <p class="text ">{{convertRTFToHTML shortDescription}}</p>
-
-            {{/if}}
-        {{/each}}   
-    </div> 
-    <br>
-    
- 
-
-<div class="w-full site-footer">
+  <div class="page-title">
     <div class="centered-container">
-      {{>footer}}
+      <h1>
+        {{name}}
+      </h1>
+      <p>{{convertRTFToHTML shortDescription}}</p>
     </div>
   </div>
-</body> 
+  {{!-- --}}
+  <div class="category-menu">
+    <div class="centered-container">
+      <ul>
+        {{#each c_relatedCategory}}
+        <li>
+          <a href={{slug}}>{{name}}</a>
+        </li>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+
+  {{!-- cards --}}
+  <div class="categories">
+    <div class="centered-container">
+      <div class="grid grid-cols-3 justify-evenly mb-10 -mx-4">
+        {{#each c_relatedCategory}}
+        {{#if photoGallery}}
+        <div class="category-block px-4">
+          <div class="inner-block" href={{slug}}>
+            <img class=" image" src="{{photoGallery.[0].image.url}}" alt="">
+            <h5 class="cate-title">{{name}}</h5>
+            <div class="hover-content">
+              <h5>{{name}}</h5>
+              <p class="text ">{{convertRTFToHTML shortDescription}}</p>
+              <a href="{{slug}}" class="btn-primary">
+                Read more
+
+              </a>
+            </div>
+          </div>
+        </div>
+        {{else}}
+        <a class="inline-block" href={{slug}}>
+
+          <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-00 dark:text-white ">{{name}}</h5>
+
+        </a>
+        <p class="text ">{{convertRTFToHTML shortDescription}}</p>
+
+        {{/if}}
+        {{/each}}
+      </div>
+    </div>
+  </div>
+
+  {{>footer}}
+</body>
+
 </html>
