@@ -44,7 +44,39 @@
       <link rel="stylesheet" href="https://unpkg.com/flowbite@1.4.1/dist/flowbite.min.css" />
       <script src="https://unpkg.com/flowbite@1.4.1/dist/flowbite.js"></script>
       <script src="./TW-ELEMENTS-PATH/dist/js/index.min.js"></script>
-     
+      <style>
+         /* Still use global css (not utility css) for base typography etc? */
+         p {
+         margin-bottom: 0.8em;
+         }
+         .topnav{
+         background: black;
+         }
+         .mrigankFooter{
+         background: black;
+         }
+         .pressNavbar{
+         padding-top: 180px;
+         padding-bottom: 10px;
+         padding-left: 450px;
+         }
+         .active{
+         color: rgba(248, 170, 1, 0.76);
+         }
+         .text-block {
+         position: absolute;
+         bottom: 170px;
+         left: 10px;
+         background-color: black;
+         color: white;
+         padding-left: 20px;
+         padding-right: 20px;
+         }
+         .container {
+         position: relative;
+         font-family: Arial;
+         }
+      </style>
    </head>
    <body>
       {{>navbar}}
@@ -66,12 +98,12 @@
       <div class="contain-pagination"></div>
       </div>
       {{!-- footer --}}
-    <div class="w-full site-footer">
-          <div class="centered-container">
-              {{>footer}}
-          </div>
+      <div class="w-full mrigankFooter">
+         <div class="centered-container">
+            {{>footer}}
+         </div>
       </div>
-
+</html>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">  </script>
 
 <script type="text/javascript">
@@ -227,12 +259,17 @@ function paginate(totalItems, currentPage, pageSize, maxPages) {
         pages: pages
     };
 }
-
+//console.log(paginate(70, 1, 10, 5));
 function appendpaginationlinks(pagesLinks) {
 
+   // console.log('pagesLinks', pagesLinks)
     const pages = pagesLinks.pages;
     const totalPages = pagesLinks.totalPages;
     const currentPage = pagesLinks.currentPage;
+    //console.log(pages.length);
+    if(pages.length>1){
+
+
 
     var pagehtml = "<div class=flex-inline>";
     pagehtml += "<ul class='pagination  relative z-0 inline-flex rounded-md shadow-sm -space-x-px'>";
@@ -249,6 +286,7 @@ function appendpaginationlinks(pagesLinks) {
     pages.forEach((e) => {
 
         var isActive = "";
+
         if (e == currentPage) {
             isActive = "active";
         }
@@ -262,21 +300,26 @@ function appendpaginationlinks(pagesLinks) {
 
     pagehtml += "</ul></div>";
 
+}
+else{
+    pagehtml ="";
+}
+
     $(".contain-pagination").empty();
     $('.contain-pagination').append(pagehtml);
 }
 
 function renderPaginationLinks(pagesLinks, count = 0) {
-    const currentPage = pagesLinks.currentPage;
+       const currentPage = pagesLinks.currentPage;
     appendpaginationlinks(pagesLinks);
 
     setTimeout(() => {
 
         $(document).on('click', '.page-btn', function() {
-            const limit = 12;
+            const limit = 10;
             const dataId = $(this).attr('data-id');
             const entity = $('.active').attr("data-entitytype");
-            console.log(entity);
+            //console.log(entity);
             const newOffset = (limit * Number(dataId)) - (limit);
             offset = newOffset;
             // alert(offset);
@@ -285,7 +328,8 @@ function renderPaginationLinks(pagesLinks, count = 0) {
 
             }
             getData(offset, false, entity);
-            const pagLinks = paginate(count, parseInt(dataId), limit, 3);
+            const pagLinks = paginate(count, parseInt(dataId), limit, 2);
+         
             appendpaginationlinks(pagLinks);
         });
 
@@ -295,7 +339,7 @@ function renderPaginationLinks(pagesLinks, count = 0) {
 let offset = 0;
 
 function getData(offset, pagination = true, entitype) {
-    const limit = 12;
+    const limit = 10;
     let request_url =
         api_url +
         "&limit=" +
@@ -311,14 +355,14 @@ function getData(offset, pagination = true, entitype) {
 }
 
 function getRequest(request_url, isPagingnation = false) {
- console.log(request_url);
+ //console.log(request_url);
     fetch(request_url, {
             method: "GET"
         })
         .then((res) => res.json())
         .then(function(data) {
             let count = data.response.count;
-            const limit = 12;            
+            const limit = 10;            
             var cat = data.response.entities;
             var html = "";
             cat.forEach((f, i) => {                
@@ -343,19 +387,19 @@ function getRequest(request_url, isPagingnation = false) {
 
                 });
                 
-                
+            
 
             });
             
             $('.press').html(html);
-
-            const pagLinks = paginate(count, 1, limit, 3);
-            if (isPagingnation) {
+             var pagLinks = paginate(count, 1, limit, 2);
+             if(isPagingnation){
                 renderPaginationLinks(pagLinks, count);
             }
-
-
+          
+            
         })
+
         .catch((err) => {
             alert("There was an error");
             console.error(err);
@@ -365,5 +409,3 @@ function getRequest(request_url, isPagingnation = false) {
    
    
 </script>
-</body>
-   </html>
