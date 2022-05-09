@@ -72,16 +72,24 @@
           <nav>
             <ul class="main-menu">
               {{#each c_relatedCategory}}
+            
               <li class="nameList"><a href="{{slug}}">{{name}}</a>
                 <ul class="submenu">
+               
                   {{#each c_relatedCategory}}
-                  <li class="newList2"><a href="{{slug}}">{{name}}</a>
+              
+                    {{#if name}}  
+                      <li class="newList2"><a href="{{slug}}">{{name}}</a>
+                         
+                    
+                   
                     <ul class="sub-submenu">
                       {{#each c_relatedMenuCategory}}
                       <li class="newList1"><a href="{{slug}}">{{name}}</a></li>
                       {{/each}}
                     </ul>
                   </li>
+                  {{/if}}
                   {{/each}}
                 </ul>
               </li>
