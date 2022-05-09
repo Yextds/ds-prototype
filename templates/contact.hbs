@@ -19,9 +19,9 @@
         "name",
         "slug",
         "shortDescription",
+       "c_dotsLocation.name",
+       "c_dotsLocation.slug",
         "c_dotsLocation.yextDisplayCoordinate",
-        "c_dotsLocation.name",
-        "c_dotsLocation.slug",
         "c_dotsLocation.address"
        
       ],
@@ -124,7 +124,7 @@
 
 <br>
 
-{{>form}}
+
   
 
 <br>
@@ -150,21 +150,23 @@
 </div>
 {{!-- map details--}}
 <br>
-    <div id="leftside-inner block p-1"
+     <div id="leftside-inner block p-1"
       class="flex flex-wrap list-group-item w-full px-5 divide-y-2 divide-gray-100 border-b mb-4 border-solid border-gray-300 mr-5 ml-5 ">
+    
       {{#each c_dotsLocation}}
 
-      <div data-slug={{slug}} data-name='{{name}},{{address.line1}}' data-lat={{yextDisplayCoordinate.latitude}}
+      <div data-slug={{slug}} data-name='{{name}}' data-lat={{yextDisplayCoordinate.latitude}}
         data-lng={{yextDisplayCoordinate.longitude}}
-        class="list-group-item flex flex-wrap text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400 tab">
+        class="list-group-item flex flex-wrap text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400">
 
 
         <ul
           class="">
           <li class="mr-2">
             <h4 aria-current="page"
-              class="inline-block p-4 text-black-1000 font-bold bg-gray-100 rounded-t-lg dark:bg-gray-800 hover:bg-yellow-300 ">
+              class="inline-block p-4 text-black-1000 text-bold bg-gray-100 rounded-t-lg dark:bg-gray-800  hover:bg-yellow-300">
               {{name}}</h4>
+             
           </li>
         </ul>
 

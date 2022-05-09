@@ -149,9 +149,19 @@
               let mP = m.mobilePhone;
 
                console.log(mP);
+               if (pC === undefined) {
+                  addressHtml += '<li>' + '<strong>' + varName + '</strong>' + ',&nbsp;' + lineOne + '<strong>' + '<a href=tel:' + mP + '> Tel:' + mP + '</a></strong></li>';
+               }
+              
+               else  if (varRegion === undefined) {
+                  addressHtml += '<li>' + '<strong>' + varName + '</strong>' + ',&nbsp;' + lineOne + ',' + pC + '<strong>' + '<a href=tel:' + mP + '> Tel:' + mP + '</a></strong></li>';
+               }
+               else{
+
+              
               addressHtml += '<li>' + '<strong>' + varName + '</strong>' + ',&nbsp;' + lineOne + ',' + pC + ','+varRegion+'<strong>' + '<a href=tel:' + mP + '> Tel:' + mP + '</a></strong></li>';
 
-             
+              }
 
             })
             $(".footerAddress").append(addressHtml);
