@@ -39,7 +39,32 @@
     {{>head}}
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet">
     
+     <style type="text/css">
+     
+     
+       .addReadMore .SecSec,
+    .addReadMore.showlesscontent .readLess {
+        display: none;
+    }
+
+    .addReadMore.showmorecontent .readMore {
+        display: none;
+    }
+
+    .addReadMore .readMore
+    {
+        font-weight: bold;
+        margin-left: 2px;
+        color: rgb(255, 174, 0);
+        cursor: pointer;
+    }
+
+    .addReadMoreWrapTxt.showmorecontent .SecSec {
+        display: block;
+    }
+    </style>
 </head>
+
 
     <body>
      {{>navbar}}   
@@ -62,11 +87,11 @@
             {{#each c_relatedFAQs}}
             <div class="w-full lg:w-1/2 px-4 py-2">
               <details class="mb-4">
-                <summary class="font-semibold  bg-gray-200 rounded-md py-2 px-4">
+                <summary class="font-semibold  bg-gray-200 rounded-md py-2 px-4 text-center">
                   {{question}}
                 </summary>
                   <a href="{{slug}}">
-                <span class="addReadMore showlesscontent">
+                <span class="addReadMore">
                   {{answer}}
                 </span>
                 </a>
@@ -105,7 +130,7 @@ function AddReadMore() {
         if (allstr.length > carLmt) {
             var firstSet = allstr.substring(0, carLmt);
             var secdHalf = allstr.substring(carLmt, allstr.length);
-            var strtoadd = firstSet + "<span class='SecSec'>" + secdHalf + "</span><span class='readMore'  title='Click to Show More'>" + readMoreTxt + "</span><span class='readLess' title='Click to Show Less'>" + readLessTxt + "</span>";
+            var strtoadd = firstSet + "<span class='SecSec'>" + secdHalf + "</span><span class='readMore'  title='Click to Show More'>" + readMoreTxt + "</span>";
             $(this).html(strtoadd);
         }
 
