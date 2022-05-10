@@ -1,1 +1,1 @@
-# Welcome to Yext Sites!
+# Welcome to Dotsquares Sites!
