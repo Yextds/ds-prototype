@@ -39,13 +39,9 @@
   {{>head}}
   <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/flowbite@1.4.1/dist/flowbite.min.css" />
-
 </head>
-
 <body>
-
   {{>navbar}}
-
   <div class="page-title">
     <div class="centered-container">
       <h1>
@@ -54,27 +50,21 @@
       <p>{{convertRTFToHTML shortDescription}}</p>
     </div>
   </div>
-
-
   <div class="category-menu">
     <div class="centered-container">
-      <ul class="submenu">
-      </ul>
+      <ul class="submenu"></ul>
     </div>
   </div>
-
   <div class="categories-details">
     <div class="centered-container">
       <div>{{convertRTFToHTML richTextDescription}}</div>
       {{#if c_service}}
-      <h3 class="text-xl">Services Provided by Dotsquares</h3>
-      <ul>
-
-        {{#each c_service}}
-        <li> {{this}}</li>
-        {{/each}}
-
-      </ul>
+        <h3 class="text-xl">Services Provided by Dotsquares</h3>
+        <ul>
+          {{#each c_service}}
+            <li> {{this}}</li>
+          {{/each}}
+        </ul>
       {{/if}}
     </div>
   </div>
@@ -85,33 +75,32 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">  </script>
   <script type="text/javascript">
-    $(document).ready(function () {
-      var pathname = window.location.pathname.replace('/', '');
-      $.ajax({
-        url: "https://liveapi-sandbox.yext.com/v2/accounts/me/entities?api_key=b262ae7768eec3bfa53bfca6d48e4000&v=20211229&limit=40&entityTypes=ce_industries_detail",
-        type: 'GET',
-        dataType: 'json',
-        success: function (res) {
-          var html = "";
-          var result = res;
-          var cat = result.response.entities;
-          // console.log(cat);
-          cat.forEach((f, i) => {
-            let n = f.name; // Here n means Name
-            let s = f.slug; // Here s means Slug
+      $(document).ready(function () {
+          var pathname = window.location.pathname.replace("/", "");
+          $.ajax({
+              url: "https://liveapi-sandbox.yext.com/v2/accounts/me/entities?api_key=b262ae7768eec3bfa53bfca6d48e4000&v=20211229&limit=40&entityTypes=ce_industries_detail",
+              type: "GET",
+              dataType: "json",
+              success: function (res) {
+                  var html = "";
+                  var result = res;
+                  var cat = result.response.entities;
+                  // console.log(cat);
+                  cat.forEach((f, i) => {
+                      let n = f.name; // Here n means Name
+                      let s = f.slug; // Here s means Slug
 
-            let activeClass = '';
-            if (s == pathname) {
-              activeClass = 'active';
-            }
+                      let activeClass = "";
+                      if (s == pathname) {
+                          activeClass = "active";
+                      }
 
-            html += '<li><a class="bg-black text-white hover:text-yellow-500 ' + activeClass + ' ml-3 mr-3 " data-id="' + s + '" href=' + s + '>' + n + '</a></li>';
-
-          })
-          $(".submenu").append(html);
-        }
-      })
-    }); 
+                      html += '<li><a class="bg-black text-white hover:text-yellow-500 ' + activeClass + ' ml-3 mr-3 " data-id="' + s + '" href=' + s + ">" + n + "</a></li>";
+                  });
+                  $(".submenu").append(html);
+              },
+          });
+      });
   </script>
 </body>
 
