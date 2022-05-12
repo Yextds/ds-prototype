@@ -58,28 +58,16 @@
     <div>
 
           <!-- Section: Design Block -->
-          <section class="mb-40">
-          <div
-              class="relative overflow-hidden bg-no-repeat bg-cover"
-              style="
-                background-position: 50%;
-                background-image: url('https://i.pinimg.com/736x/62/cb/b8/62cbb8138fd6c38a72198e09859a5426.jpg');
-                height: 500px;">
-              <div
-                class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed"
-                style="background-color: rgba(0, 0, 0, 0.75)"
-              >
-                <div class="flex h-full">
-                  <div class=" text-white px-6 md:px-12">
-                    <h1 class="text-5xl md:text-6xl xl:text-6xl font-bold tracking-tight mb-12 firstHeader">
-                      Start Up Solutions<br />
-                    </h1>
-                  
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
+          <section class="mb-10">
+          
+          
+<div class="page-title">
+    <div class="centered-container">
+      <h1>Start Up Solutions </h1>
+    </div>
+  </div>
+
+                  </section>
           <!-- Section: Design Block -->
 
     </div>
@@ -88,66 +76,83 @@
     <!-- Image banner code ends here -->
             
             <!-- Paragraph code starts here -->
+               <div class="centered-container text-center">
+
             <div class="start_up_title_head">
             <h1 class="text-4xl md:text-4xl xl:text-4xl font-bold tracking-tight mb-2">{{c_richTextDescription}}</h1>
 
             <p>{{c_description1}}</p>
             </div>
+               <h2 class="title-heading text-4xl md:text-4xl xl:text-4xl font-bold tracking-tight mb-2">“The Start-Up Process!”</h2>
 
+           </div>
             <!-- Paragraph code ends here -->
-              <h2 class="title-heading">“The Start-Up Process!”</h2>
+              
 
               <!-- Startups list code start here -->
-              <div class="start-up_process">
+              <div class="start-up_process pt-12">
+              <div class="centered-container text-center">
+                  <div class="flex gap-4 flex-wrap justify-center start-flex">
+
                 {{#each c_related01}}
-                  <div class="flex justify-center">
-                    <div class="block rounded-lg shadow-lg bg-white max-w-sm text-center startupCardLists">
-                      <div class="p-6">
+                    <div class="block bg-[#f5821f] card-bx rounded-lg shadow-lg bg-white max-w-sm text-center startupCardLists">
+                      <div class="p-16">
                         <h5 class="text-xl font-bold mb-2 text-white">{{name}}</h5>
                         <p class="text-white text-base mb-4">
                           {{c_description1}}
                         </p>
                       </div>
                     </div>
-                  </div>
                   {{/each}}
+                                    </div>
+
+                  </div>
               </div>              
 
 
               <!-- Startup list code ends here -->
 
               <!-- Paragraph after Startup list starts here -->
+                          <div class="centered-container pt-10 text-center">
+
               <div class="text-center paragraph1">
                 <p>Since 2002, Dotsquares has emerged as one of the industry leading IT companies, teaming dynamic solutions and experienced Start-up Solution developers. <br>Being a global brand has enabled us to engage visitors from the US, UK, Australia, France, New Zealand and many other parts of the world</p>
               </div>
+</div>
+
+
               <!-- Paragraph after Startup list ends here -->
 
 
 
 <!-- Dotsquares – The ultimate Start-up Partnership! Code starts here -->
+   
+      <div class="bg-black my-12 pb-12">
+
    <div class="patnershipHeading">
-     <h2 class="title-headingPartnership">Dotsquares – The ultimate Start-up Partnership!</h2>
+     <h2 class=" title-heading text-4xl text-center py-10 text-white md:text-4xl xl:text-4xl font-bold tracking-tight mb-2">Dotsquares – The ultimate Start-up Partnership!</h2>
    </div>
   
               <div class="start-up_processPartnership">
                 
+                                  <div class="flex gap-4 flex-wrap justify-center start-flex">
+
                 {{#each c_relatedCategory}}
                 
-                  <div class="flex justify-center innerDivOFPartnership">
 
-                    <div class="block rounded-lg shadow-lg bg-white max-w-sm text-center startupCardListsPartnership">
+                    <div class="block border rounded-lg shadow-lg   max-w-sm text-center startupCardListsPartnership">
                       <div class="p-6Partnership">
                         <img src="{{photoGallery.[0].image.url}}" style="margin-left: 140px; margin-bottom: 10px;margin-top: 10px;">
-                        <h5 class="text-xl font-bold mb-2 text-white">{{name}}</h5>
+                        <h5 class="text-xl font-bold mb-2 text-amber-600">{{name}}</h5>
                         <p class="text-white text-base mb-4">
                           {{c_description}}
                         </p>
                       </div>
                     </div>
-                  </div>
                   {{/each}}
               </div>
-
+              </div>
+</div>
  
 
 
@@ -155,6 +160,125 @@
 <!-- Dotsquares – The ultimate Start-up Partnership! Code ends here -->
 
         </div>
+
+<div class="centered-container mb-20">
+
+<table class="table-fixed hover:table-fixed text-center border-collapse  w-full text-sm">
+  <thead>
+    <tr  class="bg-black py-3 text-white">
+           <th  class=" py-3 bg-amber-600 "></th>
+          <th  class=" py-3">Start-Up</th>
+      <th class=" py-3">Scale-Up</th>
+      <th class=" py-3 ">Mature</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="border-b   py-3  border-gray-300">
+      <td class=" py-3">Developer / s	</td>
+      <td class=" py-3">1	</td>
+      <td class=" py-3">5</td>
+      <td class=" py-3">10</td>
+    </tr>
+    <tr class="border-b py-3 bg-gray-200 border-gray-300">
+      <td class=" py-3">Developer / s	</td>
+      <td class=" py-3">1	</td>
+      <td class=" py-3">5</td>
+      <td class=" py-3">2</td>
+    </tr>
+
+    <tr class="border-b py-3  border-gray-300">
+      <td class=" py-3">Quality Analyst / s		</td>
+      <td class=" py-3">1	</td>
+      <td class=" py-3">1</td>
+      <td class=" py-3">2</td>
+    </tr>
+
+    <tr class="border-b py-3  bg-gray-200 border-gray-300">
+      <td class=" py-3">PM from India		</td>
+      <td class=" py-3">-	</td>
+      <td class=" py-3">yes</td>
+      <td class=" py-3">yes</td>
+    </tr>
+
+    <tr class="border-b py-3  border-gray-300">
+      <td class=" py-3">PM from UK		</td>
+      <td class=" py-3">-	</td>
+      <td class=" py-3">-</td>
+      <td class=" py-3">yes</td>
+    </tr>
+
+    <tr class="border-b py-3  bg-gray-200 border-gray-300">
+      <td class=" py-3">Account Manager		</td>
+      <td class=" py-3">yes	</td>
+      <td class=" py-3">yes</td>
+      <td class=" py-3">yes</td>
+    </tr>
+
+    <tr class="border-b py-3  border-gray-300">
+      <td class=" py-3">Digital Marketing	</td>
+      <td class=" py-3">Optional</td>
+      <td class=" py-3">Optional</td>
+      <td class=" py-3">Optional</td>
+    </tr>
+
+    <tr class="border-b py-3  bg-gray-200 border-gray-300">
+      <td class=" py-3">Access to Project Management System		</td>
+      <td class=" py-3">Yes	</td>
+      <td class=" py-3">Yes</td>
+      <td class=" py-3">Yes</td>
+    </tr>
+
+    <tr class="border-b py-3  border-gray-300">
+      <td class=" py-3">Daily Project Updates		</td>
+      <td class=" py-3">Yes	</td>
+      <td class=" py-3">Yes</td>
+      <td class=" py-3">Yes</td>
+    </tr>
+
+    <tr class="border-b py-3  bg-gray-200 border-gray-300">
+      <td class=" py-3">Project Team Skype / Phone Access	</td>
+      <td class=" py-3">Yes	</td>
+      <td class=" py-3">Yes</td>
+      <td class=" py-3">Yes</td>
+    </tr>
+
+    <tr class="border-b py-3  border-gray-300">
+      <td class=" py-3">IPR & Source code	</td>
+      <td class=" py-3">Yes	</td>
+      <td class=" py-3">Yes</td>
+      <td class=" py-3">Yes</td>
+    </tr>
+
+    <tr class="border-b py-3  bg-gray-200 border-gray-300">
+      <td class=" py-3">NDA</td>
+      <td class=" py-3">Yes	</td>
+      <td class=" py-3">Yes</td>
+      <td class=" py-3">Yes</td>
+    </tr>
+
+    <tr class="border-b py-3  border-gray-300">
+      <td class=" py-3">Onsite Development		</td>
+      <td class=" py-3">-	</td>
+      <td class=" py-3">Optional</td>
+      <td class=" py-3">Optional</td>
+    </tr>
+
+    <tr class="border-b py-3  bg-gray-200 border-gray-300">
+      <td class=" py-3">Managed Hosting (Server/Cloud)	</td>
+      <td class=" py-3">Optional		</td>
+      <td class=" py-3">Optional	</td>
+      <td class=" py-3">Optional	</td>
+    </tr>
+
+
+  </tbody>
+</table>
+
+
+</div>
+
+
+
         <div class="w-full site-footer">
     <div class="centered-container">
       {{>footer}}

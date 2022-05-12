@@ -19,9 +19,9 @@
         "name",
         "slug",
         "shortDescription",
-       "c_dotsLocation.name",
-       "c_dotsLocation.slug",
         "c_dotsLocation.yextDisplayCoordinate",
+        "c_dotsLocation.name",
+        "c_dotsLocation.slug",
         "c_dotsLocation.address"
        
       ],
@@ -48,60 +48,6 @@
     <script src="https://unpkg.com/flowbite@1.4.1/dist/flowbite.js"></script>
     <script src="./TW-ELEMENTS-PATH/dist/js/index.min.js"></script>
 
-<style>
-  .topnav{
-    background: black;
-  }
-
-
-  .heading{
-    padding-bottom: 40;
-    margin-bottom: 40;
-  }
-
-  #map_canvas {
-    height: 400px;
-    /* The height is 400 pixels */
-    width: 100%;
-    /* The width is the width of the web page */
-  }
-
-  .class {
-    position: absolute;
-    left: 0px;
-    top: 0px;
-  }
-
-  .card {
-    background-color: white;
-    margin: 10px;
-    padding: 1px;
-    box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px;
-    border-radius: 2px;
-  }
- 
-  .container {
-  position: relative;
-  text-align: center;
-  color: white;
-}
-  .left {
-  position: absolute;
-  top: 60%;
-  right: 65%;
-  transform: translate(-50%, -80%);
-}
- .right {
-  position: absolute;
-  top: 50%;
-  left: 80%;
-  transform: translate(-50%, -50%);
-}
- .active{
-    color: rgba(248, 170, 1, 0.76);
-  }
-</style>
-
 
 </head>
 
@@ -109,64 +55,59 @@
     <body>
         
     {{>navbar}}
+<div class="page-title">
+    <div class="centered-container">
+      <h1> Say Hello      </h1>
+      <p>{{convertRTFToHTML shortDescription}}</p>
+    </div>
+  </div>
 
 
-   <div class="flex h-full py-8 px-6 mx-auto bg-black heading pb-40">
-                  <div class=" text-white px-6 md:px-12 pb-40">
-                    <h1 class=" md:text-5xl xl:text-5xl font-bold tracking-tight mb-12 text-yellow-500 firstHeader">
-                    Say Hello.<br />
-                    </h1>
-                    <p class="text-white font-bold tracking-tight">{{convertRTFToHTML shortDescription}}</p>
-                  
-                  </div>
-                </div>
-{{!--  --}}
-
-<br>
-
-
+{{>form}}
   
 
 <br>
 {{!--image  --}}
-<div class="flex h-full py-8 mx-auto heading pb-40 container">
-<img class="object-fill h-48 w-full img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6eYNHAY3_78neA6RyZmR1dGrhUV2JOMLvfQ&usqp=CAU" alt="">
-<div class="left">
-<h1 class="xl:text-3xl font-bold tracking-tight text-yellow-500">Brighton</h1>
-<p class="text-white">Unit 2, Albourne Court, Henfield Road
-</p >
-<p class="text-white">Albourne, West Sussex BN6 9FF, UK</p>
-<p class="xl:text-2xl font-bold tracking-tight text-yellow-500">+44 1273 575190</p>
+<div class="flex h-full  before:block before:absolute before:left-0 before:top-0  before:right-0 before:bottom-0 before:bg-black before:bg-opacity-60 before:w-full before:h-auto  py-0 mx-auto heading pb-0  relative">
+<img class="object-cover h-80 w-full img  " src="https://www.dotsquares.com/images/office_pic.jpg" alt="">
+<div class="absolute left-0  right-0  top-1/2 transform -translate-y-1/2  ">
+
+<div class="container mx-auto  flex justify-between   ">
+<div class="left-address ">
+  <h1 class="xl:text-3xl font-bold tracking-tight text-yellow-500">Brighton</h1>
+  <p class="text-white">Unit 2, Albourne Court, Henfield Road
+  </p>
+  <p class="text-white">Albourne, West Sussex BN6 9FF, UK</p>
+  <p class="xl:text-2xl font-bold tracking-tight text-yellow-500">+44 1273 575190</p>
 </div>
 
-<div class="right">
-<h1 class="xl:text-3xl font-bold tracking-tight text-yellow-500">London</h1>
-<p class="text-white">Unit 2 Hobbs Court
-2 Jacob Street, London SE1 2BG.</p>
-<p class="xl:text-2xl font-bold tracking-tight text-yellow-500">+44 208 0901819</p>
+<div class="right-address text-right">
+  <h1 class="xl:text-3xl font-bold tracking-tight text-yellow-500">London</h1>
+  <p class="text-white">Unit 2 Hobbs Court
+    2 Jacob Street, London SE1 2BG.</p>
+  <p class="xl:text-2xl font-bold tracking-tight text-yellow-500">+44 208 0901819</p>
 </div>
-
+</div>
   
 </div>
-{{!-- map details--}}
-<br>
-     <div id="leftside-inner block p-1"
+
+</div>
+  {{!-- map details--}}
+    <div id="leftside-inner block p-1"
       class="flex flex-wrap list-group-item w-full px-5 divide-y-2 divide-gray-100 border-b mb-4 border-solid border-gray-300 mr-5 ml-5 ">
-    
       {{#each c_dotsLocation}}
 
-      <div data-slug={{slug}} data-name='{{name}}' data-lat={{yextDisplayCoordinate.latitude}}
+      <div data-slug={{slug}} data-name='{{name}},{{address.line1}}' data-lat={{yextDisplayCoordinate.latitude}}
         data-lng={{yextDisplayCoordinate.longitude}}
-        class="list-group-item flex flex-wrap text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400">
+        class="list-group-item flex flex-wrap text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400 tab">
 
 
         <ul
           class="">
           <li class="mr-2">
             <h4 aria-current="page"
-              class="inline-block p-4 text-black-1000 text-bold bg-gray-100 rounded-t-lg dark:bg-gray-800  hover:bg-yellow-300">
+              class="inline-block p-4 text-black-1000 font-bold bg-gray-100 rounded-t-lg dark:bg-gray-800 hover:bg-yellow-300 ">
               {{name}}</h4>
-             
           </li>
         </ul>
 
@@ -174,17 +115,15 @@
       {{/each}}
     </div>
 {{!-- map --}}
-</div>
-  
 
-  <div class="h-20 w-full ml-3 mr-4" id="map_canvas">
+  <div class="h-96 w-full ml-3 mr-4" id="map_canvas">
 <div class="address">
   {{#each c_dotsLocation}}
   <p>{{address.line1}}</p>
   {{/each}}
 </div>
   </div>
-  <div class="container text-black">
+  <div class="container mx-auto text-center pt-10 text-black">
     <h1 class="text-black md:text-5xl xl:text-4xl text-bold tracking-tight py-1">Visit Us</h1>
     <h2 class="text-black md:text-2xl xl:text-2xl text-bold tracking-tight py-1">Like discussing your ideas in person?</h2>
     <p class="text-black ml-20 mr-20">If you already have a project in mind, you can fill out our form and our technical staff can start researching immediately, but it’s always great to meet our clients face to face. </p>

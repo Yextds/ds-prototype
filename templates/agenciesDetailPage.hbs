@@ -40,7 +40,7 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>{{name}}</title>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         {{>head}}
         {{!-- <link href="https://unpkg.com/tailwindcss/dist/tailwind.min.css" rel="stylesheet"> --}}
         <!--Replace with your tailwind.css once created-->
@@ -49,15 +49,13 @@
   
     </head>
     <body>
-        <div class="w-full">
+  <div class="w-full">
             
                 {{>navbar}}
            
-             <!-- Image banner code starts here -->
+    <!-- Image banner code starts here -->
       <div>
 
-             
-          <!-- Section: Design Block -->
           <section class="mb-40">
           <div
               class="relative overflow-hidden bg-no-repeat bg-cover"
@@ -83,9 +81,7 @@
           </section>
       </div>
 
-          <!-- Section: Design Block -->
-
-          <!-- Image banner code ends here -->
+    <!-- Image banner code ends here -->
             
           <!-- Tab with background image code starts here -->
 
@@ -127,31 +123,31 @@
           <!-- Tab with bcakground image code ends here -->
 
              
-                  <!-- Space for 90% Heading -->
-    <div class="patnershipHeading">
-     <h2 class="title-headingPartnership">90% AGENCY RETENTION RATE</h2>
-   </div>
-  
-              <div class="start-up_processPartnership">
-                
-                {{#each c_agencySpecialities}}
-                
-                  <div class="flex justify-center innerDivOFPartnership">
+    <!-- Space for 90% Heading -->
+            <div class="patnershipHeading">
+             <h2 class="title-headingPartnership">90% AGENCY RETENTION RATE</h2>
+            </div>
+          
+                      <div class="start-up_processPartnership">
+                        
+                        {{#each c_agencySpecialities}}
+                        
+                          <div class="flex justify-center innerDivOFPartnership">
 
-                    <div class="block rounded-lg shadow-lg bg-white max-w-sm text-center startupCardListsPartnership">
-                      <div class="p-6Partnership">
-                        <img src="{{photoGallery.[0].image.url}}" style="margin-left: 140px; margin-bottom: 10px;margin-top: 10px;">
-                        <h5 class="text-xl font-bold mb-2 text-white">{{name}}</h5>
-                        <p class="text-white text-base mb-4">
-                          {{c_description1}}
-                        </p>
+                            <div class="block rounded-lg shadow-lg bg-white max-w-sm text-center startupCardListsPartnership">
+                              <div class="p-6Partnership">
+                                <img src="{{photoGallery.[0].image.url}}" style="margin-left: 140px; margin-bottom: 10px;margin-top: 10px;">
+                                <h5 class="text-xl font-bold mb-2 text-white">{{name}}</h5>
+                                <p class="text-white text-base mb-4">
+                                  {{c_description1}}
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          {{/each}}
                       </div>
-                    </div>
-                  </div>
-                  {{/each}}
-              </div>
 
-                  <!-- Space for 90% Heading -->
+      <!-- Space for 90% Heading -->
                  
               
                 <div>
@@ -160,7 +156,7 @@
                   <p>Since 2002 we’ve been lending a helping hand to businesses that may have a gap in technology, or those that need a power house to scale up their teams. This way you’re not having to turn away projects due to lack of resources. With a 90% agency retention rate there’s a reason why most of the agencies we work with have been with us for several years.</p>
                 </div>
 
-                <!-- Agency Prohjects Section starts from here -->
+            <!-- Agency Prohjects Section starts from here -->
 
                  <section class="overflow-hidden text-gray-700 ">
                  <br> <h5 class="text-gray-900  font-medium mb-2 textInsideCar">Over 12,000+ Project Delivered Across the World</h5>
@@ -181,7 +177,7 @@
 
 
 
-                <!-- Agency Projects Section ends here -->
+            <!-- Agency Projects Section ends here -->
 
                   <!-- Tech Partners Section starts from here -->
 
@@ -203,18 +199,16 @@
 
 
                   <!-- Tech Partners section ends here -->
-              </div>
-              
-
-          
-
-     <!-- Footer code starts here -->
-       <div class="w-full site-footer">
-    <div class="centered-container">
-      {{>footer}}
-    </div>
   </div>
-     <!-- Footer code ends here -->
+
+  <!-- Footer code starts here -->
+      <div class="w-full site-footer">
+          <div class="centered-container">
+              {{>footer}}
+          </div>
+      </div>
+  <!-- Footer code ends here -->
+  
     </body> 
 
 </html>

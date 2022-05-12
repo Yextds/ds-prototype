@@ -82,43 +82,47 @@
 
   <div class="col-span-1 ">
 
-    <div class=" bg-black text-white py-20">
-
-
-      <div class="uppercase tracking-wide no-underline hover:no-underline font-bold text-yellow-400 text-4xl mb-8 ">
-        {{name}}
-      </div>
-      <div class="uppercase tracking-wide no-underline hover:no-underline font-bold text-white-800 text-2xl mb-8">
-        <p>{{convertRTFToHTML shortDescription}}</p>
-      </div>
+<div class="page-title">
+    <div class="centered-container">
+      <h1> {{name}}    </h1>
+      <p>{{convertRTFToHTML shortDescription}}</p>
     </div>
-    <div class="ml-3 mr-3 mt-5">
+  </div>
+
+<div class="centered-container">
+     <div class="ml-3 mr-3 mt-5">
     <b class="text-2xl mb-8">{{convertRTFToHTML c_lable}}</b>
     <br>
     <p>{{convertRTFToHTML richTextDescription}}</p>
     <br>
     <a href="expertise">
     <button
-      class="text-yellow-400 text-bold hover:text-white border border-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-yellow-300 dark:text-yellow-300 dark:hover:text-white dark:hover:bg-yellow-400 dark:focus:ring-yellow-900 ml-5">what we do</button>
+      class="text-black text-bold hover:text-white border border-black hover:bg-black focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-yellow-300 dark:text-yellow-300 dark:hover:text-white dark:hover:bg-yellow-400 dark:focus:ring-yellow-900 ml-2">what we do</button>
     </a>
 </div>
+</div>
+ 
     <br>
+           <div class=" bg-white">
+
+       <div class="centered-container text-center">
+
     <div id="leftside-inner block p-1"
-      class="flex flex-wrap list-group-item w-full px-5 divide-y-2 divide-gray-100 border-b mb-4 border-solid border-gray-300 mr-5 ml-5 ">
+      class="flex flex-wrap list-group-item w-full px-5   mb-4  mr-5 ml-5 ">
     
       {{#each c_dotsLocation}}
 
       <div data-slug={{slug}} data-name='{{name}}' data-lat={{yextDisplayCoordinate.latitude}}
         data-lng={{yextDisplayCoordinate.longitude}}
-        class="list-group-item flex flex-wrap text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400">
+        class="list-group-item flex flex-wrap text-sm font-medium text-center text-gray-500 dark:text-gray-400">
 
 
         <ul
           class="">
           <li class="mr-2">
-            <button aria-current="page"
-              class="inline-block p-4 text-black-1000 text-bold bg-gray-100 rounded-t-lg dark:bg-gray-800  hover:bg-yellow-300">
-              {{name}}</button>
+            <h4 aria-current="page"
+              class="inline-block p-8 text-lg border-0 text-black-1000 text-bold   bg-white rounded-t-lg dark:bg-gray-800 hover:rounded-none  hover:text-white  hover:bg-[#f5821f]">
+              {{name}}</h4>
              
           </li>
         </ul>
@@ -126,7 +130,8 @@
       </div>
       {{/each}}
     </div>
-
+</div>
+</div>
   </div>
 
 

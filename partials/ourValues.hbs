@@ -1,4 +1,7 @@
-<div class="topnav">
+
+<div class=" centered-container">
+
+<div class=" text-black">
     <div class="flex flex-wrap py-7 items-center justify-between">
         <a href="/">
             <div class="inline-flex items-center gap-x-3">
@@ -6,9 +9,9 @@
                 
             </div>
         </a>
-         <div class="hidden md:flex grid gap-x-10 mrigankNav">
+         <div class=" grid grid-cols-3 gap-4 mrigankNav">
           </div>  
-
+</div></div> </div>
         <!-- JavaScript Code starts here -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">  </script>
         <script type="text/javascript">
@@ -28,7 +31,7 @@
               cat.forEach((f,i)=>{
                 let n = f.name; // Here n means Name
                 let d = f.richTextDescription;
-                html+= '<ul class="flex flex-wrap bg-black text-white pt-4 md:pt-0 py-4 px-5 my-2 ><li><h1 class="font-bold text-3xl mb-2">'+n+'</h1>\
+                html+= '<ul class="flex flex-wrap bg-white text-black pt-4 md:pt-0 py-4 px-5 my-2" > <li> <h1 class="font-bold text-xl mb-2">'+n+'</h1>\
                          <p class="text-white-700 text-base">'+d+'</p></li> </ul>';
               })
              $(".mrigankNav").append(html);

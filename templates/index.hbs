@@ -67,49 +67,29 @@
         </div>
       </a>
       <div>
-        <div class="hidden md:flex grid gap-x-10 Navbar " style="margin-left: 400px;">
+        <div class="hidden md:flex grid gap-x-10 Navbar ">
           <!-- Menu listing Code starts here -->
-          {{!-- <nav>
+          <nav>
             <ul class="main-menu">
               {{#each c_relatedCategory}}
+            
               <li class="nameList"><a href="{{slug}}">{{name}}</a>
                 <ul class="submenu">
+               
                   {{#each c_relatedCategory}}
-                  
+              
+                    {{#if name}}  
                       <li class="newList2"><a href="{{slug}}">{{name}}</a>
+                         
+                    
+                   
                     <ul class="sub-submenu">
                       {{#each c_relatedMenuCategory}}
                       <li class="newList1"><a href="{{slug}}">{{name}}</a></li>
                       {{/each}}
                     </ul>
                   </li>
-                 
-                  {{/each}}
-                </ul>
-              </li>
-
-              {{/each}}
-            </ul>
-          </nav> --}}
-          <!-- Menu Listing Code ends here -->
-          {{!-- api nav --}}
-           <nav>
-            <ul class="main-menu">
-              {{#each c_relatedCategory}}
-              <li class="nameList"><a href="{{slug}}">{{name}}</a>
-                <ul class="submenu">
-                
-                  {{#each c_relatedCategory}}
-                  
-                      <li class="newList2"><a href="{{slug}}">{{name}}</a>
-                 
-                    <ul class="sub-submenu">
-                      {{#each c_relatedMenuCategory}}
-                      <li class="newList1"><a href="{{slug}}">{{name}}</a></li>
-                      {{/each}}
-                    </ul>
-                  </li>
-                 
+                  {{/if}}
                   {{/each}}
                 </ul>
               </li>
@@ -117,6 +97,7 @@
               {{/each}}
             </ul>
           </nav>
+          <!-- Menu Listing Code ends here -->
         </div>
       </div>
 
@@ -143,7 +124,7 @@
   <div class="banner-bottom-content">
     <div class="centered-container">
       <p>Multiple technologies at our fingertips, a worldwide presence and an appetite for all things digital.....</p>
-      <button class="btn"><a href="about.html">MORE</a></button>
+      <button class="btn">MORE</button>
     </div>
   </div>
   <div class="proud-sec">
@@ -230,11 +211,13 @@
     </div>
   </div>
 
+
+  
+
   {{>footer}}
 
 
   {{!-- https://www.dotsquares.com/img/forbes_conti.png --}}
-  
 
 </body>
 

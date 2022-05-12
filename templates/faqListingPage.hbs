@@ -30,121 +30,122 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>{{name}}</title>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     {{>head}}
-    <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet" />
     
      <style type="text/css">
-     
-     
-       .addReadMore .SecSec,
-    .addReadMore.showlesscontent .readLess {
-        display: none;
-    }
+   
+        .addReadMore .SecSec,
+        .addReadMore.showlesscontent .readLess {
+            display: none;
+        }
 
-    .addReadMore.showmorecontent .readMore {
-        display: none;
-    }
+        .addReadMore.showmorecontent .readMore {
+            display: none;
+        }
 
-    .addReadMore .readMore
-    {
-        font-weight: bold;
-        margin-left: 2px;
-        color: rgb(255, 174, 0);
-        cursor: pointer;
-    }
+        .addReadMore .readMore {
+            font-weight: bold;
+            margin-left: 2px;
+            color: rgb(255, 174, 0);
+            cursor: pointer;
+        }
 
-    .addReadMoreWrapTxt.showmorecontent .SecSec {
-        display: block;
-    }
+        .addReadMoreWrapTxt.showmorecontent .SecSec {
+            display: block;
+        }
     </style>
 </head>
 
 
-    <body>
-     {{>navbar}}   
-   
-  <div>
-      <section class="text-gray-700">
-        <div class="container px-5 py-24 mx-auto">
-          <div class="text-center mb-20">
-            <h1 class="sm:text-3xl text-2xl font-medium text-center title-font text-gray-900 mb-4">
-              Frequently Asked Question
-            </h1>
-            <p class="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto">
-              The most common questions about how our business works and what
-              can do for you.
-            </p>
-          </div>
- 
+<body>
+    {{>navbar}}
+    <!-- FAQ section html code starts here -->
 
-          <div class="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2">
-            {{#each c_relatedFAQs}}
-            <div class="w-full lg:w-1/2 px-4 py-2">
-              <details class="mb-4">
-                <summary class="font-semibold  bg-gray-200 rounded-md py-2 px-4 text-center">
-                  {{question}}
-                </summary>
-                  <a href="{{slug}}">
-                <span class="addReadMore">
-                  {{answer}}
-                </span>
-                </a>
-              </details>
+    <div>
+        <section class="text-gray-700">
+            <div class="container px-5 py-24 mx-auto">
+                <!-- Faq heading code starts here -->
+
+                <div class="text-center mb-20">
+                    <h1 class="sm:text-3xl text-2xl font-medium text-center title-font text-gray-900 mb-4">
+                        Frequently Asked Question
+                    </h1>
+                    <p class="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto">
+                        The most common questions about how our business works and what can do for you.
+                    </p>
+                </div>
+
+                <!-- Faq heading code ends here -->
+
+                <!-- Faq listing code starts here -->
+                <div class="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2">
+                    {{#each c_relatedFAQs}}
+                    <div class="w-full lg:w-1/2 px-4 py-2">
+                        <details class="mb-4">
+                            <summary class="font-semibold bg-gray-200 rounded-md py-2 px-4 text-center">
+                                {{question}}
+                            </summary>
+                            <a href="{{slug}}">
+                                <span class="addReadMore">
+                                    {{answer}}
+                                </span>
+                            </a>
+                        </details>
+                    </div>
+                    {{/each}}
+                </div>
+                <!-- Faq listing code ends here -->
             </div>
-            {{/each}}
-            
-          </div>
-        </div>
-      </section>
-  </div>
+        </section>
+    </div>
 
-  
+    <!-- FAQ section html code ends here -->
 
       {{>footer}}
    
-  
+  <!-- Javascript code for addMore funciton starts here -->
  
-<script>
+    <script>
 
-function AddReadMore() {
-    //This limit you can set after how much characters you want to show Read More.
-    var carLmt = 80;
-    // Text to show when text is collapsed
-    var readMoreTxt = " ... Read More";
-    // Text to show when text is expanded
-    var readLessTxt = " Read Less";
+            function AddReadMore() {
+                //This limit you can set after how much characters you want to show Read More.
+                var carLmt = 100;
+                // Text to show when text is collapsed
+                var readMoreTxt = " ... Read More";
+                // Text to show when text is expanded
+                var readLessTxt = " Read Less";
 
+                //Traverse all selectors with this class and manupulate HTML part to show Read More
+                $(".addReadMore").each(function () {
+                    if ($(this).find(".firstSec").length) return;
 
-    //Traverse all selectors with this class and manupulate HTML part to show Read More
-    $(".addReadMore").each(function() {
-        if ($(this).find(".firstSec").length)
-            return;
+                    var allstr = $(this).text();
+                    if (allstr.length > carLmt) {
+                        var firstSet = allstr.substring(0, carLmt);
+                        var secdHalf = allstr.substring(carLmt, allstr.length);
+                        var strtoadd = firstSet + "<span class='SecSec'>" + secdHalf + "</span><span class='readMore'  title='Click to Show More'>" + readMoreTxt + "</span>";
+                        $(this).html(strtoadd);
+                    }
+                });
+                //Read More and Read Less Click Event binding
+                $(document).on("click", ".readMore,.readLess", function () {
+                    //$(this).closest(".addReadMore").toggleClass("showlesscontent showmorecontent");
+                });
+            }
+            $(function () {
+                //Calling function after Page Load
+                AddReadMore();
+            });
 
-        var allstr = $(this).text();
-        if (allstr.length > carLmt) {
-            var firstSet = allstr.substring(0, carLmt);
-            var secdHalf = allstr.substring(carLmt, allstr.length);
-            var strtoadd = firstSet + "<span class='SecSec'>" + secdHalf + "</span><span class='readMore'  title='Click to Show More'>" + readMoreTxt + "</span>";
-            $(this).html(strtoadd);
-        }
+    </script>
 
-    });
-    //Read More and Read Less Click Event binding
-    $(document).on("click", ".readMore,.readLess", function() {
-        //$(this).closest(".addReadMore").toggleClass("showlesscontent showmorecontent");
-    });
-}
-$(function() {
-    //Calling function after Page Load
-    AddReadMore();
-});
-
-</script>
+  <!-- Javascript code for addMore funciton ends here -->
  </body> 
 </html>
