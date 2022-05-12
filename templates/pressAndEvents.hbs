@@ -44,7 +44,39 @@
       <link rel="stylesheet" href="https://unpkg.com/flowbite@1.4.1/dist/flowbite.min.css" />
       <script src="https://unpkg.com/flowbite@1.4.1/dist/flowbite.js"></script>
       <script src="./TW-ELEMENTS-PATH/dist/js/index.min.js"></script>
-
+      <style>
+         /* Still use global css (not utility css) for base typography etc? */
+         p {
+         margin-bottom: 0.8em;
+         }
+         .topnav{
+         background: black;
+         }
+         .mrigankFooter{
+         background: black;
+         }
+         .pressNavbar{
+         padding-top: 180px;
+         padding-bottom: 10px;
+         padding-left: 450px;
+         }
+         .active{
+         color: rgba(248, 170, 1, 0.76);
+         }
+         .text-block {
+         position: absolute;
+         bottom: 170px;
+         left: 10px;
+         background-color: black;
+         color: white;
+         padding-left: 20px;
+         padding-right: 20px;
+         }
+         .container {
+         position: relative;
+         font-family: Arial;
+         }
+      </style>
    </head>
    <body>
       {{>navbar}}
@@ -66,12 +98,12 @@
       <div class="contain-pagination"></div>
       </div>
       {{!-- footer --}}
-      <div class="w-full site-footer">
-    <div class="centered-container">
-      {{>footer}}
-    </div>
-  </div>
-  
+      <div class="w-full mrigankFooter">
+         <div class="centered-container">
+            {{>footer}}
+         </div>
+      </div>
+</html>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">  </script>
 
 <script type="text/javascript">
@@ -98,15 +130,15 @@ $(document).ready(function() {
 function get_nav1($this) {
     var data_id = $this.attr("data-id");
     var entitype = "Ce_dotsEvent";
-    if (data_id == "ALl.html") {
+    if (data_id == "all-menu.html") {
         entitype = "Ce_dotsEvent";
-    } else if (data_id == "Events.html") {
+    } else if (data_id == "events-menu.html") {
         entitype = "ce_event";
-    } else if (data_id == "Press.html") {
+    } else if (data_id == "press-menu.html") {
         entitype = "ce_press";
-    } else if (data_id == "innovation.html") {
+    } else if (data_id == "innovation-menu.html") {
         entitype = "ce_innovation";
-    } else if (data_id == "Tech.html") {
+    } else if (data_id == "tech-menu.html") {
         entitype = "ce_tech";
     }
     $('.pressNavbar a').removeClass("active");
@@ -141,15 +173,15 @@ function get_menu() {
                     activeClass = 'active';
                 }
                 
-                    if (s == "ALl.html") {
+                    if (s == "all-menu.html") {
                         entitype = "Ce_dotsEvent";
-                    } else if (s == "Events.html") {
+                    } else if (s == "events-menu.html") {
                         entitype = "ce_event";
-                    } else if (s == "Press.html") {
+                    } else if (s == "press-menu.html") {
                         entitype = "ce_press";
-                    } else if (s == "innovation.html") {
+                    } else if (s == "innovation-menu.html") {
                         entitype = "ce_innovation";
-                    } else if (s == "Tech.html") {
+                    } else if (s == "tech-menu.html") {
                         entitype = "ce_tech";
                     }
 
@@ -230,11 +262,11 @@ function paginate(totalItems, currentPage, pageSize, maxPages) {
 //console.log(paginate(70, 1, 10, 5));
 function appendpaginationlinks(pagesLinks) {
 
-   // console.log('pagesLinks', pagesLinks)
+    console.log('pagesLinks', pagesLinks)
     const pages = pagesLinks.pages;
     const totalPages = pagesLinks.totalPages;
     const currentPage = pagesLinks.currentPage;
-    //console.log(pages.length);
+    console.log(pages.length);
     if(pages.length>1){
 
 
@@ -287,7 +319,7 @@ function renderPaginationLinks(pagesLinks, count = 0) {
             const limit = 10;
             const dataId = $(this).attr('data-id');
             const entity = $('.active').attr("data-entitytype");
-            //console.log(entity);
+            console.log(entity);
             const newOffset = (limit * Number(dataId)) - (limit);
             offset = newOffset;
             // alert(offset);
@@ -323,7 +355,7 @@ function getData(offset, pagination = true, entitype) {
 }
 
 function getRequest(request_url, isPagingnation = false) {
- //console.log(request_url);
+ console.log(request_url);
     fetch(request_url, {
             method: "GET"
         })
@@ -377,5 +409,3 @@ function getRequest(request_url, isPagingnation = false) {
    
    
 </script>
-</body>
-</html>
