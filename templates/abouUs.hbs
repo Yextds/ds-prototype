@@ -165,29 +165,31 @@
   function load_map(Mapping, $, undefined) {
     var self = this;
     function Initialize() {
-      var lat = 25.7748108;
-      console.log(lat);
-      var lng = -80.197731;
+      var inlat =26.897771;
+      var inlng =75.834457;
       $('.list-group-item').each(function () {
         lat = $(this).data('lat');
         lng = $(this).data('lng');
       });
       var myOptions = {
         zoom: 8,
-        center: new google.maps.LatLng(lat, lng),
+        center: new google.maps.LatLng(inlat, inlng),
         mapTypeId: google.maps.MapTypeId.ROADMAP
       };
       self.map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
       self.markers = [];
       self.infoWindow = new google.maps.InfoWindow();
-      // var bounds = new google.maps.LatLngBounds();
-
-
       $('.list-group-item').each(function () {
         var $this = $(this);
+        var newpos = new google.maps.LatLng(inlat,inlng);
         var pos = new google.maps.LatLng($this.data('lat'), $this.data('lng'));
         var marker = new google.maps.Marker({
-          position: pos,
+          position:pos,
+          map: self.map,
+          labelContent: "1",
+        });
+        var newmarker = new google.maps.Marker({
+          position:newpos,
           map: self.map,
           labelContent: "1",
         });
@@ -195,12 +197,25 @@
         self.markers.push(marker);
 
         var location_name = $this.data('name');
-        var slug ='/location/'+$this.data('slug') +'.html';
-
-
-
+        var slug ='/location/'+$this.data('slug');
+          // alert(location_name);
+          
+        /*Infowindow code starts here*/
+        
         var contentString = '<a class="text-base font-medium text-textblack " href="'+slug+'" target="_blank" >'+location_name+'</a>';
-        $this.click(function () {
+        /*Infowindow code ends here*/
+        if(location_name==="DS India"){
+          var staticContentString = '<a class="text-base font-medium text-textblack " href='+slug+' target="_blank" >'+location_name+'</a>';
+          self.map.panTo(newpos);
+          self.infoWindow.setContent(staticContentString);
+          self.infoWindow.open(self.map,marker);
+          // $this.siblings().removeClass('active');
+          $this.addClass('active');
+        }
+        else{
+         
+        }
+         $this.click(function () {
           self.map.panTo(pos);
           self.infoWindow.setContent(contentString);
           self.infoWindow.open(self.map, marker);
