@@ -260,7 +260,7 @@
     @apply mb-2 pl-5 relative block before:content-[''] before:absolute before:top-2 before:left-0 before:w-2.5 before:h-1.5 before:transform before:-rotate-45 before:border-b-2 before:border-l-2 before:border-orange-500;
 }
 
-
+.category-menu .active{ @apply text-amber-600;}
 
 
 
