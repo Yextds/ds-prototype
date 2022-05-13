@@ -147,9 +147,19 @@
 
               let varRegion = m.address.region;
               let mP = m.mobilePhone;
+             if (pC === undefined) {
+                  addressHtml += '<li>' + '<strong>' + varName + '</strong>' + ',&nbsp;' + lineOne + '<strong>' + '<a href=tel:' + mP + '> Tel:' + mP + '</a></strong></li>';
+               }
+              
+               else  if (varRegion === undefined) {
+                  addressHtml += '<li>' + '<strong>' + varName + '</strong>' + ',&nbsp;' + lineOne + ',' + pC + '<strong>' + '<a href=tel:' + mP + '> Tel:' + mP + '</a></strong></li>';
+               }
+               else{
 
-               console.log(mP);
+              
               addressHtml += '<li>' + '<strong>' + varName + '</strong>' + ',&nbsp;' + lineOne + ',' + pC + ','+varRegion+'<strong>' + '<a href=tel:' + mP + '> Tel:' + mP + '</a></strong></li>';
+
+              }
 
              
 
