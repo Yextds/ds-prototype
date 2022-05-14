@@ -1,6 +1,31 @@
 ---
 {
-    "urlFormat" : "case-studies.html"
+"stream": {
+"$id": "navbarListing",
+"source": "knowledgeGraph",
+"destination": "pages",
+"filter": {
+"entityTypes": [
+"ce_mainDotsquaresPrototype"
+]
+},
+"fields": [
+"id",
+"uid",
+"name",
+"slug",
+"c_mainRelatedNavber.slug",
+"c_mainRelatedNavber.name",
+"c_mainRelatedNavber.c_customSubmenuitem.name",
+"c_mainRelatedNavber.c_customSubmenuitem.slug",
+"c_mainRelatedNavber.c_relatedCategory.c_relatedMenuCategory.name",
+"c_mainRelatedNavber.c_relatedCategory.c_relatedMenuCategory.slug"
+],
+"localization": {
+"locales": ["en"]
+}
+},
+"urlFormat": "case-studies.html"
 }
 ---
 
@@ -21,7 +46,7 @@
       <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet" />
    </head>
    <body>
-        {{>navbar}}
+        {{>PrototypeMenu}}
 
     <!-- HTML Code for Entities listing starts here-->
 
@@ -41,9 +66,6 @@
   
 
     <!-- Javascript code starts here -->
-
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">  </script>
-
         <script type = "text/javascript" >
         var api_key = "b262ae7768eec3bfa53bfca6d48e4000";
         var v = "20211229";

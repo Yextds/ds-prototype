@@ -22,7 +22,13 @@
         "c_dotsLocation.yextDisplayCoordinate",
         "c_dotsLocation.name",
         "c_dotsLocation.slug",
-        "c_dotsLocation.address"
+        "c_dotsLocation.address",
+        "c_mainRelatedNavber.slug",
+"c_mainRelatedNavber.name",
+"c_mainRelatedNavber.c_customSubmenuitem.name",
+"c_mainRelatedNavber.c_customSubmenuitem.slug",
+"c_mainRelatedNavber.c_relatedCategory.c_relatedMenuCategory.name",
+"c_mainRelatedNavber.c_relatedCategory.c_relatedMenuCategory.slug"
        
       ],
       "localization": {
@@ -54,7 +60,7 @@
 
     <body>
         
-    {{>navbar}}
+    {{>PrototypeMenu}}
 <div class="page-title">
     <div class="centered-container">
       <h1> Say Hello      </h1>
@@ -97,7 +103,7 @@
       class="flex flex-wrap list-group-item w-full px-5 divide-y-2 divide-gray-100 border-b mb-4 border-solid border-gray-300 mr-5 ml-5 ">
       {{#each c_dotsLocation}}
 
-      <div data-slug={{slug}} data-name='{{name}},{{address.line1}}' data-lat={{yextDisplayCoordinate.latitude}}
+      <div data-slug={{slug}} data-name='{{name}}' data-add={{address.line1}} data-lat={{yextDisplayCoordinate.latitude}}
         data-lng={{yextDisplayCoordinate.longitude}}
         class="list-group-item flex flex-wrap text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400 tab">
 
@@ -140,7 +146,6 @@
 
 
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZNQlSlEIkFAct5VzUtsP4dSbvOr2bE18&sensor=false&libraries=places"></script>
 

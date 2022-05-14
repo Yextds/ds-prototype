@@ -22,7 +22,13 @@
 "c_relatedCategory.photoGallery",
 "c_relatedCategory.name",
 "c_relatedCategory.c_richTextDescription",
-"c_relatedCategory.c_slug"
+"c_relatedCategory.c_slug",
+"c_mainRelatedNavber.slug",
+"c_mainRelatedNavber.name",
+"c_mainRelatedNavber.c_customSubmenuitem.name",
+"c_mainRelatedNavber.c_customSubmenuitem.slug",
+"c_mainRelatedNavber.c_relatedCategory.c_relatedMenuCategory.name",
+"c_mainRelatedNavber.c_relatedCategory.c_relatedMenuCategory.slug"
 ],
 "localization": {
 "locales": ["en"]
@@ -52,7 +58,7 @@
          .topnav{
          background: black;
          }
-         .mrigankFooter{
+         .newFooter{
          background: black;
          }
          .pressNavbar{
@@ -79,7 +85,7 @@
       </style>
    </head>
    <body>
-      {{>navbar}}
+      {{>PrototypeMenu}}
       <div class="flex h-full py-8 px-6 mx-auto bg-black heading">
          <div class=" text-white px-6 md:px-12">
             <h1 class=" md:text-5xl xl:text-5xl font-bold tracking-tight mb-12 text-yellow-500 firstHeader mt-20">
@@ -98,13 +104,13 @@
       <div class="contain-pagination"></div>
       </div>
       {{!-- footer --}}
-      <div class="w-full mrigankFooter">
+      <div class="w-full newFooter">
          <div class="centered-container">
             {{>footer}}
          </div>
       </div>
-</html>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">  </script>
+
+
 
 <script type="text/javascript">
 var api_key = "b262ae7768eec3bfa53bfca6d48e4000";
@@ -409,3 +415,5 @@ function getRequest(request_url, isPagingnation = false) {
    
    
 </script>
+</body>
+</html>

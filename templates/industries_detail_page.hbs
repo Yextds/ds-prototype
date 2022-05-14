@@ -17,7 +17,13 @@
 "name",
 "slug",
 "c_service",
-"shortDescription"
+"shortDescription",
+"c_mainRelatedNavber.slug",
+"c_mainRelatedNavber.name",
+"c_mainRelatedNavber.c_customSubmenuitem.name",
+"c_mainRelatedNavber.c_customSubmenuitem.slug",
+"c_mainRelatedNavber.c_relatedCategory.c_relatedMenuCategory.name",
+"c_mainRelatedNavber.c_relatedCategory.c_relatedMenuCategory.slug"
 ],
 "localization": {
 "locales": ["en"]
@@ -41,7 +47,7 @@
   <link rel="stylesheet" href="https://unpkg.com/flowbite@1.4.1/dist/flowbite.min.css" />
 </head>
 <body>
-  {{>navbar}}
+  {{>PrototypeMenu}}
   <div class="page-title">
     <div class="centered-container">
       <h1>
@@ -52,7 +58,7 @@
   </div>
   <div class="category-menu">
     <div class="centered-container">
-      <ul class="submenu"></ul>
+      <ul class="submenuNew"></ul>
     </div>
   </div>
   <div class="categories-details">
@@ -73,7 +79,7 @@
   {{>footer}}
 
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">  </script>
+  
   <script type="text/javascript">
       $(document).ready(function () {
           var pathname = window.location.pathname.replace("/", "");
@@ -97,7 +103,7 @@
 
                       html += '<li><a class="bg-black text-white hover:text-yellow-500 ' + activeClass + ' ml-3 mr-3 " data-id="' + s + '" href=' + s + ">" + n + "</a></li>";
                   });
-                  $(".submenu").append(html);
+                  $(".submenuNew").append(html);
               },
           });
       });

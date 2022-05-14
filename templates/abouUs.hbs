@@ -20,7 +20,13 @@
 "c_dotsLocation.name",
 "c_dotsLocation.slug",
 "c_dotsLocation.yextDisplayCoordinate",
-"shortDescription"
+"shortDescription",
+"c_mainRelatedNavber.slug",
+"c_mainRelatedNavber.name",
+"c_mainRelatedNavber.c_customSubmenuitem.name",
+"c_mainRelatedNavber.c_customSubmenuitem.slug",
+"c_mainRelatedNavber.c_relatedCategory.c_relatedMenuCategory.name",
+"c_mainRelatedNavber.c_relatedCategory.c_relatedMenuCategory.slug"
 ],
 "localization": {
 "locales": ["en"]
@@ -42,8 +48,6 @@
   {{>head}}
   <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/flowbite@1.4.1/dist/flowbite.min.css" />
-
-</head>
 
 <style>
   .topnav{
@@ -74,9 +78,12 @@
     color: rgba(248, 170, 1, 0.76);
   }
 </style>
+</head>
+
+
 
 <body>
-  {{>navbar}}
+  {{>PrototypeMenu}}
 
 
 
@@ -95,10 +102,11 @@
     <br>
     <p>{{convertRTFToHTML richTextDescription}}</p>
     <br>
-    <a href="expertise">
+    
     <button
-      class="text-black text-bold hover:text-white border border-black hover:bg-black focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-yellow-300 dark:text-yellow-300 dark:hover:text-white dark:hover:bg-yellow-400 dark:focus:ring-yellow-900 ml-2">what we do</button>
-    </a>
+      class="text-black text-bold hover:text-white border border-black hover:bg-black focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-yellow-300 dark:text-yellow-300 dark:hover:text-white dark:hover:bg-yellow-400 dark:focus:ring-yellow-900 ml-2">what we do
+    </button>
+    
 </div>
 </div>
  
@@ -112,7 +120,7 @@
     
       {{#each c_dotsLocation}}
 
-      <div data-slug={{slug}} data-name={{name}} data-lat={{yextDisplayCoordinate.latitude}}
+      <div data-slug={{slug}} data-name='{{name}}' data-lat={{yextDisplayCoordinate.latitude}}
         data-lng={{yextDisplayCoordinate.longitude}}
         class="list-group-item flex flex-wrap text-sm font-medium text-center text-gray-500 dark:text-gray-400">
 
@@ -156,7 +164,7 @@
 
 
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 <script
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZNQlSlEIkFAct5VzUtsP4dSbvOr2bE18&sensor=false&libraries=places"></script>
 

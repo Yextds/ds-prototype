@@ -1,0 +1,49 @@
+<div class="topnav">
+    <div class="anotherDataToNavbar nav mr-5">
+        <ul>
+            <li><a href="#">UK:(+44) 208 0901819 </a></li>
+            <li><a href="#">US:(+1) 301 563 9488</a></li>
+            <li><a href="#">AUS:(+61) 3 8676 8288, (+61) 3 9511 5598</a></li>
+        </ul>
+    </div>
+ <div class="flex flex-wrap py-3 items-center justify-between">
+        <a href="/">
+            <div class="inline-flex items-center gap-x-10">
+                <img src="https://www.dotsquares.com/img/uploads/dotlo-1-1.png" height="256" width="256" class="">
+
+            </div>
+        </a>
+        <div>
+<!-- Menu listing Code starts here -->
+          <nav class="float-right">
+            <ul class="main-menu">
+            {{#each c_mainRelatedNavber}}
+            
+              <li class="nameList"><a href="{{slug}}">{{name}}</a>
+                <ul class="submenu">
+               
+                    {{#each c_customSubmenuitem}}
+              
+                    {{#if name}}  
+                      <li class="newList2"><a href="{{slug}}">{{name}}</a>
+                         
+                    
+                   
+                    <ul class="sub-submenu">
+                      {{#each c_relatedMenuCategory}}
+                      <li class="newList1"><a href="{{slug}}">{{name}}</a></li>
+                      {{/each}}
+                    </ul>
+                  </li>
+                  {{/if}}
+                  {{/each}}
+                </ul>
+              </li>
+
+              {{/each}}
+            </ul>
+          </nav>
+      </div>
+    </div>
+</div>
+          <!-- Menu Listing Code ends here -->
