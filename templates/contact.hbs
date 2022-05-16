@@ -27,8 +27,8 @@
 "c_mainRelatedNavber.name",
 "c_mainRelatedNavber.c_customSubmenuitem.name",
 "c_mainRelatedNavber.c_customSubmenuitem.slug",
-"c_mainRelatedNavber.c_relatedCategory.c_relatedMenuCategory.name",
-"c_mainRelatedNavber.c_relatedCategory.c_relatedMenuCategory.slug"
+"c_mainRelatedNavber.c_customSubmenuitem.c_relatedMenuCategory.name",
+"c_mainRelatedNavber.c_customSubmenuitem.c_relatedMenuCategory.slug"
        
       ],
       "localization": {
@@ -154,6 +154,8 @@
   function load_map(Mapping, $, undefined) {
     var self = this;
     function Initialize() {
+      var inlat =26.897771;
+      var inlng =75.834457;
       var lat = 25.7748108;
       console.log(lat);
       var lng = -80.197731;
@@ -163,7 +165,7 @@
       });
       var myOptions = {
         zoom: 8,
-        center: new google.maps.LatLng(lat, lng),
+        center: new google.maps.LatLng(inlat, inlng),
         mapTypeId: google.maps.MapTypeId.ROADMAP
       };
       self.map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
@@ -174,9 +176,15 @@
 
       $('.list-group-item').each(function () {
         var $this = $(this);
+        var newpos = new google.maps.LatLng(inlat,inlng);
         var pos = new google.maps.LatLng($this.data('lat'), $this.data('lng'));
         var marker = new google.maps.Marker({
           position: pos,
+          map: self.map,
+          labelContent: "1",
+        });
+        var newmarker = new google.maps.Marker({
+          position:newpos,
           map: self.map,
           labelContent: "1",
         });
@@ -189,6 +197,17 @@
 
 
         var contentString = '<a class="text-base font-medium text-textblack " href="'+slug+'" target="_blank" >'+location_name+'</a>';
+        if(location_name==="India"){
+          var staticContentString = '<a class="text-base font-medium text-textblack " href='+slug+' target="_blank" >'+location_name+'</a>';
+          self.map.panTo(newpos);
+          self.infoWindow.setContent(staticContentString);
+          self.infoWindow.open(self.map,marker);
+          // $this.siblings().removeClass('active');
+          $this.addClass('active');
+        }
+        else{
+         
+        }
         $this.click(function () {
           self.map.panTo(pos);
           self.infoWindow.setContent(contentString);
