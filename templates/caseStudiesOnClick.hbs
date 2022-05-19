@@ -16,6 +16,8 @@
 "slug",
 "c_mainRelatedNavber.slug",
 "c_mainRelatedNavber.name",
+"c_mainRelatedNavber.c_dsibHeader",
+"c_mainRelatedNavber.c_dsibParagraph",
 "c_mainRelatedNavber.c_customSubmenuitem.name",
 "c_mainRelatedNavber.c_customSubmenuitem.slug",
 "c_mainRelatedNavber.c_customSubmenuitem.c_relatedMenuCategory.name",
@@ -36,7 +38,7 @@
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-      <title>Yext's Fashion Warehouse</title>
+      <title>Case Studies</title>
       <meta name="description" content="Luc's Fashion Warehouse Home Page" />
       {{>head}} {{!--
       <link href="https://unpkg.com/tailwindcss/dist/tailwind.min.css" rel="stylesheet" />
@@ -47,6 +49,26 @@
    </head>
    <body>
         {{>PrototypeMenu}}
+
+         <!-- Image banner code starts here -->
+  <div>
+
+    <section class="mb-40">
+      <div class="page-title">
+        <div class="centered-container">
+            
+          <h1>Case Studies</h1>
+          <p>See how we work closely with our clients to realise successful projects that deliver results</p>
+         
+        </div>
+      </div>
+
+    </section>
+    
+
+  </div>
+
+  <!-- Image banner code ends here -->
 
     <!-- HTML Code for Entities listing starts here-->
 
@@ -172,7 +194,7 @@
                 })
 
                 if (totalPages !== currentPage) {
-                    pagehtml += '<li><a href="#" class="page-btn relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 mr-3"  data-id=' + (currentPage + 1) + '>>></a></li>';
+                    pagehtml += '<li><a href="#" class="page-btn relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 mr-3"  data-id=' + (currentPage + 1) + '>></a></li>';
                     pagehtml += '<li><a href="#" class="page-btn relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 mr-3" data-id=' + totalPages + '>Last</a></li>';
                 }
 

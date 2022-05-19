@@ -20,6 +20,12 @@
         "c_richTextDescription",
         "c_description1",
         "photoGallery",
+        "c_dsibHeader",
+        "c_dsibParagraph",
+        "c_extraDescriptionHeading",
+        "c_extraDescription",
+        "c_techListingHeading",
+        "c_techListing",
         "c_relatedMenuCategory.name",
         "c_relatedMenuCategory.photoGallery",
         "c_relatedMenuCategory.c_description1",
@@ -142,9 +148,9 @@
                       <div class="flex h-full">
                           <div class=" text-white px-6 md:px-12">
                             <h1 class=" md:text-5xl xl:text-5xl font-bold tracking-tight mb-12 firstHeader">
-                           Support Services<br />
+                           {{c_dsibHeader}}<br />
                             </h1>
-                            <p class="text-white font-bold text-2xl">In the modern business environment keeping up to date is essential, our experts can provide a range of support services that can save you time and money.</p>
+                            <p class="text-white font-bold text-2xl">{{c_dsibParagraph}}</p>
                           
                           </div>
                       </div>
@@ -207,15 +213,12 @@
     <!-- Tech Support section starts from here -->
 
         <div class="techSupport">
-          <p class="font-bold text-2xl text-white">Having all of your digital requirements managed within one company means that we can provide a seamless and stress-free service, all while taking the pain away from having to deal with numerous third-party suppliers.</p><br>
+          <p class="font-bold text-2xl text-white">{{c_extraDescriptionHeading}}</p><br>
           <div style="margin-left:250px">
-                <h2 class="text-white font-bold text-3xl">Our tech support includes...</h2>
-                <ul class="text-white">
-                    <li>Ad-hoc Development</li>
-                    <li>Server Management</li>
-                    <li>Emergency Support</li>
-                    <li>Network Troubleshooting</li>
-                    <li>Remote Installation</li>
+                <h2 class="text-white font-bold text-3xl">{{c_techListingHeading}}</h2>
+                <ul class="text-white" style="display: table-caption;">
+                    <li>{{c_techListing}}</li>
+                   
                 </ul>
           </div>
         </div>
