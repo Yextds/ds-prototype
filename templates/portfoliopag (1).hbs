@@ -1,0 +1,962 @@
+---
+{
+"stream": {
+"$id": "portfolio-main-pagess1122",
+"source": "knowledgeGraph",
+"destination": "pages",
+"filter": {
+"entityTypes": [
+"ce_portfolia"
+]
+
+},
+"fields": [
+"id",
+"uid",
+"meta",
+"name",
+"slug",
+"c_description1",
+"photoGallery",
+"c_relatedCategory.photoGallery",
+"c_relatedCategory.name",
+"c_relatedCategory.slug",
+"c_mainRelatedNavber.slug",
+"c_mainRelatedNavber.name",
+"c_mainRelatedNavber.c_customSubmenuitem.name",
+"c_mainRelatedNavber.c_customSubmenuitem.slug",
+"c_mainRelatedNavber.c_customSubmenuitem.c_relatedMenuCategory.name",
+"c_mainRelatedNavber.c_customSubmenuitem.c_relatedMenuCategory.slug"
+],
+"localization": {
+"locales": ["en"]
+}
+},
+"urlFormat": "portfolio.html"
+}
+---
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>{{name}}</title>
+  <meta name="description" content=Category page for {{name}}.>
+  {{>head}}
+  <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/flowbite@1.4.1/dist/flowbite.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://unpkg.com/flowbite@1.4.1/dist/flowbite.js"></script>
+  <script src="./TW-ELEMENTS-PATH/dist/js/index.min.js"></script>
+
+  <style>
+    /* Still use global css (not utility css) for base typography etc? */
+    p {
+      margin-bottom: 0.8em;
+    }
+
+    .nav1:hover {
+      background-color: orange;
+    }
+
+    .nav1:active {
+      background-color: chocolate;
+    }
+
+    .topnav {
+      background: black;
+    }
+
+    .active {
+      color: rgba(248, 170, 1, 0.76);
+    }
+
+    .text-block {
+      position: absolute;
+      bottom: 170px;
+      left: 10px;
+      background-color: black;
+      color: white;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .container {
+      position: relative;
+      font-family: Arial;
+    }
+
+    .dropbtn {
+      color: black;
+      padding: 7px;
+      padding-left: 4px;
+      padding-right: 4px;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      border-style: solid;
+    }
+
+    .dropbtn11 {
+
+      color: black;
+      padding: 7px;
+      padding-left: 4px;
+      padding-right: 4px;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      border-style: solid;
+    }
+
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #f1f1f1
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown:hover .dropbtn {}
+  </style>
+
+
+</head>
+
+
+<body>
+
+  {{>PrototypeMenu}}
+
+  <div class="flex h-1/2 py-10 px-8 mx-auto bg-black heading">
+    <div class=" text-white px-6 md:px-12">
+      <h1 class=" md:text-5xl xl:text-5xl font-bold tracking-tight mb-12 text-yellow-500 firstHeader mt-20">
+        {{name}}<br />
+      </h1>
+      <p class="text-white w-1/2">{{c_description1}}</p>
+    </div>
+  </div>
+
+  <div class="flex w-1/2 m-auto ">
+    <div class=" md:flex float-left  content-center m-auto p-5 w-full grid gap-x-10 text-[black] pressNavbar">
+    </div>
+
+    {{!-- search bar button start here --}}
+    <div class="pt-5 xl:w-96 flex float-right ">
+      <div class="input-group relative flex  items-stretch w-full mb-4">
+        <input type="search" id="dot"
+          class="form-control relative flex-auto min-w-0 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+          placeholder="Search" aria-label="Search" aria-describedby="button-addon2">
+        <button id="click"
+          class="btn  inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700  focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out flex items-center"
+          type="button" id="button-addon2">
+          <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="w-4" role="img"
+            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+            <path fill="currentColor"
+              d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z">
+            </path>
+          </svg>
+        </button>
+      </div>
+    </div>
+    {{!-- search button end --}}
+
+  </div>
+
+  {{!-- filter button mobile web game start here --}}
+  <div class="filterButtonsHere w-1/2 content-center m-auto"></div>
+  {{!-- end --}}
+
+  <fieldset class="border-2 m-auto">
+    <legend class="border-2 font-bold ">Advance Search</legend>
+    <div class="w-1/3 m-auto content-center p-10 flex">
+      <div class="dropdown  m-auto  content-center   flex float-left">
+        {{!-- drop down technology start --}}
+        <button class="dropbtn p-1.5 ">Select Technology</button>
+        <div class="dropdown-content p-1.5 m-auto  content-center" id="mydropDownDiv">
+          <ul class="department-list p-1.5">
+          </ul>
+        </div>
+      </div>
+      {{!-- drop down technology end --}}
+
+      {{!-- dropdown industricsdata start here--}}
+      <div class="dropdown  m-auto  content-center flex float-right">
+        <button class="dropbtn11 p-1.5  ">Select Industrics</button>
+        <div class="dropdown-content p-1.5 m-auto  content-center" id="mydropDownDiv2">
+          <ul class="department11-list p-1.5 ">
+          </ul>
+        </div>
+      </div>
+      {{!-- drop down industrice end --}}
+
+      {{!-- search now button start --}}
+      <button onclick="getfilter(0,true)"
+        class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white p-2 border border-blue-500 hover:border-transparent rounded">
+        Search now
+      </button>
+      {{!-- search now end --}}
+
+    </div>
+  </fieldset>
+
+
+  {{!-- append div start here --}}
+  <div class="press grid grid-cols-3 justify-evenly mb-20 ">
+  </div>
+  <div class="contain-pagination"></div>
+  </div>
+
+  {{!-- footer --}}
+  <div class="w-full ">
+    <div class="centered-container">
+      {{>footer}}
+    </div>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">  </script>
+  <script type="text/javascript">
+
+    $(document).ready(() => {
+      $(document).on("click", ".nav1", function () {
+        var element = $(".nav1").add("active")
+        var data_id = $(this).attr("data-id");
+        if (data_id == "showalll.html") {
+          var entitype = "ce_industries_detail,ce_categraise";
+          //alert(entitype);
+        }
+        else {
+          $('.press').empty();
+        }
+
+        if (data_id == "industriesall.html") {
+          entitype = "ce_industries_detail";
+
+        }
+        else {
+          $('.press').empty();
+        }
+
+        if (data_id == "categoryall.html") {
+          entitype = "ce_categraise";
+          let filterButtonDiv = "";
+          filterButtonDiv += '<div class="m-auto h-20 pb-5">';
+          filterButtonDiv += '<button id="webbtn" class="fa fa-globe fa-solid fa-3x bg-blue-500 hover:bg-black-[700] text-white font-bold py-2 px-4  rounded-lg">';
+          filterButtonDiv += ' Web';
+          filterButtonDiv += '</button>';
+          filterButtonDiv += '<button id="mobilebtn" class="fa fa-android fa-solid fa-3x bg-blue-500 hover:bg-black-[700] text-white font-bold py-2 px-4 rounded-lg">';
+          filterButtonDiv += 'Mobile';
+          filterButtonDiv += '</button> ';
+          filterButtonDiv += '<button id="gamesbtn" class="fa fa-gamepad fa-solid fa-3x bg-blue-500 hover:bg-black-[700] text-white font-bold py-2 px-4 rounded-lg">';
+          filterButtonDiv += 'Game';
+          filterButtonDiv += '</button>';
+          filterButtonDiv += '</div>';
+          $(".filterButtonsHere").html(filterButtonDiv);
+
+
+          $("#webbtn").click(function () {
+            webbtn(0, true);
+          })
+
+          $("#mobilebtn").click(function () {
+            mobilebtn1(0, true);
+          })
+
+
+          $("#gamesbtn").click(function () {
+            gamebtn(0,true);
+          })
+
+        }
+
+        else {
+          $(".filterButtonsHere").empty();
+          $('.press').empty();
+        }
+        getData(0, true, entitype);
+        menu(entitype);
+      })
+
+    })
+
+    function menu(entitype) {
+      fetch("https://liveapi-sandbox.yext.com/v2/accounts/me/entities?api_key=b262ae7768eec3bfa53bfca6d48e4000&v=20211229&limit=40&entityTypes=ce_showall",
+        { method: "GET" })
+        .then((res) => res.json())
+        .then(function (data) {
+          var html = "";
+          var pathname = window.location.pathname.replace('/', '');
+          //console.log(pathname)
+          var cat = data.response.entities;
+
+          cat.forEach((f, i,) => {
+            let name1 = f.name; // Here name1 means Name
+            // console.log(name1)
+            let slug1 = f.slug; // Here slug1 means Slug
+            //console.log(slug1)
+            let activeClass = '';
+            if (slug1 == pathname) {
+              activeClass = 'active';
+            }
+            //html +="<ul>"
+            //html+=pagehtml += '<li><a href="#" class="' + isActive + ' page-btn relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 mr-3" data-id=' + e + '>' + e + '</a></li>';
+            html += '<button class="nav1 inline-block px-6 py-2.5 bg-black text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-green-600 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ' + activeClass + '  " data-entitytype="' + entitype + '" data-id="' + slug1 + '" href=' + slug1 + '>' + name1 + '</button>';
+            //html+= '<a class="nav1 bg-black text-white hover:text-yellow-500 '+activeClass+' ml-3 mr-3 " data-entitytype="'+entitype+'" data-id="'+slug1+'" href="#">'+name1+'</a>';
+          })
+          $(".pressNavbar").empty();
+          $(".pressNavbar").append(html);
+
+        })
+
+    }
+    let entitype = "ce_industries_detail,ce_categraise";
+    menu(entitype);
+
+
+    //paginate function start 
+    function paginate(totalItems, currentPage, pageSize, maxPages) {
+      if (currentPage === void 0) { currentPage = 1; }
+      if (pageSize === void 0) { pageSize = 10; }
+      if (maxPages === void 0) { maxPages = 10; }
+      // calculate total pages
+      var totalPages = Math.ceil(totalItems / pageSize);
+      // ensure current page isn't out of range
+      if (currentPage < 1) {
+        currentPage = 1;
+      }
+      else if (currentPage > totalPages) {
+        currentPage = totalPages;
+      }
+      var startPage, endPage;
+      if (totalPages <= maxPages) {
+        // total pages less than max so show all pages
+        startPage = 1;
+        endPage = totalPages;
+      }
+      else {
+        // total pages more than max so calculate start and end pages
+        var maxPagesBeforeCurrentPage = Math.floor(maxPages / 2);
+        var maxPagesAfterCurrentPage = Math.ceil(maxPages / 2) - 1;
+        if (currentPage <= maxPagesBeforeCurrentPage) {
+          // current page near the start
+          startPage = 1;
+          endPage = maxPages;
+        }
+        else if (currentPage + maxPagesAfterCurrentPage >= totalPages) {
+          // current page near the end
+          startPage = totalPages - maxPages + 1;
+          endPage = totalPages;
+        }
+        else {
+          // current page somewhere in the middle
+          startPage = currentPage - maxPagesBeforeCurrentPage;
+          endPage = currentPage + maxPagesAfterCurrentPage;
+        }
+      }
+      // calculate start and end item indexes
+      var startIndex = (currentPage - 1) * pageSize;
+      var endIndex = Math.min(startIndex + pageSize - 1, totalItems - 1);
+      // create an array of pages to ng-repeat in the pager control
+      var pages = Array.from(Array((endPage + 1) - startPage).keys()).map(function (i) { return startPage + i; });
+      // return object with all pager properties required by the view
+      return {
+        totalItems: totalItems,
+        currentPage: currentPage,
+        pageSize: pageSize,
+        totalPages: totalPages,
+        startPage: startPage,
+        endPage: endPage,
+        startIndex: startIndex,
+        endIndex: endIndex,
+        pages: pages
+      };
+    }
+
+
+
+
+    //console.log(paginate(70, 1, 10, 5));
+    function appendpaginationlinks(pagesLinks) {
+
+      // console.log('pagesLinks', pagesLinks)
+      const pages = pagesLinks.pages;
+      const totalPages = pagesLinks.totalPages;
+      const currentPage = pagesLinks.currentPage;
+      if (pages.length > 1) {
+        var pagehtml = "<div class=flex-inline id=remove>";
+        pagehtml += "<ul class='pagination relative z-0 inline-flex rounded-md shadow-sm -space-x-px'>";
+
+        // if(currentPage>1){
+        //   pagehtml+='<li><a href="#" class="page-btn relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 mr-3" data-id="1">First</a></li>';
+        // }
+
+        if (currentPage > 1) {
+          pagehtml += '<li><a href="#" class="page-btn relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 mr-3" data-id="1">First</a></li>';
+          pagehtml += '<li><a href="#" class="page-btn relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 mr-3" data-id=' + (currentPage - 1) + '><</a></li>';
+        }
+
+        pages.forEach((e) => {
+          var isActive = "";
+          if (e == currentPage) {
+            isActive = "active";
+          }
+          pagehtml += '<li><a href="#" class="' + isActive + ' page-btn relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 mr-3" data-id=' + e + '>' + e + '</a></li>';
+
+        })
+
+        if (totalPages !== currentPage) {
+          pagehtml += '<li><a href="#" class="page-btn relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 mr-3"  data-id=' + (currentPage + 1) + '>></a></li>';
+          pagehtml += '<li><a href="#" class="page-btn relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 mr-3" data-id=' + totalPages + '>Last</a></li>';
+        }
+
+        pagehtml += "</ul></div>";
+      }
+      
+      else {
+        pagehtml = "";
+      }
+      $(".contain-pagination").empty();
+      $('.contain-pagination').append(pagehtml);
+    }
+
+    function renderPaginationLinks(pagesLinks, count = 0) {
+      const currentPage = pagesLinks.currentPage;
+      appendpaginationlinks(pagesLinks);
+
+      setTimeout(() => {
+
+        $(document).on('click', '.page-btn', function () {
+          const limit = 3;
+          const dataId = $(this).attr('data-id');
+          const entity = $('.nav1').attr("data-entitytype");
+          // console.log(entity);
+          const newOffset = (limit * Number(dataId)) - (limit);
+          offset = newOffset;
+
+          if (offset !== currentPage) {
+            $('.press').empty();
+          }
+          getData(offset, false, entity);
+          webbtn(offset, false);
+          mobilebtn1(offset,false);
+          gamebtn(offset,false);
+          getfilter(offset, false);
+          const pagLinks = paginate(count, parseInt(dataId), limit, 5);
+          appendpaginationlinks(pagLinks);
+        });
+
+      }, 1000);
+
+    }
+
+//webbtn function start
+    function webbtn(offset = 0, pagination = false) {
+      var newwebb = $("#webbtn").text();
+      // alert(newweb);
+      let request_url =
+        base_url +
+        "api_key=b262ae7768eec3bfa53bfca6d48e4000" +
+        "&v=20181017" +
+        "&limit=3" +
+        "&offset=" + offset;
+      '&sortBy=[{"name":"ASCENDING"}]';
+
+      let filterParameters = {};
+      let filterOr = {};
+      if (newwebb) {
+        filterOr = {
+          "$or": [
+            { "c_nature": { "$contains": newwebb } }
+          ]
+        };
+
+      }
+
+      filterParameters = { ...filterOr };
+      var filterpar = JSON.stringify(filterParameters);
+      var filter = encodeURI(filterpar);
+      if (filter) {
+        request_url += "&filter=" + filter;
+        //alert(request_url);
+      }
+      if (request_url) {
+        getRequest(request_url, pagination);
+      }
+    }
+    //web btn end
+
+    //mobile button function start here
+    function mobilebtn1(offset = 0, pagination = false) {
+      var newmobile = $("#mobilebtn").text();
+      //alert(newmobile)
+      let request_url =
+        base_url +
+        "api_key=b262ae7768eec3bfa53bfca6d48e4000" +
+        "&v=20181017" +
+        "&limit=3" +
+        "&offset=" + offset;
+      '&sortBy=[{"name":"ASCENDING"}]';
+      //alert(request_url)
+
+      let filterParameters = {};
+      let filterOr = {};
+      if (newmobile) {
+        filterOr = {
+          "$or": [
+            { "c_nature": { "$contains": newmobile } }
+          ]
+        };
+
+      }
+
+      filterParameters = { ...filterOr };
+      var filterpar = JSON.stringify(filterParameters);
+      var filter = encodeURI(filterpar);
+      if (filter) {
+        request_url += "&filter=" + filter;
+        //alert(request_url);
+      }
+      if (request_url) {
+        getRequest(request_url, pagination);
+      }
+    }
+    //mobile button end
+
+//function mobile start here
+    function gamebtn(offset = 0, pagination = false) {
+      var newgame = $("#gamesbtn").text();
+      //  alert(newgame)
+
+      let request_url =
+        base_url +
+        "api_key=b262ae7768eec3bfa53bfca6d48e4000" +
+        "&v=20181017" +
+        "&limit=3" +
+        "&offset=" + offset;
+      '&sortBy=[{"name":"ASCENDING"}]';
+    
+      let filterParameters = {};
+      let filterOr = {};
+      if (newgame) {
+        filterOr = {
+          "$or": [
+            { "c_nature": { "$contains": newgame } }
+          ]
+        };
+
+      }
+
+      filterParameters = { ...filterOr };
+      var filterpar = JSON.stringify(filterParameters);
+      var filter = encodeURI(filterpar);
+      if (filter) {
+        request_url += "&filter=" + filter;
+
+      }
+      if (request_url) {
+        getRequest(request_url, pagination);
+      }
+    }
+    //end here
+
+    let offset = 0;
+    function getData(offset, pagination = false, entitype) {
+      let base_url = "https://liveapi-sandbox.yext.com/v2/accounts/me/entities?api_key=b262ae7768eec3bfa53bfca6d48e4000&v=20211229";
+      const limit = 3;
+      let request_url =
+        base_url +
+        "&limit=" +
+        limit +
+        "&offset=" +
+        offset +
+        "&entityTypes=" +
+        entitype +
+        '&sortBy=[{"name":"ASCENDING"}]';
+
+      getRequest(request_url, pagination);
+
+    }
+    getData(offset, pagination = true, entitype)
+
+    function getRequest(request_url, isPagingnation = false) {
+      if (entityTypes) {
+        request_url += "&entityTypes=" + entityTypes;
+      }
+      fetch(request_url, { method: "GET" })
+        .then((res) => res.json())
+        .then(function (data) {
+          let count = data.response.count;
+          const limit = 3;
+          // let pagecount=count/limit;
+          // var dividcount=pagecount.toFixed();
+          var cat = data.response.entities;
+          $(".press").empty();
+          cat.forEach((f, i) => {
+
+            var name = f.name;
+            var slug = f.slug;
+            var photo = f.photoGallery;
+            var html = "";
+            photo.forEach(function (e, i) {
+              var url = e.image.url;
+              html = '<div class=" container ml-20 max-w-sm rounded overflow-hidden shadow-lg mt-10">\
+             <a class="inline-block" href='+ slug + '>\
+              <img class="object-cover h-48 w-96 rounded-lg pb-5 pt-5 pl-24 m-auto container" src='+ url + ' alt="">\
+            </a>\
+             <div class="text-block">\
+           </div>\
+           <div class="middle">\
+          <a class="inline-block" href='+ slug + '>\
+           <h5 class="mb-2 text-2xl font-bold m-auto pb-5 pt-5 pl-24 tracking-tight text-gray-00 dark:text-white ">'+ name + '</h5>\
+           </a>\
+           </div>\
+          </div>';
+            })
+            // $('.press').empty();
+            $('.press').append(html);
+          })
+
+          const pagLinks = paginate(count, 1, limit, 2);
+          if (isPagingnation) { renderPaginationLinks(pagLinks, count); }
+        })
+        .catch((err) => {
+          alert("There was an error");
+          console.error(err);
+        });
+    }
+    //paginate function end
+
+    //dropdown code start here
+    var liveAPIKey = "b262ae7768eec3bfa53bfca6d48e4000"
+    var entityTypes = "ce_industries_detail,ce_categraise"
+
+    var base_url = "https://liveapi-sandbox.yext.com/v2/accounts/me/entities?";
+    function getfilter(offset = 0, pagination = false) {
+      let request_url =
+        base_url +
+        "api_key=b262ae7768eec3bfa53bfca6d48e4000" +
+        "&v=20181017" +
+        "&limit=3" +
+        "&offset=" + offset;
+      '&sortBy=[{"name":"ASCENDING"}]';
+      let filterParameters = {};
+      let filterAnd = {};
+      //let filterAnd1 = {};
+      //let filterAnd2={};
+      var ce_technology = [];
+      $('.checkbox_technology').each(function () {
+        if ($(this).is(":checked")) {
+          ce_technology.push($(this).val());
+        }
+      });
+
+      var ce_industrial11 = [];
+      $('.checkbox_industries').each(function () {
+        if ($(this).is(":checked")) {
+          ce_industrial11.push($(this).val());
+        }
+      });
+
+      if (ce_technology == '' && ce_industrial11 == '') {
+        return null;
+      }
+
+      if (ce_technology.length > 0 && ce_industrial11.length > 0) {
+        filterAnd = {
+          "$and":
+            [
+              {
+                "c_relatedtechnology": { "$in": ce_technology }
+              },
+              {
+                "c_relatedIndustries": { "$in": ce_industrial11 }
+
+              }
+
+
+            ],
+
+
+        };
+      }
+      if (ce_technology.length > 0) {
+        filterAnd = {
+          "$and": [
+            {
+              "c_relatedtechnology": { "$in": ce_technology },
+
+            },
+          ]
+        };
+
+      }
+
+      if (ce_industrial11.length > 0) {
+        filterAnd = {
+          "$and": [
+            {
+              "c_relatedIndustries": { "$in": ce_industrial11 },
+
+            },
+          ]
+        };
+
+      }
+
+      filterParameters = { ...filterAnd };
+      var filterpar = JSON.stringify(filterParameters);
+      var filter = encodeURI(filterpar);
+      //console.log(filter);
+
+      if (filter) {
+        request_url += "&filter=" + filter;
+      }
+
+      getRequest(request_url, pagination);
+    }
+
+    function gettechnology() {
+      var baseURL = "https://liveapi-sandbox.yext.com/v2/accounts/me/entities?";
+      var api_key = "b262ae7768eec3bfa53bfca6d48e4000";
+      var vparam = "20181017";
+      var entityTypes = "ce_technology";
+
+      var fullURL =
+        baseURL +
+        "api_key=" +
+        api_key +
+        "&v=" +
+        vparam +
+        "&entityTypes=" +
+        entityTypes;
+
+      fetch(fullURL).then(response => response.json()).then(result => {
+
+        if (!result.errors) {
+          if (result.response.count > 0) {
+
+            var html = '';
+            html += '<input type="checkbox" class="mb-1 pt-1 " name="Select-all" id="select-allcheck1"/>'
+            html += '<label class="relative pl-7 mb-1  text-sm font-Futura font-light cursor-pointer">Select all</label>';
+            $.each(result.response.entities, function (index, entity) {
+
+              // html += '<input type="checkbox" name="Select-all" id="check1"/>'
+              // html += '<label class="relative pl-7 text-sm font-Futura font-light cursor-pointer">Select all</label>';
+              html += '<li p-1.5 class="department-list-item w-1/2 sm:w-1/3 md:w-1/4 mb-3" data-name="' + entity.name + '" data-id="' + entity.meta.id + '" >';
+              html += '<div class="form-check relative"><input class=" checkbox_technology absolute p-1.5 " type="checkbox"  name="c_relatedtechnology[]" value="' + entity.meta.id + '" id="' + entity.name + '"></div>';
+              html += '<label class=" relative pl-7 text-sm font-Futura font-light cursor-pointer" for="' + entity.name + '"> ' + entity.name + '</label>';
+              html += '</li>';
+            });
+            $(".department-list").html(html);
+            $(".checkbox_technology").change(function () {
+            });
+          }
+          else {
+
+          }
+
+        } else {
+
+        }
+
+        $('#select-allcheck1').on('click', function () {
+          if (this.checked) {
+            $('.checkbox_technology').each(function () {
+              this.checked = true;
+            });
+          } else {
+            $('.checkbox_technology').each(function () {
+              this.checked = false;
+            });
+          }
+        });
+
+        $('.checkbox_technology').on('click', function () {
+          if ($('.checkbox_technology:checked').length == $('.checkbox_technology').length) {
+            $('#select-allcheck1').prop('checked', true);
+          } else {
+            $('#select-allcheck1').prop('checked', false);
+          }
+        });
+
+        var $checkboxes = $('#mydropDownDiv input[type="checkbox"]');
+        $checkboxes.change(function () {
+          var countCheckedCheckboxes = $checkboxes.filter(':checked').length;
+
+          var Box = document.getElementById('select-allcheck1');
+
+          if (Box.checked) {
+
+            countCheckedCheckboxes = countCheckedCheckboxes - 1;
+          }
+
+          $('.dropbtn').text("Select Technology" + "(" + countCheckedCheckboxes + ")");
+
+          // $('.department-list').val(countCheckedCheckboxes);
+        });
+
+      });
+
+
+    }
+    gettechnology();
+
+    function getindustrices() {
+      var baseURL = "https://liveapi-sandbox.yext.com/v2/accounts/me/entities?";
+      var api_key = "b262ae7768eec3bfa53bfca6d48e4000";
+      var vparam = "20181017";
+      var entityTypes = "ce_industries_detail";
+
+      var fullURL =
+        baseURL +
+        "api_key=" +
+        api_key +
+        "&v=" +
+        vparam +
+        "&entityTypes=" +
+        entityTypes;
+
+      fetch(fullURL).then(response => response.json()).then(result => {
+
+        if (!result.errors) {
+          if (result.response.count > 0) {
+
+            var html11 = '';
+            html11 += '<input type="checkbox" class="mb-1 pt-1 " name="Select-all1" id="selectallcheck2"/>'
+            html11 += '<label class="relative pl-7 pb-1 text-sm font-Futura font-light cursor-pointer"> Select all </label>';
+            $.each(result.response.entities, function (key, value1) {
+
+              html11 += '<li p-1.5 class="department-list-item w-1/2 sm:w-1/3 md:w-1/4 mb-4" data-name="' + value1.name + '" data-id="' + value1.meta.id + '" >';
+              html11 += '<div class="form-check relative"><input class="checkbox_industries absolute p-1.5 "  type="checkbox"  name="c_relatedIndustries[]" value="' + value1.meta.id + '" id="' + value1.name + '">';
+              html11 += '<label class="relative pl-7 text-sm font-Futura font-light cursor-pointer" for="' + value1.name + '"> ' + value1.name + '</label>';
+              html11 += '</li>';
+
+            });
+
+            $(".department11-list").html(html11);
+
+            $(".checkbox_industries").change(function () {
+
+            });
+
+          } else {
+
+          }
+
+        } else {
+
+        }
+        //select all drop down function start
+        $('#selectallcheck2').on('click', function () {
+          if (this.checked) {
+            $('.checkbox_industries').each(function () {
+              this.checked = true;
+            });
+          } else {
+            $('.checkbox_industries').each(function () {
+              this.checked = false;
+            });
+          }
+        });
+
+        $('.checkbox_industries').on('click', function () {
+          if ($('.checkbox_industries:checked').length == $('.checkbox_industries').length) {
+            $('#selectallcheck2').prop('checked', true);
+          } else {
+            $('#selectallcheck2').prop('checked', false);
+          }
+        });
+        var $checkboxes = $('#mydropDownDiv2 input[type="checkbox"]');
+        $checkboxes.change(function () {
+          var countCheckedCheckboxes = $checkboxes.filter(':checked').length;
+          var Box = document.getElementById('selectallcheck2');
+
+          if (Box.checked) {
+            countCheckedCheckboxes = countCheckedCheckboxes - 1;
+          }
+          $('.dropbtn11').text("Select Industrics" + "(" + countCheckedCheckboxes + ")");
+          //$('.department-list').val(countCheckedCheckboxes);
+        });
+        //end 
+      });
+    }
+    getindustrices();
+
+    //serach bar button start 
+
+    $("#click").click(function () {
+      let request_url =
+        base_url +
+        "api_key=b262ae7768eec3bfa53bfca6d48e4000" +
+        "&v=20181017" +
+        "&limit=3" +
+        '&sortBy=[{"name":"ASCENDING"}]';
+
+      let filterParameters = {};
+      let filterOr = {};
+
+      const searchbar1 = $("#dot").val()
+
+      $("#dot").val('');
+
+      if (searchbar1 == "") {
+        return null;
+      }
+
+      //alert(dot11)
+      if (searchbar1) {
+
+        filterOr = {
+          "$or": [
+            { "name": { "$contains": searchbar1 } },
+            { "c_technology": { "$contains": searchbar1 } }
+          ]
+        };
+
+      }
+      filterParameters = { ...filterOr };
+      var filterpar = JSON.stringify(filterParameters);
+      var filter = encodeURI(filterpar);
+      // console.log(filter);
+
+      if (filter) {
+        request_url += "&filter=" + filter;
+      }
+      if (request_url) {
+        getRequest(request_url, true);
+      }
+    })
+    //search bar button end
+
+
+  </script>
+
+</body>
+
+</html>
