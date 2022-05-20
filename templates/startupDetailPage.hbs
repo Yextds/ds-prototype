@@ -23,14 +23,22 @@
         "c_related01.name",
         "c_related01.c_description1",
         "c_relatedCategory.name",
+        "c_dsibHeader",
+        "c_dsibParagraph",
+        "c_firstDescription",
+        "c_secondDescription",
+        "c_selfDescription",
+        "c_startUpHeadingFirst",
+        "c_startUpDescription",
+        "c_startUpHeadingSecond",
         "c_relatedCategory.photoGallery",
         "c_relatedCategory.c_description",
         "c_mainRelatedNavber.slug",
-"c_mainRelatedNavber.name",
-"c_mainRelatedNavber.c_customSubmenuitem.name",
-"c_mainRelatedNavber.c_customSubmenuitem.slug",
-"c_mainRelatedNavber.c_customSubmenuitem.c_relatedMenuCategory.name",
-"c_mainRelatedNavber.c_customSubmenuitem.c_relatedMenuCategory.slug"
+        "c_mainRelatedNavber.name",
+        "c_mainRelatedNavber.c_customSubmenuitem.name",
+        "c_mainRelatedNavber.c_customSubmenuitem.slug",
+        "c_mainRelatedNavber.c_customSubmenuitem.c_relatedMenuCategory.name",
+        "c_mainRelatedNavber.c_customSubmenuitem.c_relatedMenuCategory.slug"
       ],
       "localization": {
           "locales": ["en"]
@@ -69,7 +77,7 @@
           
 <div class="page-title">
     <div class="centered-container">
-      <h1>Start Up Solutions </h1>
+      <h1>{{c_dsibHeader}}</h1>
     </div>
   </div>
 
@@ -89,7 +97,7 @@
 
             <p>{{c_description1}}</p>
             </div>
-               <h2 class="title-heading text-4xl md:text-4xl xl:text-4xl font-bold tracking-tight mb-2">“The Start-Up Process!”</h2>
+               <h2 class="title-heading text-4xl md:text-4xl xl:text-4xl font-bold tracking-tight mb-2">{{c_startUpHeadingFirst}}</h2>
 
            </div>
             <!-- Paragraph code ends here -->
@@ -122,7 +130,7 @@
                           <div class="centered-container pt-10 text-center">
 
               <div class="text-center paragraph1">
-                <p>Since 2002, Dotsquares has emerged as one of the industry leading IT companies, teaming dynamic solutions and experienced Start-up Solution developers. <br>Being a global brand has enabled us to engage visitors from the US, UK, Australia, France, New Zealand and many other parts of the world</p>
+                <p>{{c_firstDescription}}</p>
               </div>
 </div>
 
@@ -136,7 +144,7 @@
       <div class="bg-black my-12 pb-12">
 
    <div class="patnershipHeading">
-     <h2 class=" title-heading text-4xl text-center py-10 text-white md:text-4xl xl:text-4xl font-bold tracking-tight mb-2">Dotsquares – The ultimate Start-up Partnership!</h2>
+     <h2 class=" title-heading text-4xl text-center py-10 text-white md:text-4xl xl:text-4xl font-bold tracking-tight mb-2">{{c_startUpHeadingSecond}}</h2>
    </div>
   
               <div class="start-up_processPartnership">

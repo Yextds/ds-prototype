@@ -23,6 +23,14 @@
 "c_agencySpecialities.photoGallery",
 "c_agencySpecialities.c_description1",
 "c_relatedCategory.name",
+"c_dsibHeader",
+"c_dsibParagraph",
+"c_firstDescription",
+"c_secondDescription",
+"c_selfDescription",
+"c_startUpHeadingFirst",
+"c_startUpDescription",
+"c_startUpHeadingSecond",
 "c_relatedCategory.photoGallery",
 "c_relatedCategory.c_description1",
  "c_mainRelatedNavber.slug",
@@ -65,8 +73,8 @@
          <section class="mb-0">
                 <div class="page-title">
                     <div class="centered-container">
-                        <h1>Working with Enterprises </h1>
-                        <p class="text-white">Are you an Enterprise looking to scale up your business?</p>
+                        <h1>{{c_dsibHeader}}</h1>
+                        <p class="text-white">{{c_dsibParagraph}}</p>
                     </div>
                 </div>
           </section>
@@ -81,9 +89,7 @@
                         <div class="flex justify-end">
                             <div class="block   bg-white max-w-lg text-center">
                                 <div class="p-6">
-                                    <h2 class="text-[#f5821f]  text-4xl mb-2 text-left font-semibold leading-10 p-8">We work with Enterprise
-                                        level businesses to tailor bespoke web solutions to maximise their
-                                        infrastructures</h2>
+                                    <h2 class="text-[#f5821f]  text-4xl mb-2 text-left font-semibold leading-10 p-8">{{c_selfDescription}}</h2>
                                 </div>
                             </div>
                         </div>
@@ -104,18 +110,14 @@
         <div
           class="flex relative before:block before:absolute before:bg-black before:top-0 before:bottom-0  before:right-0 before:-left-96 before:z-0   before:-inset-1 ">
           <div class="flex-initial bg-black py-20 pr-10 z-10  w-1/2">
-            <h2 class="text-8xl block text-[#f5821f] w-full text-left"> <span class="">  18,421</h2>
+            <h2 class="text-8xl block font-medium text-[#f5821f] w-full text-left"> <span class="">  18,421</h2>
+                <h2 class="text-5xl font-bold block text-white w-full text-left"> <span class="">{{c_startUpHeadingFirst}}</h2>
           </div>
           <div class="flex-auto z-10 bg-white">
 
-            <h2 class="text-1xl font-bold p-10">Growing a business can be highly challenging, due to the ever changing customer demand because of
-                    new and innovative technologies. To keep up with the market trends, digital businesses need to
-                    constantly expand their offerings, but for some this might not be as easy as it seems.
+            <h2 class="text-1xl font-bold p-10">{{c_firstDescription}}
             </h2>
-            <p class="p-10 pt-3">                    Since 2002 we’ve been lending a helping hand to businesses that may have a gap in technology, or
-                    those that need a power house to scale up their teams. This way you’re not having to turn away
-                    projects due to lack of
-                    resources.
+            <p class="p-10 pt-3">{{c_secondDescription}}
             </p>
 
           </div>
