@@ -44,10 +44,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>{{name}}</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
   {{>head}}
   <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/flowbite@1.4.1/dist/flowbite.min.css" />
+
+</head>
 
 <style>
   .topnav{
@@ -78,9 +79,6 @@
     color: rgba(248, 170, 1, 0.76);
   }
 </style>
-</head>
-
-
 
 <body>
   {{>PrototypeMenu}}
@@ -91,7 +89,7 @@
 
 <div class="page-title">
     <div class="centered-container">
-      <h1> {{name}}</h1>
+      <h1> {{name}}    </h1>
       <p>{{convertRTFToHTML shortDescription}}</p>
     </div>
   </div>
@@ -102,11 +100,10 @@
     <br>
     <p>{{convertRTFToHTML richTextDescription}}</p>
     <br>
-    
+    <a href="expertise">
     <button
-      class="text-black text-bold hover:text-white border border-black hover:bg-black focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-yellow-300 dark:text-yellow-300 dark:hover:text-white dark:hover:bg-yellow-400 dark:focus:ring-yellow-900 ml-2">what we do
-    </button>
-    
+      class="text-black text-bold hover:text-white border border-black hover:bg-black focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-yellow-300 dark:text-yellow-300 dark:hover:text-white dark:hover:bg-yellow-400 dark:focus:ring-yellow-900 ml-2">what we do</button>
+    </a>
 </div>
 </div>
  
@@ -161,7 +158,6 @@
       {{>footer}}
     </div>
   </div>
-
 
 
 

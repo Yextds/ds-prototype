@@ -1,220 +1,217 @@
 ---
 {
-    "stream": {
-        "$id": "agenciesDetailed-page",
-        "source": "knowledgeGraph",
-        "destination": "pages",
-      "filter": {
-        "entityTypes": [
-          "ce_weWorkWith"
-        ],
-        "savedFilterIds": [
-          "917392681"
-        ]
-      },
-      "fields": [
-        "id",
-        "uid",
-        "name",
-        "slug",
-        "c_related01.name",
-        "c_related01.photoGallery",
-        "c_agencySpecialities.name",
-        "c_agencySpecialities.photoGallery",
-        "c_agencySpecialities.c_description1",
-        "c_relatedCategory.name",
-        "c_relatedCategory.photoGallery",
-        "c_mainRelatedNavber.slug",
+"stream": {
+"$id": "agenciesDetailed-page",
+"source": "knowledgeGraph",
+"destination": "pages",
+"filter": {
+"entityTypes": [
+"ce_weWorkWith"
+],
+"savedFilterIds": [
+"917392681"
+]
+},
+"fields": [
+"id",
+"uid",
+"name",
+"slug",
+"c_related01.name",
+"c_related01.photoGallery",
+"c_agencySpecialities.name",
+"c_agencySpecialities.photoGallery",
+"c_agencySpecialities.c_description1",
+"c_relatedCategory.name",
+"c_relatedCategory.photoGallery",
+"c_mainRelatedNavber.slug",
 "c_mainRelatedNavber.name",
 "c_mainRelatedNavber.c_customSubmenuitem.name",
 "c_mainRelatedNavber.c_customSubmenuitem.slug",
 "c_mainRelatedNavber.c_customSubmenuitem.c_relatedMenuCategory.name",
 "c_mainRelatedNavber.c_customSubmenuitem.c_relatedMenuCategory.slug"
-      ],
-      "localization": {
-          "locales": ["en"]
-      }
-    },
-    "urlFormat": "{{slug}}"
+],
+"localization": {
+"locales": ["en"]
+}
+},
+"urlFormat": "{{slug}}"
 }
 ---
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>{{name}}</title>
 
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        {{>head}}
-        {{!-- <link href="https://unpkg.com/tailwindcss/dist/tailwind.min.css" rel="stylesheet"> --}}
-        <!--Replace with your tailwind.css once created-->
-        <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet">
-        
-  
-    </head>
-    <body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>{{name}}</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {{>head}}
+  {{!--
+  <link href="https://unpkg.com/tailwindcss/dist/tailwind.min.css" rel="stylesheet"> --}}
+  <!--Replace with your tailwind.css once created-->
+  <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet">
+
+
+</head>
+
+<body>
   <div class="w-full">
-            
-                {{>PrototypeMenu}}
-           
-    <!-- Image banner code starts here -->
-      <div>
 
-          <section class="mb-40">
-          <div
-              class="relative overflow-hidden bg-no-repeat bg-cover"
-              style="
-                background-position: 50%;
-                background-image: url('https://i.pinimg.com/736x/62/cb/b8/62cbb8138fd6c38a72198e09859a5426.jpg');
-                height: 500px;">
-              <div
-                class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed"
-                style="background-color: rgba(0, 0, 0, 0.75)"
-              >
-                <div class="flex h-full">
-                  <div class=" text-white px-6 md:px-12">
-                    <h1 class=" md:text-5xl xl:text-5xl font-bold tracking-tight mb-12 firstHeader">
-                     Working with Agencies<br />
-                    </h1>
-                    <p class="text-white">Are you a digital agency looking to scale up your business?</p>
-                  
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
+    {{>PrototypeMenu}}
+
+    <!-- Image banner code starts here -->
+
+    <section class="mb-0">
+
+      <div class="page-title">
+        <div class="centered-container">
+          <h1>Start Up Solutions </h1>
+          <p class="text-white">Are you a digital agency looking to scale up your business?</p>
+
+        </div>
       </div>
+
+    </section>
 
     <!-- Image banner code ends here -->
-            
-          <!-- Tab with background image code starts here -->
 
-              <div class="h-screen bg-white" style="margin-top: -170px;">
-                <div class="">
-              <!-- Profile Card -->
-              <div class="rounded-lg shadow-lg bg-gray-600 w-full flex flex-row flex-wrap p-3 antialiased" style="
-                background-image: url('https://www.dotsquares.com/images/working_technolog_bg.jpg');
-                background-repeat: no-repat;
-                background-size: cover;
-                background-blend-mode: multiply;
-              ">
-                <div>
+    <!-- Tab with background image code starts here -->
 
-              <div class="flex justify-center" style="margin-left: 890px; margin-top: 50px; margin-bottom: -11px;">
-                <div class="block  shadow-lg bg-white max-w-sm text-center">
-                 
-                  <div class="p-6">
-                    <h5 class="text-gray-900  font-medium mb-2 textInsideCar">We're here to bridge the technology gap, and be the powerhouse you need!</h5>
-                    
-                    
-                  </div>
-                  
-                </div>
-              </div>
+    <!-- Profile Card -->
+    <div class="w-full pt-24" style="background-image: url('https://www.dotsquares.com/images/working_technolog_bg.jpg');
+                background-repeat: no-repat;  background-size: cover;     background-blend-mode: multiply;">
+      <div class="centered-container mx-auto">
 
-                </div>
-                <div class="md:w-2/3 w-full px-3 flex flex-row flex-wrap">
-                  <div class="w-full text-right text-gray-700 font-semibold relative pt-3 md:pt-0">
-                    
-                    
-                  </div>
-                </div>
-              </div>
-              <!-- End Profile Card -->
-                </div>
-              </div>
+        <div class="flex justify-end">
+          <div class="block   bg-white max-w-lg text-center">
 
-          <!-- Tab with bcakground image code ends here -->
+            <div class="p-6">
+              <h2 class="text-[#f5821f]  text-4xl mb-2 text-left font-semibold leading-10 p-8">We're here
+                to bridge the technology gap, and be the powerhouse you need!</h2>
 
-             
-    <!-- Space for 90% Heading -->
-            <div class="patnershipHeading">
-             <h2 class="title-headingPartnership">90% AGENCY RETENTION RATE</h2>
+
             </div>
-          
-                      <div class="start-up_processPartnership">
-                        
-                        {{#each c_agencySpecialities}}
-                        
-                          <div class="flex justify-center innerDivOFPartnership">
 
-                            <div class="block rounded-lg shadow-lg bg-white max-w-sm text-center startupCardListsPartnership">
-                              <div class="p-6Partnership">
-                                <img src="{{photoGallery.[0].image.url}}" style="margin-left: 140px; margin-bottom: 10px;margin-top: 10px;">
-                                <h5 class="text-xl font-bold mb-2 text-white">{{name}}</h5>
-                                <p class="text-white text-base mb-4">
-                                  {{c_description1}}
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                          {{/each}}
-                      </div>
-
-      <!-- Space for 90% Heading -->
-                 
-              
-                <div>
-                  <h2 class="text-1xl font-bold">Growing a business can be highly challenging, due to the ever changing customer demand because of new and innovative technologies. To keep up with the market trends, digital businesses need to constantly expand their offerings, but for some this might not be as easy as it seems.
-                  </h2>
-                  <p>Since 2002 we’ve been lending a helping hand to businesses that may have a gap in technology, or those that need a power house to scale up their teams. This way you’re not having to turn away projects due to lack of resources. With a 90% agency retention rate there’s a reason why most of the agencies we work with have been with us for several years.</p>
-                </div>
-
-            <!-- Agency Prohjects Section starts from here -->
-
-                 <section class="overflow-hidden text-gray-700 ">
-                 <br> <h5 class="text-gray-900  font-medium mb-2 textInsideCar">Over 12,000+ Project Delivered Across the World</h5>
-                      <div class="container px-5 py-2 mx-auto lg:pt-12 lg:px-32">
-                        <div class="flex flex-wrap ">
-                          {{#each c_related01}}
-                          <div class="flex flex-wrap w-1/3" style="margin-left: 20px; margin-right20px">
-                           <div class="w-full p-1 md:p-2">
-                              <img alt="gallery" class="block object-cover object-center w-full h-full rounded-lg"
-                                src="{{photoGallery.[0].image.url}}">
-                            </div>
-                          </div>
-                          {{/each}}
-                        </div>
-                      </div>
-                    </section>
-
-
-
-
-            <!-- Agency Projects Section ends here -->
-
-                  <!-- Tech Partners Section starts from here -->
-
-                  <section class="overflow-hidden text-gray-700 ">
-                    <br> <h5 class="text-gray-900  font-medium mb-2 textInsideCar">Tech Partners</h5>
-                      <div class="container px-5 py-2 mx-auto lg:pt-12 lg:px-32">
-                        <div class="flex flex-wrap ">
-                          {{#each c_relatedCategory}}
-                          <div class="flex flex-wrap w-1/3" style="margin-left: 20px; margin-right20px">
-                           <div class="w-full p-1 md:p-2">
-                              <img alt="gallery" class="block object-cover object-center w-full h-full rounded-lg"
-                                src="{{photoGallery.[0].image.url}}">
-                            </div>
-                          </div>
-                          {{/each}}
-                        </div>
-                      </div>
-                    </section>
-
-
-                  <!-- Tech Partners section ends here -->
-  </div>
-
-  <!-- Footer code starts here -->
-      <div class="w-full site-footer">
-          <div class="centered-container">
-              {{>footer}}
           </div>
+        </div>
+
       </div>
-  <!-- Footer code ends here -->
-  
-    </body> 
+    </div>
+    <!-- End Profile Card -->
+
+    <!-- Tab with bcakground image code ends here -->
+
+
+    <!-- Space for 90% Heading -->
+
+    <div class="bg-white h-">
+
+      <div class="centered-container mx-auto">
+        <div
+          class="flex flex-col md:flex-row relative  before:block before:absolute before:bg-black before:top-0 before:bottom-0  before:right-0 before:-left-96 before:z-0   before:-inset-1 ">
+          <div class="flex-initial bg-black py-20 pr-10 z-10  w-1/2">
+            <h2 class="text-white text-5xl text-left"> <span class="text-7xl block text-[#f5821f] w-full"> 90% </span>
+              AGENCY RETENTION RATE</h2>
+          </div>
+          <div class="flex-auto z-10 bg-white">
+
+            <h2 class="text-1xl font-bold p-10">Growing a business can be highly challenging, due to the ever changing
+              customer
+              demand because of new and innovative technologies. To keep up with the market trends, digital businesses
+              need to
+              constantly expand their offerings, but for some this might not be as easy as it seems.
+            </h2>
+            <p class="p-10 pt-3">Since 2002 we’ve been lending a helping hand to businesses that may have a gap in
+              technology, or those that
+              need a power house to scale up their teams. This way you’re not having to turn away projects due to lack
+              of
+              resources. With a 90% agency retention rate there’s a reason why most of the agencies we work with have
+              been
+              with us for several years.</p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="bg-black py-16">
+      <div class="centered-container mx-auto">
+        <div class="grid grid-rows-2 sm:grid-cols-2 gap-6">
+
+          {{#each c_agencySpecialities}}
+
+
+          <div class="">
+            <div class="p-6Partnership">
+              <img src="{{photoGallery.[0].image.url}}">
+              <h5 class="text-xl font-bold mb-2 text-[#f5821f]">{{name}}</h5>
+              <p class="text-white text-base mb-4">
+                {{c_description1}}
+              </p>
+            </div>
+          </div>
+          {{/each}}
+        </div>
+      </div>
+    </div>
+
+    <!-- Space for 90% Heading -->
+
+
+
+    <!-- Agency Prohjects Section starts from here -->
+
+    <div class="centered-container mx-auto">
+      <h2 class="text-gray-900  text-center  text-3xl mb-2 text-left font-semibold leading-10 p-8 textInsideCar">Over
+        <span class="text-[#f5821f]">12,000+ </span> Project Delivered Across the World</h2>
+
+      <div class="grid grid-rows-2 sm:grid-cols-2 gap-6">
+        {{#each c_related01}}
+        <div class="w-full bg-white shadow-lg  p-4 md:p-2">
+          <img alt="gallery" class="block object-cover object-center w-full h-full rounded-lg"
+            src="{{photoGallery.[0].image.url}}">
+        </div>
+        {{/each}}
+      </div>
+    </div>
+
+    <!-- Agency Projects Section ends here -->
+
+    <!-- Tech Partners Section starts from here -->
+
+    <div class="bg-[#f5821f] mt-20">
+      <div class="centered-container mx-auto">
+
+        <h2 class="text-white  text-center  text-3xl mb-2 text-left font-semibold leading-10 p-8">Tech Partners</h2>
+        <div class="flex pb-20  gap-2">
+          {{#each c_relatedCategory}}
+          <div class="bg-white rounded-lg flex items-center  p-6 shadow-md ">
+            <div
+              class="w-full transition ease-in-out delay-150 w-full  hover:-translate-y-1 hover:scale-110  duration-300  p-1 md:p-2">
+              <img alt="gallery" class="block object-cover object-center w-full h-full rounded-lg "
+                src="{{photoGallery.[0].image.url}}">
+            </div>
+          </div>
+          {{/each}}
+        </div>
+      </div>
+</div>
+      <!-- Tech Partners section ends here -->
+    
+
+    <!-- Footer code starts here -->
+    <div class="w-full site-footer">
+      <div class="centered-container">
+        {{>footer}}
+      </div>
+    </div>
+    <!-- Footer code ends here -->
+
+</body>
 
 </html>

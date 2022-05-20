@@ -26,11 +26,11 @@
         "c_dotsLocation.slug",
         "c_dotsLocation.address",
         "c_mainRelatedNavber.slug",
-"c_mainRelatedNavber.name",
-"c_mainRelatedNavber.c_customSubmenuitem.name",
-"c_mainRelatedNavber.c_customSubmenuitem.slug",
-"c_mainRelatedNavber.c_customSubmenuitem.c_relatedMenuCategory.name",
-"c_mainRelatedNavber.c_customSubmenuitem.c_relatedMenuCategory.slug"
+        "c_mainRelatedNavber.name",
+        "c_mainRelatedNavber.c_customSubmenuitem.name",
+        "c_mainRelatedNavber.c_customSubmenuitem.slug",
+        "c_mainRelatedNavber.c_customSubmenuitem.c_relatedMenuCategory.name",
+        "c_mainRelatedNavber.c_customSubmenuitem.c_relatedMenuCategory.slug"
        
       ],
       "localization": {
@@ -83,8 +83,7 @@
 <div class="container mx-auto  flex justify-between   ">
 <div class="left-address ">
   <h1 class="xl:text-3xl font-bold tracking-tight text-yellow-500">Brighton</h1>
-  <p class="text-white">Unit 2, Albourne Court, Henfield Road
-  </p>
+  <p class="text-white">Unit 2, Albourne Court, Henfield Road</p>
   <p class="text-white">Albourne, West Sussex BN6 9FF, UK</p>
   <p class="xl:text-2xl font-bold tracking-tight text-yellow-500">+44 1273 575190</p>
 </div>
@@ -105,7 +104,7 @@
       class="flex flex-wrap list-group-item w-full px-5 divide-y-2 divide-gray-100 border-b mb-4 border-solid border-gray-300 mr-5 ml-5 ">
       {{#each c_dotsLocation}}
 
-      <div data-slug={{slug}} data-name='{{name}}' data-add={{address.line1}} data-lat={{yextDisplayCoordinate.latitude}}
+      <div data-slug={{slug}} data-name='{{name}},{{address.line1}}' data-lat={{yextDisplayCoordinate.latitude}}
         data-lng={{yextDisplayCoordinate.longitude}}
         class="list-group-item flex flex-wrap text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400 tab">
 
@@ -148,9 +147,9 @@
 
 
 
+
 <script
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZNQlSlEIkFAct5VzUtsP4dSbvOr2bE18&sensor=false&libraries=places"></script>
-
 
 <script>
   function load_map(Mapping, $, undefined) {
@@ -158,9 +157,6 @@
     function Initialize() {
       var inlat =26.897771;
       var inlng =75.834457;
-      var lat = 25.7748108;
-      console.log(lat);
-      var lng = -80.197731;
       $('.list-group-item').each(function () {
         lat = $(this).data('lat');
         lng = $(this).data('lng');
@@ -173,15 +169,12 @@
       self.map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
       self.markers = [];
       self.infoWindow = new google.maps.InfoWindow();
-      // var bounds = new google.maps.LatLngBounds();
-
-
       $('.list-group-item').each(function () {
         var $this = $(this);
         var newpos = new google.maps.LatLng(inlat,inlng);
         var pos = new google.maps.LatLng($this.data('lat'), $this.data('lng'));
         var marker = new google.maps.Marker({
-          position: pos,
+          position:pos,
           map: self.map,
           labelContent: "1",
         });
@@ -194,23 +187,25 @@
         self.markers.push(marker);
 
         var location_name = $this.data('name');
-        var slug ='/location/'+$this.data('slug') +'.html';
-
-
-
+        var slug ='/location/'+$this.data('slug');
+          // alert(location_name);
+          
+        /*Infowindow code starts here*/
+        
         var contentString = '<a class="text-base font-medium text-textblack " href="'+slug+'" target="_blank" >'+location_name+'</a>';
-        if(location_name==="India"){
+        /*Infowindow code ends here*/
+        if(location_name==="India,9, 6-KHA-41, Sector 6, Jawahar Nagar"){
           var staticContentString = '<a class="text-base font-medium text-textblack " href='+slug+' target="_blank" >'+location_name+'</a>';
           self.map.panTo(newpos);
           self.infoWindow.setContent(staticContentString);
           self.infoWindow.open(self.map,marker);
-          // $this.siblings().removeClass('active');
+          $this.siblings().removeClass('active');
           $this.addClass('active');
         }
         else{
          
         }
-        $this.click(function () {
+         $this.click(function () {
           self.map.panTo(pos);
           self.infoWindow.setContent(contentString);
           self.infoWindow.open(self.map, marker);
@@ -225,11 +220,6 @@
     Initialize();
   }
   (load_map)(window.Mapping = window.Mapping || {}, jQuery);
-  
-  
-  // google.maps.event.addDomListener(window, 'load', initializeAutocomplete);
-  
-   
 </script>
 </body>
 </html>

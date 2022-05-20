@@ -38,76 +38,45 @@
 <html lang="en">
    <head>
       <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
       <meta http-equiv="X-UA-Compatible" content="ie=edge">
-      <title>Press & Events</title>
+      <title>{{name}}</title>
       <meta name="description" content=Category page for {{name}}.>
       {{>head}}
       <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet">
       <link rel="stylesheet" href="https://unpkg.com/flowbite@1.4.1/dist/flowbite.min.css" />
       <script src="https://unpkg.com/flowbite@1.4.1/dist/flowbite.js"></script>
       <script src="./TW-ELEMENTS-PATH/dist/js/index.min.js"></script>
-      <style>
-         /* Still use global css (not utility css) for base typography etc? */
-         p {
-         margin-bottom: 0.8em;
-         }
-         .topnav{
-         background: black;
-         }
-         .newFooter{
-         background: black;
-         }
-         .pressNavbar{
-         padding-top: 180px;
-         padding-bottom: 10px;
-         padding-left: 450px;
-         }
-         .active{
-         color: rgba(248, 170, 1, 0.76);
-         }
-         .text-block {
-         position: absolute;
-         bottom: 170px;
-         left: 10px;
-         background-color: black;
-         color: white;
-         padding-left: 20px;
-         padding-right: 20px;
-         }
-         .container {
-         position: relative;
-         font-family: Arial;
-         }
-      </style>
+
    </head>
    <body>
-      {{>PrototypeMenu}}
-      <div class="flex h-full py-8 px-6 mx-auto bg-black heading">
-         <div class=" text-white px-6 md:px-12">
-            <h1 class=" md:text-5xl xl:text-5xl font-bold tracking-tight mb-12 text-yellow-500 firstHeader mt-20">
-               {{name}}<br />
-            </h1>
-            <p class="text-white ">{{convertRTFToHTML shortDescription}}</p>
-         </div>
-      </div>
+     {{>PrototypeMenu}}
+      
+                      <div class="page-title">
+                    <div class="centered-container">
+                        <h1>{{name}}</h1>
+                        <p class="text-white">{{convertRTFToHTML shortDescription}}</p>
+                    </div>
+                </div>
+      
+      
       {{!--body  --}}
       {{!-- ce_navigation --}}
-      <div class="hidden md:flex grid gap-x-10 bg-black pressNavbar">
+      <div class="hidden md:flex justify-center grid gap-x-10 bg-black pb-5 pressNavbar">
       </div>
       {{!-- cards --}}
-      <div  class="press grid grid-cols-3 justify-evenly mb-10"> 
+      <div  class="press mt-10 centered-container grid grid-cols-2 gap-4 sm:gap-4 sm:grid-cols-3  justify-evenly mb-10"> 
       </div>
       <div class="contain-pagination"></div>
       </div>
       {{!-- footer --}}
-      <div class="w-full newFooter">
-         <div class="centered-container">
-            {{>footer}}
-         </div>
-      </div>
-
-
+      <div class="w-full site-footer">
+    <div class="centered-container">
+      {{>footer}}
+    </div>
+  </div>
+  
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">  </script>
 
 <script type="text/javascript">
 var api_key = "b262ae7768eec3bfa53bfca6d48e4000";
@@ -133,15 +102,15 @@ $(document).ready(function() {
 function get_nav1($this) {
     var data_id = $this.attr("data-id");
     var entitype = "Ce_dotsEvent";
-    if (data_id == "all-menu.html") {
+    if (data_id == "ALl.html") {
         entitype = "Ce_dotsEvent";
-    } else if (data_id == "events-menu.html") {
+    } else if (data_id == "Events.html") {
         entitype = "ce_event";
-    } else if (data_id == "press-menu.html") {
+    } else if (data_id == "Press.html") {
         entitype = "ce_press";
-    } else if (data_id == "innovation-menu.html") {
+    } else if (data_id == "innovation.html") {
         entitype = "ce_innovation";
-    } else if (data_id == "tech-menu.html") {
+    } else if (data_id == "Tech.html") {
         entitype = "ce_tech";
     }
     $('.pressNavbar a').removeClass("active");
@@ -176,15 +145,15 @@ function get_menu() {
                     activeClass = 'active';
                 }
                 
-                    if (s == "all-menu.html") {
+                    if (s == "ALl.html") {
                         entitype = "Ce_dotsEvent";
-                    } else if (s == "events-menu.html") {
+                    } else if (s == "Events.html") {
                         entitype = "ce_event";
-                    } else if (s == "press-menu.html") {
+                    } else if (s == "Press.html") {
                         entitype = "ce_press";
-                    } else if (s == "innovation-menu.html") {
+                    } else if (s == "innovation.html") {
                         entitype = "ce_innovation";
-                    } else if (s == "tech-menu.html") {
+                    } else if (s == "Tech.html") {
                         entitype = "ce_tech";
                     }
 
@@ -265,25 +234,25 @@ function paginate(totalItems, currentPage, pageSize, maxPages) {
 //console.log(paginate(70, 1, 10, 5));
 function appendpaginationlinks(pagesLinks) {
 
-    console.log('pagesLinks', pagesLinks)
+   // console.log('pagesLinks', pagesLinks)
     const pages = pagesLinks.pages;
     const totalPages = pagesLinks.totalPages;
     const currentPage = pagesLinks.currentPage;
-    console.log(pages.length);
+    //console.log(pages.length);
     if(pages.length>1){
 
 
 
-    var pagehtml = "<div class=flex-inline>";
-    pagehtml += "<ul class='pagination  relative z-0 inline-flex rounded-md shadow-sm -space-x-px'>";
+    var pagehtml = "<div class=flex-inline mb-5 >";
+    pagehtml += "<ul class='pagination mb-5 relative z-0 justify-center  flex rounded-md  -space-x-px'>";
 
     // if(currentPage>1){
     //   pagehtml+='<li><a href="#" class="page-btn relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 mr-3" data-id="1">First</a></li>';
     // }
 
     if (currentPage > 1) {
-        pagehtml += '<li><a href="#" class="page-btn relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 mr-3" data-id="1">First</a></li>';
-        pagehtml += '<li><a href="#" class="page-btn relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 mr-3" data-id=' + (currentPage - 1) + '><</a></li>';
+        pagehtml += '<li><a href="#" class="page-btn relative inline-flex items-center px-4 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 mr-0" data-id="1">First</a></li>';
+        pagehtml += '<li><a href="#" class="page-btn relative inline-flex items-center px-4 py-2  border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 mr-0" data-id=' + (currentPage - 1) + '><</a></li>';
     }
 
     pages.forEach((e) => {
@@ -293,12 +262,12 @@ function appendpaginationlinks(pagesLinks) {
         if (e == currentPage) {
             isActive = "active";
         }
-        pagehtml += '<li><a href="#" class="' + isActive + ' page-btn relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 mr-3" data-id=' + e + '>' + e + '</a></li>';
+        pagehtml += '<li><a href="#" class="' + isActive + ' page-btn relative inline-flex items-center px-4 py-2  border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 mr-0" data-id=' + e + '>' + e + '</a></li>';
     })
 
     if (totalPages !== currentPage) {
-        pagehtml += '<li><a href="#" class="page-btn relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 mr-3"  data-id=' + (currentPage + 1) + '>></a></li>';
-        pagehtml += '<li><a href="#" class="page-btn relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 mr-3" data-id=' + totalPages + '>Last</a></li>';
+        pagehtml += '<li><a href="#" class="page-btn relative inline-flex items-center px-4 py-2  border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 mr-0"  data-id=' + (currentPage + 1) + '>></a></li>';
+        pagehtml += '<li><a href="#" class="page-btn relative inline-flex items-center px-4 py-2  border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 mr-0" data-id=' + totalPages + '>Last</a></li>';
     }
 
     pagehtml += "</ul></div>";
@@ -322,7 +291,7 @@ function renderPaginationLinks(pagesLinks, count = 0) {
             const limit = 10;
             const dataId = $(this).attr('data-id');
             const entity = $('.active').attr("data-entitytype");
-            console.log(entity);
+            //console.log(entity);
             const newOffset = (limit * Number(dataId)) - (limit);
             offset = newOffset;
             // alert(offset);
@@ -358,7 +327,7 @@ function getData(offset, pagination = true, entitype) {
 }
 
 function getRequest(request_url, isPagingnation = false) {
- console.log(request_url);
+ //console.log(request_url);
     fetch(request_url, {
             method: "GET"
         })
@@ -375,16 +344,16 @@ function getRequest(request_url, isPagingnation = false) {
                 var photo = f.photoGallery;               
                 photo.forEach(function(e, i) {
                     var url = e.image.url;
-                    html += '<div class=" container ml-20 max-w-sm rounded overflow-hidden shadow-lg ">\
-     <a class="inline-block" href=' + slug + '>\
-         <img class="object-cover h-48 w-96 py-5 pb-5 container" src=' + url + ' alt="">\
+                    html += '<div class=" relative mt-5 mb-5 max-w-sm rounded overflow-hidden shadow-lg ">\
+     <a class="inline-block w-full" href=' + slug + '>\
+         <img class="object-cover h-48  pb-5 pb-5 transition ease-in-out delay-150 w-full  hover:-translate-y-1 hover:scale-110  duration-300  " src=' + url + ' alt="">\
    </a>\
-    <div class="text-block">\
+    <div class="text-block absolute top-0 left-0 px-4 text-white bg-amber-600 bg-opacity-80">\
      <h4>Tech</h4>\
-   </div>\
-   <div class="middle">\
-      <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-00 dark:text-white ">' + name + '</h5>\
-   <p class="addReadMore showlesscontent">' + description + '</p>\
+    </div>\
+   <div class="px-5 pb-5">\
+      <h5 class="mb-2 text-xl text-[#f5821f]  tracking-tight ">' + name + '</h5>\
+   <p class="addReadMore text-md text-gray-500 showlesscontent">' + description + '</p>\
    </div>\
    </div>';
 
