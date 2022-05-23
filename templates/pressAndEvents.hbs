@@ -102,15 +102,15 @@ $(document).ready(function() {
 function get_nav1($this) {
     var data_id = $this.attr("data-id");
     var entitype = "Ce_dotsEvent";
-    if (data_id == "ALl.html") {
+    if (data_id == "all-menu.html") {
         entitype = "Ce_dotsEvent";
-    } else if (data_id == "Events.html") {
+    } else if (data_id == "events-menu.html") {
         entitype = "ce_event";
-    } else if (data_id == "Press.html") {
+    } else if (data_id == "press-menu.html") {
         entitype = "ce_press";
-    } else if (data_id == "innovation.html") {
+    } else if (data_id == "innovation-menu.html") {
         entitype = "ce_innovation";
-    } else if (data_id == "Tech.html") {
+    } else if (data_id == "tech-menu.html") {
         entitype = "ce_tech";
     }
     $('.pressNavbar a').removeClass("active");
@@ -145,15 +145,15 @@ function get_menu() {
                     activeClass = 'active';
                 }
                 
-                    if (s == "ALl.html") {
+                    if (s == "all-menu.html") {
                         entitype = "Ce_dotsEvent";
-                    } else if (s == "Events.html") {
+                    } else if (s == "events-menu.html") {
                         entitype = "ce_event";
-                    } else if (s == "Press.html") {
+                    } else if (s == "press-menu.html") {
                         entitype = "ce_press";
-                    } else if (s == "innovation.html") {
+                    } else if (s == "innovation-menu.html") {
                         entitype = "ce_innovation";
-                    } else if (s == "Tech.html") {
+                    } else if (s == "tech-menu.html") {
                         entitype = "ce_tech";
                     }
 
