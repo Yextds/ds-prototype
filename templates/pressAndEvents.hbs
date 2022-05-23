@@ -138,26 +138,28 @@ function get_menu() {
                 let n = f.name; // Here n means Name
                 //console.log(n);
                 let s = f.c_slug; // Here s means Slug
-
-
+                let newS = f.slug;
+                const finalS = s || newS;
+                // alert(finalS);
                 let activeClass = '';
-                if (s == pathname) {
+                if (finalS == pathname) {
                     activeClass = 'active';
                 }
                 
-                    if (s == "all-menu.html") {
+                    if (finalS == "all-menu.html") {
                         entitype = "Ce_dotsEvent";
-                    } else if (s == "events-menu.html") {
+                    } else if (finalS == "events-menu.html") {
                         entitype = "ce_event";
-                    } else if (s == "press-menu.html") {
+                    } else if (finalS == "press-menu.html") {
+                        // alert(finalS);
                         entitype = "ce_press";
-                    } else if (s == "innovation-menu.html") {
+                    } else if (finalS == "innovation-menu.html") {
                         entitype = "ce_innovation";
-                    } else if (s == "tech-menu.html") {
+                    } else if (finalS == "tech-menu.html") {
                         entitype = "ce_tech";
                     }
 
-                html += '<a class="nav1 bg-black text-white hover:text-yellow-500 id="'+s+'"' + activeClass + ' ml-3 mr-3 " data-entitytype="'+ entitype + '" data-id="' + s + '" href="#">' + n + '</a>';
+                html += '<a class="nav1 bg-black text-white hover:text-yellow-500 id="'+finalS+'"' + activeClass + ' ml-3 mr-3 " data-entitytype="'+ entitype + '" data-id="' + finalS + '" href="#">' + n + '</a>';
             })
             $(".pressNavbar").empty();
             $(".pressNavbar").append(html);
@@ -340,12 +342,14 @@ function getRequest(request_url, isPagingnation = false) {
             cat.forEach((f, i) => {                
                 var name = f.name;
                 var slug = f.c_slug;
+                var newSlug = f.slug;
+                var finalSlug = (slug || newSlug); 
                 var description = f.c_richTextDescription;
                 var photo = f.photoGallery;               
                 photo.forEach(function(e, i) {
                     var url = e.image.url;
                     html += '<div class=" relative mt-5 mb-5 max-w-sm rounded overflow-hidden shadow-lg ">\
-     <a class="inline-block w-full" href=' + slug + '>\
+     <a class="inline-block w-full" href=' + finalSlug + '>\
          <img class="object-cover h-48  pb-5 pb-5 transition ease-in-out delay-150 w-full  hover:-translate-y-1 hover:scale-110  duration-300  " src=' + url + ' alt="">\
    </a>\
     <div class="text-block absolute top-0 left-0 px-4 text-white bg-amber-600 bg-opacity-80">\
