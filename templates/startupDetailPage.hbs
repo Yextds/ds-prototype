@@ -30,6 +30,10 @@
         "c_selfDescription",
         "c_startUpHeadingFirst",
         "c_startUpDescription",
+        "c_agencySpecialities.name",
+        "c_agencySpecialities.c_c_startup",
+        "c_agencySpecialities.c_c_scaleup",
+        "c_agencySpecialities.c_c_mature",
         "c_startUpHeadingSecond",
         "c_relatedCategory.photoGallery",
         "c_relatedCategory.c_description",
@@ -187,104 +191,14 @@
     </tr>
   </thead>
   <tbody>
+    {{#each c_agencySpecialities}}
     <tr class="border-b   py-3  border-gray-300">
-      <td class=" py-3">Developer / s	</td>
-      <td class=" py-3">1	</td>
-      <td class=" py-3">5</td>
-      <td class=" py-3">10</td>
+      <td class=" py-3">{{name}}</td>
+      <td class=" py-3">{{c_c_startup}}</td>
+      <td class=" py-3">{{c_c_scaleup}}</td>
+      <td class=" py-3">{{c_c_mature}}</td>
     </tr>
-    <tr class="border-b py-3 bg-gray-200 border-gray-300">
-      <td class=" py-3">Developer / s	</td>
-      <td class=" py-3">1	</td>
-      <td class=" py-3">5</td>
-      <td class=" py-3">2</td>
-    </tr>
-
-    <tr class="border-b py-3  border-gray-300">
-      <td class=" py-3">Quality Analyst / s		</td>
-      <td class=" py-3">1	</td>
-      <td class=" py-3">1</td>
-      <td class=" py-3">2</td>
-    </tr>
-
-    <tr class="border-b py-3  bg-gray-200 border-gray-300">
-      <td class=" py-3">PM from India		</td>
-      <td class=" py-3">-	</td>
-      <td class=" py-3">yes</td>
-      <td class=" py-3">yes</td>
-    </tr>
-
-    <tr class="border-b py-3  border-gray-300">
-      <td class=" py-3">PM from UK		</td>
-      <td class=" py-3">-	</td>
-      <td class=" py-3">-</td>
-      <td class=" py-3">yes</td>
-    </tr>
-
-    <tr class="border-b py-3  bg-gray-200 border-gray-300">
-      <td class=" py-3">Account Manager		</td>
-      <td class=" py-3">yes	</td>
-      <td class=" py-3">yes</td>
-      <td class=" py-3">yes</td>
-    </tr>
-
-    <tr class="border-b py-3  border-gray-300">
-      <td class=" py-3">Digital Marketing	</td>
-      <td class=" py-3">Optional</td>
-      <td class=" py-3">Optional</td>
-      <td class=" py-3">Optional</td>
-    </tr>
-
-    <tr class="border-b py-3  bg-gray-200 border-gray-300">
-      <td class=" py-3">Access to Project Management System		</td>
-      <td class=" py-3">Yes	</td>
-      <td class=" py-3">Yes</td>
-      <td class=" py-3">Yes</td>
-    </tr>
-
-    <tr class="border-b py-3  border-gray-300">
-      <td class=" py-3">Daily Project Updates		</td>
-      <td class=" py-3">Yes	</td>
-      <td class=" py-3">Yes</td>
-      <td class=" py-3">Yes</td>
-    </tr>
-
-    <tr class="border-b py-3  bg-gray-200 border-gray-300">
-      <td class=" py-3">Project Team Skype / Phone Access	</td>
-      <td class=" py-3">Yes	</td>
-      <td class=" py-3">Yes</td>
-      <td class=" py-3">Yes</td>
-    </tr>
-
-    <tr class="border-b py-3  border-gray-300">
-      <td class=" py-3">IPR & Source code	</td>
-      <td class=" py-3">Yes	</td>
-      <td class=" py-3">Yes</td>
-      <td class=" py-3">Yes</td>
-    </tr>
-
-    <tr class="border-b py-3  bg-gray-200 border-gray-300">
-      <td class=" py-3">NDA</td>
-      <td class=" py-3">Yes	</td>
-      <td class=" py-3">Yes</td>
-      <td class=" py-3">Yes</td>
-    </tr>
-
-    <tr class="border-b py-3  border-gray-300">
-      <td class=" py-3">Onsite Development		</td>
-      <td class=" py-3">-	</td>
-      <td class=" py-3">Optional</td>
-      <td class=" py-3">Optional</td>
-    </tr>
-
-    <tr class="border-b py-3  bg-gray-200 border-gray-300">
-      <td class=" py-3">Managed Hosting (Server/Cloud)	</td>
-      <td class=" py-3">Optional		</td>
-      <td class=" py-3">Optional	</td>
-      <td class=" py-3">Optional	</td>
-    </tr>
-
-
+    {{/each}}
   </tbody>
 </table>
 
